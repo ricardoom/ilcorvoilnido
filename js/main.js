@@ -25,23 +25,32 @@ const theJoint = {
   theTitles : titles
 }
 
-console.log(urlish, theJoint, jointSection);
+console.log(urlish);
+console.log(theJoint);
+console.log(jointSection);
+
+
 
 function init() {
   
-  if (urlish.href == hrefs[0]) {
+  if (urlish.href == theJoint.theRefs[0]) {
+    
     //console.log("its 5678 from the array this time...");
     // yuk:
     corvoSectionTitle.insertAdjacentText('beforeend', ports[0]);
     defaultStyle[0].classList.toggle("ilnido");
+    
     //TODO: abstract away hard coded titles
     defaultHead[0].text = titles[0];
     // theJoint.theTitles[1]
     corvoSection.children[0].href = "#";
-  } else if (urlish.href == hrefs[1]) {
+
+  } else if (urlish.href == theJoint.theRefs[1]) {
+    
     //console.log("its 4040 from the array this time...");
     // yuk:
-    nidoSectionTitle.insertAdjacentText('beforeend', ports[1]);
+    //nidoSectionTitle.insertAdjacentText('beforeend', ports[1]);
+
     defaultHead[0].text = titles[1];
     defaultStyle[0].classList.toggle("ilcorvo");
     nidoSection.children[0].href = "#";
