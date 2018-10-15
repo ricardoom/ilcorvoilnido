@@ -17,6 +17,8 @@ const browserSync = require('browser-sync').create();
 // variables used in our sass tasks
 const input = 'sass/**/*.scss';
 const output = 'css';
+const jsInput = 'js/**/*.js';
+const juOutput = 'js/main.min.js';
 
 const sassOptions = {
   errLogToConsole: true,
