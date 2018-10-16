@@ -53,7 +53,8 @@ gulp.task('serve', function() {
     server: {
       baseDir: './'
     },
-    port : 5678
+    //port : 5678
+    //proxy : 'http://192.168.1.155:5678'
   });
 
   gulp.watch('sass/**/*.scss', ['sass']);
@@ -62,4 +63,6 @@ gulp.task('serve', function() {
 
 
 
-gulp.task('default', ['sass', 'serve']);
+//gulp.task('default', ['sass', 'serve']);
+gulp.watch('sass/**/*.scss', ['sass']);
+gulp.task('default', ['sass']);

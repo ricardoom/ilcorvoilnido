@@ -32,12 +32,13 @@
       display: block;
     }
 
-    .default {
+    main {
       display: block;
+      
     }
 
   @supports (display: grid) {
-    .default {
+    main {
       display: grid;
     }
   }
@@ -55,27 +56,35 @@
     }
   </style>
 </head>
-<body class="default ilnido ilcorvo">
+<body class="">
 <main>
-  <p>Equals babaroon</p>
     <section class="ilcorvo-section">
-      <a href="http://127.0.0.1:5678/">
-        <h1>Il Corvo&nbsp</h1>
+      <a href="#">
+        <h1>Il Corvo</h1>
       </a>
     </section>
     <section class="ilnido-section">
-      <a href="http://127.0.0.1:4040"/><h1>Il Nido&nbsp</h1></a>
+      <a href="#">
+        <h1>Il Nido</h1>
+      </a>
     </section>
+    
     <section class="default"></section>
 </main>
 <footer>
   <address>
     alki house
   </address>
-</footer>  
-
+</footer>
+  <div class="main-background">
+    <img class="main-background__instaFeed" alt="" />
+  </div>
 </body>
 <script src="js/vendor/modernizr-custom.js" async></script>
 <script src="js/plugins.js" async></script>
 <script src="js/main.js" async></script>
+
 </html>
+
+
+

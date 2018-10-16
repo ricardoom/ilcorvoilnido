@@ -1,62 +1,53 @@
-const urlish = document.location;
-// const domain = document.domain;
-const defaultStyle = document.getElementsByTagName('body');
-const defaultHead = document.getElementsByTagName('title');
-const jointSection = document.getElementsByTagName('section');
-const corvoSectionTitle = document.querySelector('.ilcorvo-section > a > h1');
-const nidoSectionTitle = document.querySelector('.ilnido-section > a > h1');
+'use strict';
 
-//
-// probably a better way to do this
-// 
-const corvoSection = jointSection[0];
-const nidoSection = jointSection[1];
+const baseURL = document.location;
+const baseTitle = document.querySelector('title');
+const baseBody = document.querySelector('body');
 
-var ports = [ 5678, 4040, 1234 ];
-var hrefs = ["http://127.0.0.1:5678/", "http://127.0.0.1:4040/" ];
-var titles = [ "Il Corvo", "Il Nido" ];
+const corvoContain = document.querySelector('.ilcorvo-section');
+const nidoContain = document.querySelector('.ilnido-section');
 
-// needs more thought. 
-// explore looping
-// 
-const theJoint = {
-  thePort : ports,
-  theRefs : hrefs,
-  theTitles : titles
+const nidoInsta = nidoContain.children[1];
+const corvoInsta = corvoContain.children[1];
+
+const mainBackgroundImage = document.querySelector('.main-background__instaFeed');
+
+const theNewJoint = {
+  host : baseURL.host,
+  port : baseURL.port,
+  nido : {
+    title : 'Il Nido',
+    href : 'http://127.0.0.1:4040',
+    instaURL : 'https://www.instagram.com/p/BnkaHsWFrbl/media/?size=l',
+  },
+  corvo : {
+    title : 'Il Corvo',
+    href : 'http://127.0.0.1:5678/',
+    instaURL : 'https://www.instagram.com/p/Bo14AOfnOaw/media/?size=l',
+  }
+
 }
 
-console.log(urlish);
-console.log(theJoint);
-console.log(jointSection);
+  // 
+  // in production, swap out ports for .host or some logic where we can switch on fly from prod <=> development...
+  //
 
-
-
-function init() {
-  
-  if (urlish.href == theJoint.theRefs[0]) {
+  if ( theNewJoint.port == 4040 ) { // il nido side
+    console.log(baseTitle.text);
     
-    //console.log("its 5678 from the array this time...");
-    // yuk:
-    corvoSectionTitle.insertAdjacentText('beforeend', ports[0]);
-    defaultStyle[0].classList.toggle("ilnido");
-    
-    //TODO: abstract away hard coded titles
-    defaultHead[0].text = titles[0];
-    // theJoint.theTitles[1]
-    corvoSection.children[0].href = "#";
+    baseTitle.innerText = theNewJoint.nido.title;
+    baseBody.setAttribute('class', 'default ilnido');
+    nidoContain.children[0].href = '#';
+    corvoContain.children[0].href = theNewJoint.corvo.href;
+    mainBackgroundImage.setAttribute('src', theNewJoint.nido.instaURL);
 
-  } else if (urlish.href == theJoint.theRefs[1]) {
-    
-    //console.log("its 4040 from the array this time...");
-    // yuk:
-    //nidoSectionTitle.insertAdjacentText('beforeend', ports[1]);
-
-    defaultHead[0].text = titles[1];
-    defaultStyle[0].classList.toggle("ilcorvo");
-    nidoSection.children[0].href = "#";
+  } else if ( theNewJoint.port == 5678) { // il corvo side
+    baseTitle.innerText = theNewJoint.corvo.title;
+    baseBody.setAttribute('class', 'default ilcorvo');
+    nidoContain.children[0].href = theNewJoint.nido.href;
+    corvoContain.children[0].href = '#';
+    mainBackgroundImage.setAttribute('src', theNewJoint.corvo.instaURL);
   } else {
-      console.log("Cook up some basic error / defualt");
+   console.log("both failed for some reason");
   };
-}
 
-init();

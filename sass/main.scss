@@ -1,2 +1,66 @@
 @import "vendor/normalize";
+@import "vendor/include_media";
 @import "color";
+
+
+.main-background {
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  z-index: -9000;
+
+  &__instaFeed {
+    //background-size: cover;
+    filter: blur(2px) grayscale(1) opacity(.5);
+    height: 100vh;
+  }
+}
+// set up some media queries and then move them to a partial
+
+$breakpoints: (
+  'phone': 20em,
+  'tablet': 48em,
+  'desktop': 60em
+);
+
+// split the screen horizontally for small devices
+.default {
+ 
+  &.ilnido {
+  
+  
+  border: 2px dotted hsla(0, 0%, 20%, 0.1);
+ }
+
+ &.ilcorvo {
+  
+    border: 2px solid hsla(0, 0%, 20%, 0.1);
+  
+ 
+ }
+
+}
+
+main {
+  
+    // do grid stuff
+   .ilcorvo-section {
+    @include media(">phone", "<=tablet") {
+      //background: red;
+    }
+    @include media(">tablet", "<=desktop") {
+     // background: green;
+    }
+   }
+   .ilnido-section {
+    @include media(">phone", "<=tablet") {
+      //background: hotpink;
+    }
+    @include media(">tablet", "<=desktop") {
+      //background: palegoldenrod;
+    }
+   }
+  
+}
