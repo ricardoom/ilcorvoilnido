@@ -1,6 +1,8 @@
 @import "vendor/normalize";
 @import "vendor/include_media";
 @import "color";
+@import "functions";
+
 
 
 .main-background {
@@ -19,11 +21,7 @@
 }
 // set up some media queries and then move them to a partial
 
-$breakpoints: (
-  'phone': 20em,
-  'tablet': 48em,
-  'desktop': 60em
-);
+
 
 // split the screen horizontally for small devices
 .default {
@@ -38,8 +36,10 @@ $breakpoints: (
 
 }
 
+//
+// Layout & Grid
+// 
 main {
-  
     // do grid stuff
    .ilcorvo-section {
     @include media(">phone", "<=tablet") {
