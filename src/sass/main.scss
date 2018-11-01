@@ -1,0 +1,27 @@
+@import "vendor/normalize";
+@import "vendor/include_media";
+@import "type";
+@import "color";
+@import "functions";
+@import "grid";
+
+
+
+.main-background {
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  z-index: -9000;
+
+  &__instaFeed {
+    //background-size: cover;
+    filter: blur(2px) grayscale(1) opacity(.5);
+    height: 100vmax;
+  }
+}
+// set up some media queries and then move them to a partial
+
+
+

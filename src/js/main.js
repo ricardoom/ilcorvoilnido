@@ -3,12 +3,13 @@
 const baseURL = document.location;
 const baseTitle = document.querySelector('title');
 const baseBody = document.querySelector('body');
+const main = document.querySelector('main');
 
 const corvoContain = document.querySelector('.ilcorvo-section');
 const nidoContain = document.querySelector('.ilnido-section');
 
-const nidoInsta = nidoContain.children[1];
-const corvoInsta = corvoContain.children[1];
+const nidoContent = nidoContain.children[1];
+const corvoContent = corvoContain.children[1];
 
 const mainBackgroundImage = document.querySelector('.main-background__instaFeed');
 
@@ -25,7 +26,6 @@ const theNewJoint = {
     href : 'http://127.0.0.1:5678/',
     instaURL : 'https://www.instagram.com/p/Bo14AOfnOaw/media/?size=l',
   }
-
 }
 
   // 
@@ -40,6 +40,7 @@ const theNewJoint = {
     nidoContain.children[0].href = '#';
     corvoContain.children[0].href = theNewJoint.corvo.href;
     mainBackgroundImage.setAttribute('src', theNewJoint.nido.instaURL);
+    corvoContain.removeChild(corvoContent);
 
   } else if ( theNewJoint.port == 5678) { // il corvo side
     baseTitle.innerText = theNewJoint.corvo.title;
@@ -47,6 +48,9 @@ const theNewJoint = {
     nidoContain.children[0].href = theNewJoint.nido.href;
     corvoContain.children[0].href = '#';
     mainBackgroundImage.setAttribute('src', theNewJoint.corvo.instaURL);
+    nidoContain.removeChild(nidoContent);
+    
+    
   } else {
    console.log("both failed for some reason");
   };

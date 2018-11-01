@@ -1,0 +1,79 @@
+
+
+// split the screen horizontally for small devices
+.default {
+ 
+  main {
+   grid-template-rows: 80vh 15vh;
+  }
+
+///
+/// Il Nido is the active site:
+///
+  &.ilnido {
+  // arrange the grid for small screens: 
+   @include media(">=phone", "<=tablet") {
+
+    .ilnido-section  {
+      background: hsla(46, 73%, 64%, 0.2);
+      grid-row-start: 1;
+    }
+    footer {
+      color: hsl(67, 100%, 91%);
+    }
+    .ilcorvo-section {
+      grid-row-start: 2;
+    }
+  }
+  // border: 2px dotted hsla(0, 0%, 20%, 0.3);
+ }
+
+///
+/// Il Corvo is the active site:
+///
+ &.ilcorvo {
+  // arrange the grid for small screens:
+  @include media(">=phone", "<=tablet") {
+
+    .ilnido-section  {
+      grid-row-start: 2;
+    }
+
+    .ilcorvo-section {
+      background: hsl(335, 89%, 89%);
+      grid-row-start: 1;
+    }
+
+    footer {
+      color: hsl(0, 100%, 91%)
+    }
+  }
+
+  // border: 2px solid hsla(0, 0%, 20%, 0.1); 
+  }
+
+
+}
+//
+// Layout & Grid
+// 
+main {
+    // do grid stuff
+   .ilcorvo-section {
+    @include media(">=phone", "<=tablet") {
+     
+    }
+    @include media(">=tablet", "<=desktop") {
+     background: green;
+    }
+   }
+   .ilnido-section {
+    @include media(">=phone", "<=tablet") {
+      background: hotpink;
+    }
+    @include media(">=tablet", "<=desktop") {
+      background: palegoldenrod;
+    }
+   }
+  
+}
