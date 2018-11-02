@@ -4,35 +4,133 @@
 .default {
  
   main {
-   grid-template-rows: 80vh 15vh;
+    grid-template-columns: 25vw 75vw;
+    grid-template-rows: 80vh 15vh;
+
+    section {
+      padding-bottom: 3vw;
+      padding-top: 3vw;
+    }
   }
 
 ///
 /// Il Nido is the active site:
-///
+/// that is, this class is the parent
   &.ilnido {
+  // Smallest Screen(s) up to Tablet
   // arrange the grid for small screens: 
-   @include media(">=phone", "<=tablet") {
 
-    .ilnido-section  {
-      background: hsla(46, 73%, 64%, 0.2);
-      grid-row-start: 1;
+  /////////////refactoring
+
+    .ilnido-section {
+
+      @include media(">=phone", "<=tablet") {
+        grid-column: 1 / 3;
+        grid-row: 1 / 2;
+      }
+
+     @include media(">=tablet", "<=desktop") {
+        background: radial-gradient(ellipse at top right, hsla(55, 80%, 70%, 0.5), transparent), radial-gradient(ellipse at left, hsla(56, 74%, 79%, 0.952), transparent);
+        grid-column: 2 / 3;
+        grid-row: 1 / 3;
+     }
+
+    & * { // mixin?
+      padding: 0 3vw;
     }
+
+    background: transparentize($color: $in-yellow, $amount: 0.25);
+    } // closes/ ilnido-section
+
+    .ilcorvo-section {
+
+      @include media(">=phone", "<=tablet") {
+        grid-column: 1 / 3;
+        grid-row: 2 / 3;
+      }
+
+      @include media(">=tablet", "<=desktop") {
+        background: radial-gradient(ellipse at 40px, hsla(0, 91%, 77%, 0.3), transparent),radial-gradient(ellipse at bottom, hsla(0, 93%, 89%, 0.32), transparent);
+        grid-column: 1 / 2;
+        grid-row: 1 / 3;
+      }
+
+    & * {
+      padding: 0 3vw;
+      }
+
+    background: transparentize($color: $ic-pink, $amount: 0.25);
+    } // closes/ ilcorvo-section
+
     footer {
       color: hsl(67, 100%, 91%);
     }
-    .ilcorvo-section {
-      grid-row-start: 2;
+//////////close/refactoring
+
+
+  //  @include media(">=phone", "<=tablet") {
+
+  //   // .ilnido-section  {
+  //   //   background: hsla(46, 73%, 64%, 0.2);
+  //   //   grid-column: 1 / 3;
+  //   //   grid-row: 1 / 2;
+
+  //   //   & * {
+  //   //     padding: 0 3vw;
+  //   //   }
+  //   // }
+
+  //   // .ilcorvo-section {
+  //   //   grid-column: 1 / 3;
+  //   //   grid-row: 2 / 3;
+
+  //   //   & * {
+  //   //     padding: 0 3vw;
+  //   //   }
+  //   // }
+
+  //   // footer {
+  //   //   color: hsl(67, 100%, 91%);
+  //   // }
+  // } // /smallest screen media query
+
+  /// Medium sized screens
+
+  @include media(">tablet") {
+   
+    .ilnido-section {
+    // background: radial-gradient(ellipse at top right, hsla(55, 80%, 70%, 0.5), transparent),
+    // radial-gradient(ellipse at left, hsla(56, 74%, 79%, 0.952), transparent);
+    // grid-column: 2 / 3;
+    // grid-row: 1 / 3;
+   }
+   
+   .ilcorvo-section {
+    //  background: radial-gradient(ellipse at 40px, hsla(0, 91%, 77%, 0.3), transparent),
+    //  radial-gradient(ellipse at bottom, hsla(0, 93%, 89%, 0.32), transparent);
+    //  grid-column: 1 / 2;
+    //  grid-row: 1 / 3;
+   }
+
+   .default {
+     // make JS remove this... 
     }
   }
   // border: 2px dotted hsla(0, 0%, 20%, 0.3);
  }
 
 ///
+/// Close/ Il Nido is the Active Site
+///
+
+
+
+///
 /// Il Corvo is the active site:
 ///
  &.ilcorvo {
-  // arrange the grid for small screens:
+ // Smallest Screen(s) up to Tablet
+  // arrange the grid for small screens: 
   @include media(">=phone", "<=tablet") {
 
     .ilnido-section  {
@@ -58,7 +156,7 @@
 // Layout & Grid
 // 
 main {
-    // do grid stuff
+    // do grid debuggy stuff
    .ilcorvo-section {
     @include media(">=phone", "<=tablet") {
      
