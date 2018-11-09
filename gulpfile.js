@@ -23,6 +23,9 @@ const output = 'dist/css';
 const jsInput = 'src/js/**/*.js';
 const jsOutput = 'dist/js';
 
+const htmlInput = 'src/html/**/*.html';
+const htmlOutput = 'dist/';
+
 const sassOptions = {
   errLogToConsole: true,
   outputStyle: 'compressed'
@@ -59,10 +62,13 @@ gulp.task('js', () => {
     
 });
 
+// TODO: Explore using npm script to run a server and then tell gulp to watch a dist/ as its root
+// can a gulp task do it directly?
+// 
 gulp.task('minify-html', () => {
-  return gulp.src('./src/html/**/*.html')
+  return gulp.src(htmlInput)
     .pipe(htmlmin({ collapseWhitespace: true, minifyCSS: true }))
-    .pipe(gulp.dest('./'));
+    .pipe(gulp.dest(htmlOutput));
 });
 
 // gulp.task('serve', function() {

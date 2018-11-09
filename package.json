@@ -4,7 +4,8 @@
   "description": "a mostly static website for Il Corvo & Il Nido Seattle Wa. You should eat there.",
   "main": "index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "http-server ./dist -p 5678 && http-server ./dist -p 4040"
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,7 @@
   },
   "homepage": "https://github.com/ricardoom/ilcorvoilnido#readme",
   "dependencies": {
+    "http-server": "^0.11.1",
     "npm": "^6.4.1"
   },
   "devDependencies": {
