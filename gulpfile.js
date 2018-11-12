@@ -10,10 +10,12 @@ const autoprefixer = require('gulp-autoprefixer');
 const concat = require('gulp-concat');
 
 const htmlmin = require('gulp-htmlmin');
+
 // const uglify = require('gulp-uglify');
 
 const browserSync = require('browser-sync').create();
 
+var critical = require('critical').stream;
 
 // variables used in our sass tasks
 const input = 'src/sass/**/*.scss';
@@ -21,6 +23,9 @@ const output = 'dist/css';
 
 const jsInput = 'src/js/**/*.js';
 const jsOutput = 'dist/js';
+
+const htmlInput = './src/html/**/*.html';
+const htmlOutput = 'dist';
 
 const sassOptions = {
   errLogToConsole: true,
@@ -59,9 +64,9 @@ gulp.task('js', () => {
 });
 
 gulp.task('minify-html', () => {
-  return gulp.src('./src/html/**/*.html')
+  return gulp.src(htmlInput)
     .pipe(htmlmin({ collapseWhitespace: true, minifyCSS: true }))
-    .pipe(gulp.dest('./'));
+    .pipe(gulp.dest(htmlOutput));
 });
 
 // gulp.task('serve', function() {
@@ -81,6 +86,39 @@ gulp.task('minify-html', () => {
 //   gulp.watch('sass/**/*.scss', ['sass']);
 //   gulp.watch('./**/*.html').on('change', browserSync.reload);
 // });
+
+// 
+// Critical CSS inlining:
+//
+
+// gulp.task('critical', function(cb) {
+//   critical.generate({
+//       inline: true,
+//       base: 'dist/',
+//       src: 'src/index.html',
+//       css: ['dist/css/main.css'],
+//       dest: 'index.html',
+//       minify: true,
+//       // width: 320,
+//       // height: 480
+//   });
+// });
+
+
+
+ 
+// Generate & Inline Critical-path CSS
+gulp.task('critical', () => {
+    return gulp.src(htmlInput)
+        .pipe(critical({base: 'dist/',
+          inline: true,
+          css: ['dist/css/main.css']
+          }))
+        .on('error', function(err) { log.error(err.message); })
+        .pipe(gulp.dest(htmlOutput));
+});
+
+
 
 gulp.task('watch', () => {
   gulp.watch('src/**/*.html', ['minify-html']);
