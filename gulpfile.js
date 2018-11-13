@@ -15,27 +15,60 @@ const htmlmin = require('gulp-htmlmin');
 
 const browserSync = require('browser-sync').create();
 
-var critical = require('critical').stream;
+const critical = require('critical').stream;
 
 // variables used in our sass tasks
-const input = 'src/sass/**/*.scss';
-const output = 'dist/css';
-
-const jsInput = 'src/js/**/*.js';
-const jsOutput = 'dist/js';
-
-const htmlInput = './src/html/**/*.html';
-const htmlOutput = 'dist';
-
+const cssInput = 'src/sass/**/*.scss';
+const cssOutput = 'dist/css';
+// options for (S)CSS
 const sassOptions = {
   errLogToConsole: true,
   outputStyle: 'compressed'
 };
 
+const jsInput = 'src/js/**/*.js';
+const jsOutput = 'dist/js';
+// JS Sources in order:
+const jsSources = {
+  sources: [
+    './src/js/vendor/modernizr-custom.js', 
+    './src/js/plugins.js', './src/js/main.js'
+  ]
+}
+
+// const unCriticizedHTML = './src/html/**/*.html'
+// const criticizedHTML = './src/chtml/';
+const criticalHTML = {
+  in: './src/html/**/*.html',
+  out: './src/chtml/'
+};
+
+const criticalOptions = {
+  base: criticalHTML.out,
+  inline: true,
+  css: 'dist/css/main.css',
+  minify: false
+  }
+
+
+const htmlInput = './src/chtml/**/*.html';
+
+const htmlOutput = 'dist/';
+// options for HTML Minification
+const htmlOptions = { 
+  collapseWhitespace: true,
+  //minifyCSS: true 
+}
+
+
+
 // autoprefixer options
 // this covers 90.87% of all browsers. run npx autoprefixer --info to see full report.
 const autoprefixerOptions = {
-  browsers: ['last 3 versions', '> 5%', 'Firefox ESR'],
+  browsers: [
+    'last 3 versions',
+    '> 5%', 'Firefox ESR'
+  ],
   flexbox: 'true',
   grid: 'true'
 };
@@ -44,18 +77,18 @@ const autoprefixerOptions = {
 // main gulp task
 //
 gulp.task('sass', () => {
-  return gulp.src(input)
+  return gulp.src(cssInput)
     .pipe(sass())
     .pipe(autoprefixer(autoprefixerOptions))
     .pipe(sourcemaps.init())
     .pipe(sass(sassOptions).on('error', sass.logError))
     .pipe(sourcemaps.write('./'))
-    .pipe(gulp.dest(output))
-    .pipe(browserSync.reload({ stream : true }));
+    .pipe(gulp.dest(cssOutput));
+    //.pipe(browserSync.reload({ stream : true }));
 });
 
 gulp.task('js', () => {
-  return gulp.src(['./src/js/vendor/modernizr-custom.js', './src/js/plugins.js', './src/js/main.js'])
+  return gulp.src(jsSources.sources)
     .pipe(sourcemaps.init())
     .pipe(concat('main.min.js'))
     .pipe(sourcemaps.write('./'))
@@ -63,11 +96,21 @@ gulp.task('js', () => {
     
 });
 
+// Generate & Inline Critical-path CSS
+gulp.task('critical', () => {
+  return gulp.src(criticalHTML.in)
+      .pipe(critical(criticalOptions))
+      .on('error', function(err) { log.error(err.message); })
+      .pipe(gulp.dest(htmlInput));
+});
+
+// Minify the whole thing _after_ Critical has done its work...
 gulp.task('minify-html', () => {
   return gulp.src(htmlInput)
-    .pipe(htmlmin({ collapseWhitespace: true, minifyCSS: true }))
+    .pipe(htmlmin(htmlOptions))
     .pipe(gulp.dest(htmlOutput));
 });
+
 
 // gulp.task('serve', function() {
 //   browserSync.init({
@@ -105,25 +148,11 @@ gulp.task('minify-html', () => {
 // });
 
 
-
- 
-// Generate & Inline Critical-path CSS
-gulp.task('critical', () => {
-    return gulp.src(htmlInput)
-        .pipe(critical({base: 'dist/',
-          inline: true,
-          css: ['dist/css/main.css']
-          }))
-        .on('error', function(err) { log.error(err.message); })
-        .pipe(gulp.dest(htmlOutput));
-});
-
-
-
 gulp.task('watch', () => {
-  gulp.watch('src/**/*.html', ['minify-html']);
-  gulp.watch('src/sass/**/*.scss', ['sass']);
-  gulp.watch('src/js/**/*.js', ['js']);
+  gulp.watch(criticalHTML.in, ['critical']);
+  gulp.watch(htmlInput, ['minify-html']);
+  gulp.watch(cssInput, ['sass']);
+  gulp.watch(jsInput, ['js']);
 });
 
-gulp.task('default', ['minify-html', 'sass', 'js', 'watch']);
+gulp.task('default', ['critical', 'minify-html', 'sass', 'js']);
