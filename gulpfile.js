@@ -32,7 +32,8 @@ const jsOutput = 'dist/js';
 const jsSources = {
   sources: [
     './src/js/vendor/modernizr-custom.js', 
-    './src/js/plugins.js', './src/js/main.js'
+    './src/js/plugins.js', 
+    './src/js/main.js'
   ]
 }
 
@@ -133,20 +134,6 @@ gulp.task('minify-html', () => {
 // 
 // Critical CSS inlining:
 //
-
-// gulp.task('critical', function(cb) {
-//   critical.generate({
-//       inline: true,
-//       base: 'dist/',
-//       src: 'src/index.html',
-//       css: ['dist/css/main.css'],
-//       dest: 'index.html',
-//       minify: true,
-//       // width: 320,
-//       // height: 480
-//   });
-// });
-
 
 gulp.task('watch', () => {
   gulp.watch(criticalHTML.in, ['critical']);
