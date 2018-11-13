@@ -20,6 +20,7 @@ const critical = require('critical').stream;
 // variables used in our sass tasks
 const cssInput = 'src/sass/**/*.scss';
 const cssOutput = 'dist/css';
+
 // options for (S)CSS
 const sassOptions = {
   errLogToConsole: true,
@@ -36,30 +37,13 @@ const jsSources = {
     './src/js/main.js'
   ]
 }
-
-// const unCriticizedHTML = './src/html/**/*.html'
-// const criticizedHTML = './src/chtml/';
 const criticalHTML = {
   in: './src/html/**/*.html',
-  out: './src/chtml/'
+  out: './src/chtml'
 };
 
-const criticalOptions = {
-  base: criticalHTML.out,
-  inline: true,
-  css: 'dist/css/main.css',
-  minify: false
-  }
-
-
-const htmlInput = './src/chtml/**/*.html';
-
+const htmlInput = './src/chtml/**/*.*html';
 const htmlOutput = 'dist/';
-// options for HTML Minification
-const htmlOptions = { 
-  collapseWhitespace: true,
-  //minifyCSS: true 
-}
 
 
 
@@ -75,7 +59,7 @@ const autoprefixerOptions = {
 };
 
 //
-// main gulp task
+// main gulp tasks
 //
 gulp.task('sass', () => {
   return gulp.src(cssInput)
@@ -98,14 +82,25 @@ gulp.task('js', () => {
 });
 
 // Generate & Inline Critical-path CSS
+const criticalOptions = {
+  base: criticalHTML.out,
+  inline: true,
+  css: 'dist/css/main.css',
+  }
+
 gulp.task('critical', () => {
   return gulp.src(criticalHTML.in)
       .pipe(critical(criticalOptions))
       .on('error', function(err) { log.error(err.message); })
-      .pipe(gulp.dest(htmlInput));
+      .pipe(gulp.dest(criticalHTML.out));
 });
 
 // Minify the whole thing _after_ Critical has done its work...
+// options for HTML Minification
+const htmlOptions = { 
+  collapseWhitespace: true
+}
+
 gulp.task('minify-html', () => {
   return gulp.src(htmlInput)
     .pipe(htmlmin(htmlOptions))
@@ -142,4 +137,4 @@ gulp.task('watch', () => {
   gulp.watch(jsInput, ['js']);
 });
 
-gulp.task('default', ['critical', 'minify-html', 'sass', 'js']);
+gulp.task('default', ['critical', 'sass', 'js', 'minify-html']);
