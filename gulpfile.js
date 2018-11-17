@@ -129,12 +129,14 @@ gulp.task('minify-html', () => {
 // 
 // Critical CSS inlining:
 //
-
-gulp.task('watch', () => {
-  gulp.watch(criticalHTML.in, ['critical']);
-  gulp.watch(htmlInput, ['minify-html']);
-  gulp.watch(cssInput, ['sass']);
-  gulp.watch(jsInput, ['js']);
-});
+// TODO: this watch command DOES not work just yet.
+//       so it should be fixed...
+// 
+// gulp.task('watch', () => {
+//   gulp.watch(criticalHTML.in, ['critical']);
+//   gulp.watch(htmlInput, ['minify-html']);
+//   gulp.watch(cssInput, ['sass']);
+//   gulp.watch(jsInput, ['js']);
+// });
 
 gulp.task('default', ['critical', 'sass', 'js', 'minify-html']);
