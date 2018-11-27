@@ -3,5 +3,9 @@
     "chtml",
     "minification"
   ],
-  "svg.preview.background": "custom"
+  "svg.preview.background": "custom",
+    "colores",
+    "corvo",
+    "nido"
+  ]
 }
