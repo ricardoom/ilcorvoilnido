@@ -11,9 +11,9 @@ const concat = require('gulp-concat');
 
 const htmlmin = require('gulp-htmlmin');
 
-// const uglify = require('gulp-uglify');
+//const browserSync = require('browser-sync').create();
 
-const browserSync = require('browser-sync').create();
+const del = require('del');
 
 const critical = require('critical').stream;
 
@@ -37,6 +37,7 @@ const jsSources = {
     './src/js/main.js'
   ]
 }
+
 const criticalHTML = {
   in: './src/html/**/*.html',
   out: './src/chtml'
@@ -44,7 +45,6 @@ const criticalHTML = {
 
 const htmlInput = './src/chtml/**/*.*html';
 const htmlOutput = 'dist/';
-
 
 
 // autoprefixer options
@@ -107,6 +107,15 @@ gulp.task('minify-html', () => {
     .pipe(gulp.dest(htmlOutput));
 });
 
+// run clean up operations:
+// delete current occupants of the chtml (basically the "temp" folder. stands for "criticized HTML")
+
+// .pipe(del(['./src/chtml/*'], { read: false }))
+
+gulp.task('clean', () => {
+  // return del(criticalHTML.out);
+  return del(['./src/chtml/*'], { read: false });
+});
 
 // gulp.task('serve', function() {
 //   browserSync.init({
@@ -138,5 +147,7 @@ gulp.task('minify-html', () => {
 //   gulp.watch(cssInput, ['sass']);
 //   gulp.watch(jsInput, ['js']);
 // });
+
+gulp.task('clean-it', ['clean']);
 
 gulp.task('default', ['critical', 'sass', 'js', 'minify-html']);

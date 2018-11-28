@@ -8,8 +8,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="manifest" href="site.webmanifest">
   <link rel="apple-touch-icon" href="icon.png">
-  <link href="https://fonts.googleapis.com/css?family=Noto+Serif" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700" rel="stylesheet"> 
+  <link href="/css/main.css" rel="stylesheet" type="text/css" media="screen" />
+  <script>
+    const script = document.createElement('script');
+    script.src = '/js/vendor/fontfaceobserver.standalone.js';
+    script.async = true;
+    script.onload = function() {
+      function timeout(time) {
+        return new Promise(function(resolve, reject){
+          setTimeout(reject, time);
+        });
+      };
+      const noto = new FontFaceObserver('Noto Sans');
+      const html = document.documentElement;
+      Promise.race([
+        noto.load(),
+        timeout(1000)
+     ]).then(function() {
+          console.log('happening?')
+          html.classList.add('fonts-loaded');
+        });
+    };
+    document.head.appendChild(script);
+  </script>
 </head>
 <body class="">
 <main>
@@ -51,16 +73,7 @@
 </body>
 
 <script src="/js/main.min.js" async></script>
-<script type="text/javascript">
-  (function() {
-      var trial = document.createElement('script');
-      trial.type = 'text/javascript';
-      trial.async = true;
-      trial.src = 'https://easy.myfonts.net/v2/js?sid=210860(font-family=Avenir+Next+Pro+Bold)&sid=217165(font-family=Avenir+Next+Pro+Regular)&sid=217166(font-family=Avenir+Next+Pro+Medium)&sid=255228(font-family=Avenir+Next+Pro+Light)&key=aHZTe19svv';
-      var head = document.getElementsByTagName("head")[0];
-      head.appendChild(trial);
-  })();
-</script>
+
 </html>
 
 

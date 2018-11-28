@@ -30,15 +30,16 @@
   },
   "devDependencies": {
     "browser-sync": "^2.26.3",
+    "del": "^3.0.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.0.0",
     "gulp-cache": "^1.0.2",
     "gulp-concat": "^2.6.1",
     "gulp-cssnano": "^2.1.2",
+    "gulp-htmlmin": "^5.0.1",
     "gulp-postcss": "^7.0.1",
     "gulp-sass": "^3.2.1",
     "gulp-sourcemaps": "^2.6.1",
-    "gulp-uglify": "^3.0.1",
-    "gulp-htmlmin": "^5.0.1"
+    "gulp-uglify": "^3.0.1"
   }
 }

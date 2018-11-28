@@ -19,5 +19,16 @@
   // font-family: 'Avenir Next Pro Light'
 
   h1 {
-    font-family: 'Avenir Next Pro Light', sans-serif;
+    // font-family: 'Avenir Next Pro Light', sans-serif;
+    
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    visibility: visible;
+    font-weight: 300;
+    letter-spacing: 0.45px;
+    word-spacing: 0.5px;
+  }
+
+  .fonts-loaded  h1 {
+    font-family: 'Noto Sans', sans-serif;
   }

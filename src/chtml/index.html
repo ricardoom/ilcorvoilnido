@@ -9,13 +9,35 @@
   <link rel="manifest" href="site.webmanifest">
   <link rel="apple-touch-icon" href="icon.png">
   <style>
-    html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}h1{font-size:2em;margin:.67em 0}a{background-color:transparent}img{border-style:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}.ilcorvo-section a,.ilnido-section a{text-decoration:none}h1{font-family:'Avenir Next Pro Light',sans-serif}@media (min-width:48em) and (max-width:60em){main .ilcorvo-section{background:green}}@media (min-width:20em) and (max-width:48em){main .ilnido-section{background:#ff69b4}}@media (min-width:48em) and (max-width:60em){main .ilnido-section{background:#eee8aa}}@-ms-viewport{width:device-width}@-o-viewport{width:device-width}@viewport{width:device-width}:root{font-family:Cambria,Cochin,Georgia,Times,'Times New Roman',serif;font-size:100%}*{-webkit-box-sizing:border-box;box-sizing:border-box}body{font-family:'Noto Serif',serif;font-size:1em;height:99vh}a{color:#333;display:block}main{display:block}@supports (display:-ms-grid) or (display:grid){main{display:-ms-grid;display:grid}}footer{background:rgba(27,14,14,.85);height:10rem;overflow:auto}address{margin:3ex}.main-background{left:0;overflow:hidden;position:absolute;width:100%;top:0;z-index:-9000}.main-background__instaFeed{-webkit-filter:blur(2px) grayscale(1) opacity(.5);filter:blur(2px) grayscale(1) opacity(.5);height:100vmax}
+    html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}h1{font-size:2em;margin:.67em 0}a{background-color:transparent}img{border-style:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}.ilcorvo-section a,.ilnido-section a{text-decoration:none}h1{font-family:Arial,sans-serif;line-height:1.6;visibility:visible;font-weight:300;letter-spacing:.45px;word-spacing:.5px}@media (min-width:48em) and (max-width:60em){main .ilcorvo-section{background:green}}@media (min-width:20em) and (max-width:48em){main .ilnido-section{background:#ff69b4}}@media (min-width:48em) and (max-width:60em){main .ilnido-section{background:#eee8aa}}@-ms-viewport{width:device-width}@-o-viewport{width:device-width}@viewport{width:device-width}:root{font-family:Cambria,Cochin,Georgia,Times,'Times New Roman',serif;font-size:100%}*{-webkit-box-sizing:border-box;box-sizing:border-box}body{font-family:'Noto Serif',serif;font-size:1em;height:99vh}a{color:#333;display:block}main{display:block}@supports (display:-ms-grid) or (display:grid){main{display:-ms-grid;display:grid}}footer{background:rgba(27,14,14,.85);height:10rem;overflow:auto}address{margin:3ex}.main-background{left:0;overflow:hidden;position:absolute;width:100%;top:0;z-index:-9000}.main-background__instaFeed{-webkit-filter:blur(2px) grayscale(1) opacity(.5);filter:blur(2px) grayscale(1) opacity(.5);height:100vmax}
   </style>
-  <link href="https://fonts.googleapis.com/css?family=Noto+Serif" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link href="https://fonts.googleapis.com/css?family=Noto+Serif" rel="stylesheet"></noscript>
-  <link rel="preload" type="text/css" media="screen" href="/css/main.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" type="text/css" media="screen" href="/css/main.css"></noscript>
+  <link rel="preload" href="https://fonts.googleapis.com/css?family=Noto+Sans" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans"></noscript>
+  <link rel="preload" href="/css/main.css" type="text/css" media="screen" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/css/main.css" type="text/css" media="screen"></noscript>
   <script>!function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);</script>
+  <script>
+    const script = document.createElement('script');
+    script.src = '/js/vendor/fontfaceobserver.standalone.js';
+    script.async = true;
+    script.onload = function() {
+      const noto = new FontFaceObserver('Noto Sans');
+      const html = document.documentElement;
+      function timeout(time) {
+        return new Promise(function(resolve, reject){
+          setTimeout(reject, time);
+        })
+      };
+
+      Promise.race([
+        noto.load(),
+        timeout(1000)]).then(function() {
+          console.log('happening?')
+          html.classList.add('fonts-loaded');
+        });
+    };
+    document.head.appendChild(script);
+  </script>
 </head>
 <body class="">
 <main>
@@ -57,16 +79,7 @@
 </body>
 
 <script src="/js/main.min.js" async></script>
-<script type="text/javascript">
-  (function() {
-      var trial = document.createElement('script');
-      trial.type = 'text/javascript';
-      trial.async = true;
-      trial.src = 'https://easy.myfonts.net/v2/js?sid=210860(font-family=Avenir+Next+Pro+Bold)&sid=217165(font-family=Avenir+Next+Pro+Regular)&sid=217166(font-family=Avenir+Next+Pro+Medium)&sid=255228(font-family=Avenir+Next+Pro+Light)&key=aHZTe19svv';
-      var head = document.getElementsByTagName("head")[0];
-      head.appendChild(trial);
-  })();
-</script>
+
 </html>
 
 
