@@ -8,32 +8,42 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="manifest" href="site.webmanifest">
   <link rel="apple-touch-icon" href="icon.png">
-  <link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,900" rel="stylesheet">
   <link href="/css/main.css" rel="stylesheet" type="text/css" media="screen" />
   <script>
-    const script = document.createElement('script');
-    script.src = '/js/vendor/fontfaceobserver.standalone.js';
+    var script = document.createElement('script');
+    script.src =  '/js/vendor/fontfaceobserver.standalone.js';
     script.async = true;
     script.onload = function() {
-      function timeout(time) {
-        return new Promise(function(resolve, reject){
-          setTimeout(reject, time);
-        });
-      };
-      const noto = new FontFaceObserver('Noto Sans');
-      const html = document.documentElement;
-      Promise.race([
-        noto.load(),
-        timeout(1000)
-     ]).then(function() {
-          console.log('happening?')
-          html.classList.add('fonts-loaded');
-        });
+      // function timeout(time) {
+      //   return new Promise(function(resolve, reject) {
+      //     setTimeout(reject, time);
+      //   });
+      // };
+      var nunito = new FontFaceObserver('Nunito Sans');
+      var html = document.documentElement;
+      nunito.load().then(function() {
+        html.classList.add('fonts-loaded');
+      }).catch(function() {
+      console.log('Nunito Sans failed to load.');
+      });
+    //   Promise.race([
+    //     nunito.load(),
+    //     timeout(1000)
+    //  ]).then(function() {
+    //       html.classList.add('fonts-loaded');
+    //     });
     };
     document.head.appendChild(script);
   </script>
 </head>
 <body class="">
+<nav>
+  <ul>
+    <li>About</li>
+    <li>Il Corvo</li>
+  </ul>
+</nav>
 <main>
     <section class="ilcorvo-section">
       <a href="#">
@@ -54,8 +64,9 @@
         <h1>Il Nido</h1>
       </a>
       <div class="ilnido-section__content">
-        <p class="newCLass">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus adipisci unde praesentium iure minima earum eveniet ex nemo, non doloremque iste labore mollitia aut magni, est facere vel eligendi consequatur.</p>
-        <p class="newCLass">Quisquam est eaque facere ullam itaque natus ducimus, eum esse unde. Quidem pariatur, commodi sed animi quibusdam deserunt alias, provident totam illum, in eveniet ipsam tenetur quos nesciunt vitae ab.</p>
+        <svg></svg>
+        <h2>Opening</h2>
+        <h3>March 2019</h3>
     </div>
     </section>
     <section class="default"></section>

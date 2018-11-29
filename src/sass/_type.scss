@@ -18,9 +18,7 @@
   // font-family: 'Avenir Next Pro Medium'
   // font-family: 'Avenir Next Pro Light'
 
-  h1 {
-    // font-family: 'Avenir Next Pro Light', sans-serif;
-    
+  h1, h2, h3 {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     visibility: visible;
@@ -29,6 +27,15 @@
     word-spacing: 0.5px;
   }
 
-  .fonts-loaded  h1 {
-    font-family: 'Noto Sans', sans-serif;
-  }
+  .fonts-loaded {
+  
+    h1, h2 {
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 400;
+    }
+
+    h3 {
+      font-family: 'Nunito Sans', sans-serif;
+      font-weight: 900;
+    }
+}
