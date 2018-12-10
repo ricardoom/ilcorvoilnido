@@ -1,6 +1,6 @@
 const { src, dest } = require('gulp');
 
-const sass = require('gulp-sass');
+// const sass = require('gulp-sass');
 
 const sourcemaps = require('gulp-sourcemaps');
 
@@ -15,6 +15,7 @@ const del = require('del');
 const critical = require('critical').stream;
 
 const log = require('fancy-log');
+
 
 //
 // Paths
@@ -35,34 +36,54 @@ const paths = {
   }
 };
 
-//
-// SASS & CSS
-//
+// Importing as a module now, see gulp.sass.js:
 
-const autoprefixerOptions = {
-  browsers: [
-    'last 3 versions',
-    '> 5%', 'Firefox ESR',
+
+
+// //
+// // SASS & CSS
+// //
+
+// const autoprefixerOptions = {
+//   browsers: [
+//     'last 3 versions',
+//     '> 5%', 'Firefox ESR',
+//   ],
+//   flexbox: 'true',
+//   grid: 'true',
+// };
+
+// // Gulp SASS options
+// const sassOptions = {
+//   errLogToConsole: true,
+//   outputStyle: 'compressed',
+// };
+
+// // set up the SASS task:
+// gulp.task('sass', () => src(scssInput)
+//   .pipe(sass())
+//   .pipe(autoprefixer(autoprefixerOptions))
+//   .pipe(sourcemaps.init())
+//   .pipe(sass(sassOptions).on('error', sass.logError))
+//   .pipe(sourcemaps.write('./'))
+//   .pipe(dest(cssOutput)));
+
+//
+// Find and concact all the JS into a single file:
+// JS Sources _must_ be in order of execution
+const jsSources = {
+  sources: [
+    './src/js/vendor/modernizr-custom.js',
+    './src/js/plugins.js',
+    './src/js/main.js',
   ],
-  flexbox: 'true',
-  grid: 'true',
 };
 
-// Gulp SASS options
-const sassOptions = {
-  errLogToConsole: true,
-  outputStyle: 'compressed',
-};
-
-// set up the SASS task:
-gulp.task('sass', () => src(scssInput)
-  .pipe(sass())
-  .pipe(autoprefixer(autoprefixerOptions))
+gulp.task('js', () => gulp.src(jsSources.sources)
   .pipe(sourcemaps.init())
-  .pipe(sass(sassOptions).on('error', sass.logError))
+  .pipe(concat('main.min.js'))
   .pipe(sourcemaps.write('./'))
-  .pipe(dest(cssOutput)));
-
+  .pipe(gulp.dest(jsOutput)));
 
 // Do image processing / or svg operations...
 
