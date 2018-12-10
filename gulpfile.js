@@ -15,13 +15,14 @@ const del = require('del');
 const critical = require('critical').stream;
 
 const log = require('fancy-log');
+
 //
 // main gulp tasks
 //
 
 // SASS Tasks
 // Path from  SASS files scss input -> compiled css output path
-const scssInput = 'src/sass/**/*.scss';
+const scssInput = 'src/styles/**/*.scss';
 const cssOutput = 'dist/css';
 
 // CSS autoprefixer options

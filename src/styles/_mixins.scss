@@ -1,0 +1,27 @@
+//
+// @PARAM: $supported-feature: ex: grid or flex
+// @PARAM: $feature: the feature we're asking if it is supporte: ex: transform, grid, flex etc...
+// @PARAM: $selector: the selector to be wrapped by @supporst rule
+// @PARAM: $property ("display")
+// @PARAM: $value ("flex")
+// ex:
+// @include support(display, flex, div):
+// which outputs to:
+// @supports (display: flex){ 
+// div {
+//   display: flex
+//  }
+//}
+@mixin feature-support(
+  $supported-feature: "",
+  $feature: "",
+  $selector: "",
+  $property: $supported-feature,
+  $value...) {
+  @supports ($supported-feature: $feature) {
+    #{$selector} {
+      #{$property}: $value;
+      @content;
+    }
+  }
+}

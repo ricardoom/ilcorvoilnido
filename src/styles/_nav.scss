@@ -1,0 +1,10 @@
+
+ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+
+  li {
+    border-top: 4px solid #333;
+  }
+}

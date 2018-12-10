@@ -8,31 +8,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="manifest" href="site.webmanifest">
   <link rel="apple-touch-icon" href="icon.png">
-  <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,900" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600" rel="stylesheet">
   <link href="/css/main.css" rel="stylesheet" type="text/css" media="screen" />
   <script>
     var script = document.createElement('script');
     script.src =  '/js/vendor/fontfaceobserver.standalone.js';
     script.async = true;
     script.onload = function() {
-      // function timeout(time) {
-      //   return new Promise(function(resolve, reject) {
-      //     setTimeout(reject, time);
-      //   });
-      // };
+      function timeout(time) {
+        return new Promise(function(resolve, reject) {
+          setTimeout(reject, time);
+        });
+      };
       var nunito = new FontFaceObserver('Nunito Sans');
       var html = document.documentElement;
-      nunito.load().then(function() {
-        html.classList.add('fonts-loaded');
-      }).catch(function() {
-      console.log('Nunito Sans failed to load.');
-      });
-    //   Promise.race([
-    //     nunito.load(),
-    //     timeout(1000)
-    //  ]).then(function() {
-    //       html.classList.add('fonts-loaded');
-    //     });
+      // nunito.load().then(function() {
+      //   html.classList.add('fonts-loaded');
+      // }).catch(function() {
+      // console.log('Nunito Sans failed to load.');
+      // });
+      Promise.race([
+        nunito.load(),
+        timeout(1000)
+     ]).then(function() {
+          html.classList.add('fonts-loaded');
+        });
     };
     document.head.appendChild(script);
   </script>
@@ -60,11 +60,11 @@
       </div>
     </section>
     <section class="ilnido-section">
-      <a href="#">
+      <a href="#" class="ilnido-section__titleLink">
         <h1>Il Nido</h1>
+        <img src="img/v_C_3.svg" alt="Il Nido">
       </a>
       <div class="ilnido-section__content">
-        <svg></svg>
         <h2>Opening</h2>
         <h3>March 2019</h3>
     </div>
@@ -73,11 +73,12 @@
 </main>
 <footer>
   <address>
- {  at the  alki homestead }
+    2717 61st Ave SW,  Seattle, WA 98116
  { downtown seattle }
   </address>
 </footer>
   <div class="main-background">
+    <!--TODO: Make responsive image work needs work here --->
     <img class="main-background__instaFeed" alt="" />
   </div>
 

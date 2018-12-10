@@ -4,7 +4,9 @@
 @import "type";
 @import "color";
 @import "functions";
+@import "mixins";
 @import "grid";
+@import "nav";
 
 
 @viewport {
@@ -14,7 +16,7 @@
 :root {
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-size: 100%;
-  
+
 }
 * { 
   box-sizing: border-box; 
@@ -34,11 +36,7 @@ main {
 display: block;
 }
 
-@supports (display: grid) {
-  main {
-    display: grid;
-  }
-}
+@include feature-support(display, grid, main, display, grid);
 
 .ilcorvo {
   background-color: hsl(14, 100%, 88%);
@@ -46,6 +44,10 @@ display: block;
 
 .ilnido {
   background-color: hsl(61, 100%, 90%);
+
+  .ilnido-section {
+    padding-top: 28vh;
+  }
 }
 
 footer {
@@ -64,12 +66,12 @@ margin: 3ex;
   overflow: hidden;
   position: absolute;
   width: 100%;
-  top: 0;
+  top: 40vh;
   z-index: -9000;
 
   &__instaFeed {
     //background-size: cover;
-    filter: blur(2px) grayscale(1) opacity(.5);
+    filter: grayscale(1);
     height: 100vmax;
   }
 }

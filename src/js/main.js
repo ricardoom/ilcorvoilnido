@@ -1,4 +1,3 @@
-'use strict';
 
 const baseURL = document.location;
 const baseTitle = document.querySelector('title');
@@ -7,6 +6,7 @@ const main = document.querySelector('main');
 
 const corvoContain = document.querySelector('.ilcorvo-section');
 const nidoContain = document.querySelector('.ilnido-section');
+const defaultContain = document.querySelector('.default');
 
 const nidoContent = nidoContain.children[1];
 const corvoContent = corvoContain.children[1];
@@ -14,44 +14,45 @@ const corvoContent = corvoContain.children[1];
 const mainBackgroundImage = document.querySelector('.main-background__instaFeed');
 
 const theNewJoint = {
-  host : baseURL.host,
-  port : baseURL.port,
-  nido : {
-    title : 'Il Nido',
-    href : 'http://127.0.0.1:4040',
-    instaURL : 'https://www.instagram.com/p/BnkaHsWFrbl/media/?size=l',
+  host: baseURL.host,
+  port: baseURL.port,
+  nido: {
+    title: 'Il Nido',
+    href: 'http://127.0.0.1:4040',
+    instaURL: 'https://www.instagram.com/p/BnkaHsWFrbl/media/?size=l',
+    imgURL: 'img/fireplace@1.5x.jpg',
   },
-  corvo : {
-    title : 'Il Corvo',
-    href : 'http://127.0.0.1:5678/',
-    instaURL : 'https://www.instagram.com/p/Bo14AOfnOaw/media/?size=l',
+  corvo: {
+    title: 'Il Corvo',
+    href: 'http://127.0.0.1:5678/',
+    instaURL: 'https://www.instagram.com/p/Bo14AOfnOaw/media/?size=l',
   }
 }
 
-  // 
-  // in production, swap out ports for .host or some logic where we can switch on fly from prod <=> development...
-  //
+//
+//  n production, swap out ports for
+// .host or some logic where we can switch
+// on fly from prod <=> development...
+//
 
-  if ( theNewJoint.port == 4040 ) { // il nido side
-    console.log(baseTitle.text);
-    
-    baseTitle.innerText = theNewJoint.nido.title;
-    baseBody.setAttribute('class', 'default ilnido');
-    nidoContain.children[0].href = '#';
-    corvoContain.children[0].href = theNewJoint.corvo.href;
-    mainBackgroundImage.setAttribute('src', theNewJoint.nido.instaURL);
-    corvoContain.removeChild(corvoContent);
+if (theNewJoint.port == 4040) { // il nido side
+  console.log(baseTitle.text);
 
-  } else if ( theNewJoint.port == 5678 ) { // il corvo side
-    baseTitle.innerText = theNewJoint.corvo.title;
-    baseBody.setAttribute('class', 'default ilcorvo');
-    nidoContain.children[0].href = theNewJoint.nido.href;
-    corvoContain.children[0].href = '#';
-    mainBackgroundImage.setAttribute('src', theNewJoint.corvo.instaURL);
-    nidoContain.removeChild(nidoContent);
-    
-    
-  } else {
-   console.log("both failed for some reason");
-  };
-
+  baseTitle.innerText = theNewJoint.nido.title;
+  baseBody.setAttribute('class', 'default ilnido');
+  nidoContain.children[0].href = '#';
+  corvoContain.children[0].href = theNewJoint.corvo.href;
+  mainBackgroundImage.setAttribute('src', theNewJoint.nido.imgURL);
+  corvoContain.removeChild(corvoContent);
+  main.removeChild(defaultContain);
+} else if (theNewJoint.port == 5678) { // il corvo side
+  baseTitle.innerText = theNewJoint.corvo.title;
+  baseBody.setAttribute('class', 'default ilcorvo');
+  nidoContain.children[0].href = theNewJoint.nido.href;
+  corvoContain.children[0].href = '#';
+  mainBackgroundImage.setAttribute('src', theNewJoint.corvo.instaURL);
+  nidoContain.removeChild(nidoContent);
+  main.removeChild(defaultContain);
+} else {
+  console.log('both failed for some reason');
+}
