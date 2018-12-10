@@ -4,7 +4,6 @@
   "description": "a mostly static website for Il Corvo & Il Nido Seattle Wa. You should eat there.",
   "main": "index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "browser-sync start -s dist/ --port 4040 && browser-sync start -s dist/ --port 5678"
   },
   "repository": {
