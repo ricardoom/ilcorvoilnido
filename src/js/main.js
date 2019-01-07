@@ -31,12 +31,13 @@ const theNewJoint = {
 };
 
 //
-// in production, swap out ports for .host or some logic where we can switch on fly from prod <=> development...
+// in production, swap out ports for .host or some logic
+// where we can switch on fly from prod <=> development...
 //
 
 if (theNewJoint.port == 4040) {
   // il nido side
-  console.log(baseTitle.text);
+  // console.log(baseTitle.text);
 
   baseTitle.innerText = theNewJoint.nido.title;
   baseBody.setAttribute('class', 'default ilnido');
