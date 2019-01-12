@@ -36,12 +36,7 @@
         }
         var nunito = new FontFaceObserver('Nunito Sans');
         var html = document.documentElement;
-        // nunito.load().then(function() {
-        //   html.classList.add('fonts-loaded');
-        // }).catch(function() {
-        // console.log('Nunito Sans failed to load.');
-        // });
-        Promise.race([nunito.load(), timeout(1000)]).then(function() {
+        Promise.race([nunito.load(), timeout(100)]).then(function() {
           html.classList.add('fonts-loaded');
         });
       };

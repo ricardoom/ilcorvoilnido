@@ -1,23 +1,23 @@
-@import "vendor/normalize";
-@import "vendor/include_media";
-@import "breakpoints";
-@import "type";
-@import "color";
-@import "functions";
-@import "grid";
-
+@import 'vendor/normalize';
+@import 'vendor/include_media';
+@import 'breakpoints';
+@import 'type';
+@import 'color';
+@import 'functions';
+@import 'grid';
 
 @viewport {
   width: device-width;
 }
 
 :root {
+  background: purple;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-size: 100%;
-  
 }
-* { 
-  box-sizing: border-box; 
+
+* {
+  box-sizing: border-box;
 }
 
 body {
@@ -31,7 +31,7 @@ a {
 }
 
 main {
-display: block;
+  display: block;
 }
 
 @supports (display: grid) {
@@ -55,9 +55,8 @@ footer {
 }
 
 address {
-margin: 3ex;
+  margin: 3ex;
 }
-
 
 .main-background {
   left: 0;
@@ -69,11 +68,8 @@ margin: 3ex;
 
   &__instaFeed {
     //background-size: cover;
-    filter: blur(2px) grayscale(1) opacity(.5);
+    filter: blur(2px) grayscale(1) opacity(0.5);
     height: 100vmax;
   }
 }
 // set up some media queries and then move them to a partial
-
-
-

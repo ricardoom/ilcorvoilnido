@@ -37,7 +37,7 @@ const theNewJoint = {
 
 if (theNewJoint.port == 4040) {
   // il nido side
-  // console.log(baseTitle.text);
+  console.log(baseTitle.text);
 
   baseTitle.innerText = theNewJoint.nido.title;
   baseBody.setAttribute('class', 'default ilnido');
