@@ -17,6 +17,10 @@
   font-size: 100%;
 }
 
+.fonts-loaded {
+  font-family: 'Nunito Sans', sans-serif;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -46,6 +50,21 @@ main {
 
   .ilnido-section {
     padding-top: 28vh;
+    
+    &__logo {
+      h1 {
+        display: none;
+        height: 0;
+      }
+
+      img {
+        //padding-left: 2em;
+        width: calc(100vw - 2em);
+      }
+    }
+    &__content {
+
+    }
   }
 }
 

@@ -1,10 +1,15 @@
+.ilnido-nav {
+  ul {
+    display: flex;
+    list-style: none;
+    // height: 3.4375rem;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
 
-ul {
-  list-style: none;
-  display: flex;
-  justify-content: space-between;
-
-  li {
-    border-top: 4px solid #333;
+    li {
+      border-top: 4px solid #333;
+      padding: 1.14rem;
+    }
   }
 }
