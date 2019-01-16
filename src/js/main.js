@@ -3,8 +3,13 @@ const baseTitle = document.querySelector('title');
 const baseBody = document.querySelector('body');
 const main = document.querySelector('main');
 
+const footer = document.querySelector('footer');
+const corvoAddress = footer.lastElementChild;
+const nidoAddress = footer.firstElementChild;
+
 const corvoContain = document.querySelector('.ilcorvo-section');
 const nidoContain = document.querySelector('.ilnido-section');
+
 const defaultContain = document.querySelector('.default');
 
 const nidoNav = baseBody.children[0];
@@ -20,6 +25,9 @@ const theNewJoint = {
     title: 'Il Nido',
     href: 'http://127.0.0.1:4040/',
     instaURL: 'https://www.instagram.com/p/BnkaHsWFrbl/media/?size=l',
+    staticImgURL: './img/firePlaceCold.smaller.jpg',
+    address: '2717 61st Ave SW, Seattle, WA 98116',
+    phone: '206-123-4567',
   },
   corvo: {
     title: 'Il Corvo',
@@ -41,16 +49,19 @@ if (theNewJoint.port == 4040) {
   baseTitle.innerText = theNewJoint.nido.title;
   baseBody.setAttribute('class', 'default ilnido');
   nidoNav.setAttribute('class', 'ilnido-nav');
+  footer.removeChild(corvoAddress);
   nidoContain.children[0].href = '#';
   corvoContain.children[0].href = theNewJoint.corvo.href;
-  mainBackgroundImage.setAttribute('src', theNewJoint.nido.instaURL);
+  // mainBackgroundImage.setAttribute('src', theNewJoint.nido.staticImgURL);
   // corvoContain.removeChild(corvoContent);
+  main.removeChild(defaultContain);
   corvoContain.remove(allCorvoContentChildren);
 } else if (theNewJoint.port == 5678) {
   // il corvo side
   baseTitle.innerText = theNewJoint.corvo.title;
   baseBody.setAttribute('class', 'default ilcorvo');
   nidoContain.children[0].href = theNewJoint.nido.href;
+  footer.removeChild(nidoAddress);
   corvoContain.children[0].href = '#';
   mainBackgroundImage.setAttribute('src', theNewJoint.corvo.instaURL);
   nidoContain.removeChild(nidoContent);
