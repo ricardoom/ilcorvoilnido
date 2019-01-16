@@ -73,7 +73,16 @@
         }
       }
     }
-
+    footer {
+      ul {
+        a {
+          color: currentColor;
+        }
+      color: $in-yellow;  
+      list-style: none;
+      text-transform: uppercase;
+      }
+  }
     nav {
       font-family: 'Nunito', sans-serif;
     }

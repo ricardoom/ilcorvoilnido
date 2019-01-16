@@ -23,7 +23,7 @@
       @include media('>=phone', '<=tablet') {
         background: transparentize($color: $in-yellow, $amount: 0.25);
         grid-column: 1 / 3;
-        grid-row: 1 / 2;
+        grid-row: 1 / 3;
       }
 
       @include media('>=tablet', '<=desktop') {
@@ -84,9 +84,6 @@
       background: transparentize($color: $ic-blue, $amount: 0.25);
     } // closes/ ilcorvo-section
 
-    footer {
-      color: hsl(67, 100%, 91%);
-    }
     //////////close/refactoring
 
     //  @include media(">=phone", "<=tablet") {
@@ -146,6 +143,7 @@
   ///
   /// Il Corvo is the active site:
   ///
+  
   &.ilcorvo {
     // Smallest Screen(s) up to Tablet
     // arrange the grid for small screens:
