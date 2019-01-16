@@ -24,17 +24,13 @@ const log = require('fancy-log');
 
 const paths = {
   styles: {
-    source: 'src/sass/**/*.scss',
+    source: 'src/styles/**/*.scss',
     development: 'dev/css',
     build: 'build/css',
   },
   scripts: {
     jsVendors: ['./src/js/vendor/fontfaceobserver.standalone.js'],
-    source: [
-      './src/js/vendor/modernizr-custom.js',
-      './src/js/plugins.js',
-      './src/js/main.js',
-    ],
+    source: ['./src/js/vendor/modernizr-custom.js', './src/js/plugins.js', './src/js/main.js'],
     development: ['dev/js', 'dev/js/vendor'],
     build: 'build/js',
   },
@@ -61,6 +57,14 @@ const paths = {
 
 // CSS autoprefixer options
 // this covers 90.87% of all browsers. run npx autoprefixer --info to see full report.
+//
+// sass compiler: we use node-sass b/c we're a gultton for node-sass punishment...
+//
+sass.compiler = require('node-sass');
+
+//
+// Autoprefixer options:
+//
 const autoprefixerOptions = {
   browsers: ['last 3 versions', '> 5%', 'Firefox ESR'],
   flexbox: 'true',
@@ -74,16 +78,14 @@ const sassOptions = {
 };
 
 // set up the SASS task:
-gulp.task('sass', () =>
-  gulp
-    .src(paths.styles.source)
-    .pipe(sass())
-    .pipe(autoprefixer(autoprefixerOptions))
-    .pipe(sourcemaps.init())
-    .pipe(sass(sassOptions).on('error', sass.logError))
-    .pipe(sourcemaps.write('./'))
-    .pipe(gulp.dest(paths.styles.development)),
-);
+gulp.task('sass', () => gulp
+  .src(paths.styles.source)
+  .pipe(sass())
+  .pipe(autoprefixer(autoprefixerOptions))
+  .pipe(sourcemaps.init())
+  .pipe(sass(sassOptions).on('error', sass.logError))
+  .pipe(sourcemaps.write('./'))
+  .pipe(gulp.dest(paths.styles.development)));
 
 // end SASS works
 
@@ -102,20 +104,16 @@ gulp.task('sass', () =>
 // };
 
 gulp.task('vendorJS', () => {
-  gulp
-    .src(paths.scripts.jsVendors)
-    .pipe(gulp.dest(paths.scripts.development[1]));
+  gulp.src(paths.scripts.jsVendors).pipe(gulp.dest(paths.scripts.development[1]));
 });
 
-gulp.task('js', ['vendorJS'], () =>
-  gulp
-    .src(paths.scripts.source)
-    .pipe(sourcemaps.init())
-    // .pipe(uglify())
-    .pipe(concat('main.min.js'))
-    .pipe(sourcemaps.write('./'))
-    .pipe(gulp.dest(paths.scripts.development[0])),
-);
+gulp.task('js', ['vendorJS'], () => gulp
+  .src(paths.scripts.source)
+  .pipe(sourcemaps.init())
+// .pipe(uglify())
+  .pipe(concat('main.min.js'))
+  .pipe(sourcemaps.write('./'))
+  .pipe(gulp.dest(paths.scripts.development[0])));
 
 gulp.task('html', () => {
   gulp.src(paths.markup.source).pipe(gulp.dest(paths.markup.development));
@@ -139,7 +137,7 @@ gulp.task('critical', () => {
   gulp
     .src(paths.markup.development)
     .pipe(critical(criticalOptions))
-    .on('error', err => {
+    .on('error', (err) => {
       log.error(err.message);
     })
     .pipe(gulp.dest(paths.markup.build));
@@ -150,20 +148,18 @@ gulp.task('critical', () => {
 //
 // Minify the whole thing _after_ Critical has done its work...
 // paths for HTML Minification
-const chtmlInput = 'src/chtml/**/*.*html';
-const htmlOutput = 'dist/';
+// const chtmlInput = 'src/chtml/**/*.*html';
+// const htmlOutput = 'dist/';
 
 // minify html options:
 const htmlOptions = {
   collapseWhitespace: true,
 };
 
-gulp.task('minify-html', () =>
-  gulp
-    .src(chtmlInput)
-    .pipe(htmlmin(htmlOptions))
-    .pipe(gulp.dest(htmlOutput)),
-);
+gulp.task('minify-html', () => gulp
+  .src(chtmlInput)
+  .pipe(htmlmin(htmlOptions))
+  .pipe(gulp.dest(htmlOutput)));
 
 // end minifications
 
