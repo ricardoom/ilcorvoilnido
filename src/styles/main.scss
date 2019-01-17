@@ -4,6 +4,7 @@
 @import 'color';
 @import 'type';
 @import 'functions';
+@import 'patternBolt';
 @import 'mixins';
 @import 'grid';
 @import 'nav';
@@ -59,7 +60,7 @@ main {
   background-color: $in-yellow;
 
   .ilnido-section {
-    padding-top: 28vh;
+    padding-top: 25vh;
 
     &__logo {
       h1 {
@@ -82,7 +83,9 @@ main {
 footer {
   background: $text-color;
   padding: 1.25em 0;
+  position: relative;
   overflow: auto;
+  top: 22vh;
 }
 
 address {
@@ -90,31 +93,27 @@ address {
 }
 
 .main-background {
-  background-image: url('../img/firePlaceCold.smaller.jpg');
-  background-size: cover;
-  background-position: 0 50%;
-  filter: grayscale(0.18);
-  height: 100%;
+  @include pb(
+    'lines-45-c',
+    8px,
+    $in-yellow,
+    hsla(0, 0%, 13%, 0.418),
+    0.75,
+    'mask'
+  );
+  height: 64vh;
   left: 0;
   min-height: 640px;
   overflow: hidden;
   position: absolute;
   width: 100%;
-  top: 40vh;
+  top: 36vh;
   z-index: -9000;
 
-  &__svgOverlay {
-    fill: url(#diagonal-stripe-1) $in-yellow;
-    height: 100%;
-    opacity: 0.5;
-    width: 100vw;
-  }
-
   &__instaFeed {
-    // background-image: url('../img/firePlaceCold.smaller.jpg');
-    // background-size: cover;
-    // filter: blur(2px) grayscale(1) opacity(0.5);
-    height: 100vmax;
+    left: -75%;
+    height: calc(100vmax - 10em);
+    position: relative;
   }
 }
 // set up some media queries and then move them to a partial
