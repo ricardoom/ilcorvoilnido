@@ -143,7 +143,7 @@
   ///
   /// Il Corvo is the active site:
   ///
-  
+
   &.ilcorvo {
     // Smallest Screen(s) up to Tablet
     // arrange the grid for small screens:
@@ -182,7 +182,7 @@ main {
       // background: hsl(330, 100%, 71%);
     }
     @include media('>=tablet', '<=desktop') {
-      background: palegoldenrod;
+      //background: palegoldenrod;
     }
   }
 }
