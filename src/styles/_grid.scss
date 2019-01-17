@@ -1,7 +1,7 @@
 // split the screen horizontally for small devices
 .default {
   main {
-    grid-template-columns: 25vw 75vw;
+    grid-template-columns: 15vw 70vw 15vw;
     grid-template-rows: 80vh 15vh;
 
     section {
@@ -21,8 +21,8 @@
 
     .ilnido-section {
       @include media('>=phone', '<=tablet') {
-        background: transparentize($color: $in-yellow, $amount: 0.25);
-        grid-column: 1 / 3;
+        // background: transparentize($color: $in-yellow, $amount: 0.25);
+        grid-column: 2 / 3;
         grid-row: 1 / 3;
       }
 
