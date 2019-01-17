@@ -2,7 +2,7 @@
 .default {
   main {
     grid-template-columns: 15vw 70vw 15vw;
-    grid-template-rows: 80vh 15vh;
+    grid-template-rows: 60vh 1fr;
 
     section {
       padding-bottom: 3vw;
