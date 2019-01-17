@@ -16,7 +16,9 @@ const nidoNav = baseBody.children[0];
 const nidoContent = nidoContain.children[1];
 const corvoContent = corvoContain.children[1];
 const allCorvoContentChildren = corvoContain.children;
-const mainBackgroundImage = document.querySelector('.main-background__instaFeed');
+const mainBackgroundImage = document.querySelector(
+  '.main-background__instaFeed',
+);
 
 const theNewJoint = {
   host: baseURL.host,
@@ -26,14 +28,20 @@ const theNewJoint = {
     href: 'http://127.0.0.1:4040/',
     instaURL: 'https://www.instagram.com/p/BnkaHsWFrbl/media/?size=l',
     staticImgURL: './img/firePlaceCold.smaller.jpg',
-    address: '2717 61st Ave SW, Seattle, WA 98116',
-    phone: '206-123-4567',
+    contact: {
+      address: '2717 61st Ave SW, Seattle, WA 98116',
+      phone: '2061234567',
+    },
   },
   corvo: {
     title: 'Il Corvo',
     href: 'http://127.0.0.1:5678/',
     instaURL: 'https://www.instagram.com/p/Bo14AOfnOaw/media/?size=l',
-    localURL: 'img/main.bg.jpg',
+    staticImgURLL: 'img/main.bg.jpg',
+    contact: {
+      address: '217 James St. Seattle, WA 98104',
+      phone: '2065380999',
+    },
   },
 };
 
