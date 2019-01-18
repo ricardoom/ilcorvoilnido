@@ -93,15 +93,23 @@ a {
 }
 
 footer {
+  @include media('>=phone', '<=tablet') {
+    address {
+      margin: 1ex;
+    }
+  }
+
+  @include media('>=tablet', '<=desktop') {
+    address {
+      margin: 3ex;
+    }
+  }
+
   background: $text-color;
   padding: 1.25em 0;
   position: relative;
   overflow: auto;
   // top: 22vh;
-}
-
-address {
-  margin: 3ex;
 }
 
 .main-background {
