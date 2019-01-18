@@ -48,7 +48,8 @@
 
       &__content {
         svg {
-          color: $logo;
+          color: $logo-color;
+          fill: $logo-color;
         }
       }
     } // closes/ ilnido-section
