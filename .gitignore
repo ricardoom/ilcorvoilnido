@@ -1,2 +1,14 @@
 .DS_Store
+# html5bp documentations here:
 docs/
+
+# ignore .map files too...
+*.map
+
+# ignore node & npm
+npm-debug.log
+node_modules/
+# ignore artworks & image assets
+source_artwork
+src/img
+dev/img

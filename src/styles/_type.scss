@@ -1,0 +1,86 @@
+// :root {
+//  // some stuff
+// }
+
+.ilcorvo-section,
+.ilnido-section {
+  a {
+    text-decoration: none;
+  }
+
+  &__titleLink {
+    h1 {
+      display: none;
+      height: 0;
+    }
+
+    display: block;
+    padding-left: 17vw;
+  }
+
+  &__content {
+    h2 {
+      font-weight: 300;
+      margin: 0 0 0 26vw;
+    }
+    h3 {
+      margin: 0 0 0 26vw;
+    }
+  }
+}
+
+h1,
+h2,
+h3,
+nav {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  visibility: visible;
+  font-weight: 300;
+  letter-spacing: 0.45px;
+  word-spacing: 0.5px;
+}
+
+h2 {
+  font-size: 5em;
+}
+
+h3 {
+  font-size: 4em;
+}
+
+.fonts-loaded {
+  .ilnido-section {
+    &__content {
+      .tagline {
+        &__opening {
+          display: block;
+          font-size: 3.5em;
+          font-weight: 200;
+        }
+        &__date {
+          display: block;
+          font-size: 2.25em;
+          font-weight: 900;
+        }
+
+        border: none;
+        margin: 0;
+        padding: 0;
+      }
+    }
+  }
+  footer {
+    ul {
+      a {
+        color: currentColor;
+      }
+      color: $in-yellow;
+      list-style: none;
+      text-transform: uppercase;
+    }
+  }
+  nav {
+    font-family: 'Nunito', sans-serif;
+  }
+}
