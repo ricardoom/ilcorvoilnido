@@ -17,44 +17,20 @@
     // Smallest Screen(s) up to Tablet
     // arrange the grid for small screens:
 
-    /////////////refactoring
-
     .ilnido-section {
       @include media('>=phone', '<=tablet') {
-        // background: transparentize($color: $in-yellow, $amount: 0.25);
         grid-column: 2 / 3;
         grid-row: 1 / 3;
       }
 
       @include media('>=tablet', '<=desktop') {
-        background: radial-gradient(
-            ellipse at top right,
-            hsla(55, 80%, 70%, 0.5),
-            transparent
-          ),
-          radial-gradient(
-            ellipse at left,
-            hsla(56, 74%, 79%, 0.952),
-            transparent
-          );
         grid-column: 2 / 3;
         grid-row: 1 / 3;
-      }
-
-      // & * {
-      //   // mixin?
-      //   padding: 0 3vw;
-      // }
-
-      &__content {
-        svg {
-          color: $logo-color;
-          fill: $logo-color;
-        }
       }
     } // closes/ ilnido-section
 
     ///
+    /// TODO: move il corvo / il nido sections into their own partials.
     /// Il Corvo Section
     ///
     .ilcorvo-section {

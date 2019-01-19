@@ -49,18 +49,45 @@ h3 {
   font-size: 4em;
 }
 
+///
+/// TODO: need to have fall backs for type _not_loaded...
+/// do that in main.js
+
+///
+/// Fonts Loaded via our font loading strategy
+///
 .fonts-loaded {
   .ilnido-section {
     &__content {
+      @include media('>=phone', '<=tablet') {
+        padding: 0 0 0 1vw;
+      }
+
+      @include media('>=tablet', '<=desktop') {
+        padding: 0 0 0 20vw;
+      }
+
       .tagline {
         &__opening {
+          @include media('>=phone', '<=tablet') {
+            font-size: 3.5rem;
+          }
+          @include media('>=tablet', '<=desktop') {
+            font-size: 5.5rem;
+          }
           display: block;
-          font-size: 3.5em;
           font-weight: 200;
         }
         &__date {
+          @include media('>=phone', '<=tablet') {
+            font-size: 2.25em;
+          }
+
+          @include media('>=tablet', '<=desktop') {
+            font-size: 3.65rem;
+          }
+
           display: block;
-          font-size: 2.25em;
           font-weight: 900;
         }
 

@@ -76,19 +76,29 @@ a {
     padding-top: 25vh;
 
     &__logo {
+
       h1 {
         height: 0;
       }
 
       img,
       svg {
+        @include media('>=phone', '<=tablet') {
+          max-width: 28.75em;  
+          width: calc(100vw - 6em);        
+        }
+
+        @include media('>=tablet') {
+          max-width: 40em;
+          width: calc(100vw - 16em);
+        }
+
+        @include media('>=desktop', '<=extra-large') {
+          width: calc(100vw - 12em);
+        }
         fill: $logo-color;
-        width: calc(100vw - 6em);
       }
     }
-    // &__content {
-    //   // some stuff here.
-    // }
   }
 }
 
