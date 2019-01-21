@@ -141,8 +141,21 @@ footer {
   z-index: -9000;
 
   &__instaFeed {
+    @include media('>=0px', '>=phone') {
+      left: -75%;
+    }
+    @include media('>=phone', '<=tablet') {
+      left: -75%;
+    }
+    @include media('>=tablet', '<=desktop') {
+      left: 0;
+    }
+    @include media('>=desktop', '<=extra-large') {
+      left: 0;
+    }
+
     filter: opacity(0.5);
-    left: -75%;
+    // left: -75%;
     height: calc(100vmax - 10em);
     position: relative;
   }
