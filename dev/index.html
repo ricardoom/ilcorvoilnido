@@ -36,7 +36,7 @@
         }
         var nunito = new FontFaceObserver('Nunito Sans');
         var html = document.documentElement;
-        Promise.race([nunito.load(), timeout(100)]).then(function() {
+        Promise.race([nunito.load(), timeout(0)]).then(function() {
           html.classList.add('fonts-loaded');
         });
       };
@@ -54,7 +54,7 @@
       <section class="ilcorvo-section">
         <a href="#"> <h1>Il Corvo</h1> </a>
         <div class="ilcorvo-section__content">
-          <h3>Some new stuff in here... and here.</h3>
+          <h3>...</h3>
           <p class="newClass">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores
             voluptate facere quisquam modi laborum laboriosam hic corrupti vel
