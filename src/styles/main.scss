@@ -92,7 +92,7 @@ a {
           width: calc(100vw - 16em);
         }
 
-        @include media('>=desktop', '<=extra-large') {
+        @include media('>=desktop') {
           width: calc(100vw - 12em);
         }
         fill: $logo-color;
@@ -108,7 +108,8 @@ footer {
     }
   }
 
-  @include media('>=tablet', '<=desktop') {
+  // gulp working?
+  @include media('>=tablet') {
     address {
       margin: 3ex;
     }
@@ -146,12 +147,12 @@ footer {
     @include media('>=phone', '<=tablet') {
       left: -75%;
     }
-    @include media('>=tablet', '<=desktop') {
+    @include media('>=tablet') {
       left: 0;
     }
-    @include media('>=desktop', '<=extra-large') {
-      left: 0;
-    }
+    // @include media('>=desktop', '<=extra-large') {
+    //   left: 0;
+    // }
 
     filter: opacity(0.25);
     // left: -75%;
