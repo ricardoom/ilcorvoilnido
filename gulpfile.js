@@ -1,4 +1,3 @@
-'use strict';
 const gulp = require('gulp');
 
 const sass = require('gulp-sass');
@@ -7,134 +6,198 @@ const sourcemaps = require('gulp-sourcemaps');
 
 const autoprefixer = require('gulp-autoprefixer');
 
+// const uglify = require('gulp-uglify');
+
 const concat = require('gulp-concat');
 
 const htmlmin = require('gulp-htmlmin');
 
-// const uglify = require('gulp-uglify');
+// const useref = require('gulp-useref');
 
-const browserSync = require('browser-sync').create();
+const del = require('del');
 
 const critical = require('critical').stream;
 
-// variables used in our sass tasks
-const cssInput = 'src/sass/**/*.scss';
-const cssOutput = 'dist/css';
+const log = require('fancy-log');
 
-// options for (S)CSS
-const sassOptions = {
-  errLogToConsole: true,
-  outputStyle: 'compressed'
-};
+// Set up path object:
 
-const jsInput = 'src/js/**/*.js';
-const jsOutput = 'dist/js';
-// JS Sources in order:
-const jsSources = {
-  sources: [
-    './src/js/vendor/modernizr-custom.js', 
-    './src/js/plugins.js', 
-    './src/js/main.js'
-  ]
-}
-const criticalHTML = {
-  in: './src/html/**/*.html',
-  out: './src/chtml'
-};
-
-const htmlInput = './src/chtml/**/*.*html';
-const htmlOutput = 'dist/';
-
-
-
-// autoprefixer options
-// this covers 90.87% of all browsers. run npx autoprefixer --info to see full report.
-const autoprefixerOptions = {
-  browsers: [
-    'last 3 versions',
-    '> 5%', 'Firefox ESR'
-  ],
-  flexbox: 'true',
-  grid: 'true'
+const paths = {
+  styles: {
+    source: 'src/styles/**/*.scss',
+    development: 'dev/css',
+    build: 'build/css',
+  },
+  scripts: {
+    jsVendors: ['./src/js/vendor/fontfaceobserver.standalone.js'],
+    source: ['./src/js/vendor/modernizr-custom.js', './src/js/plugins.js', './src/js/main.js'],
+    development: ['dev/js', 'dev/js/vendor'],
+    build: 'build/js',
+  },
+  markup: {
+    source: 'src/**/*.html',
+    development: 'dev/',
+    build: 'dist/',
+  },
+  images: {
+    source: 'img/**/*.*',
+    development: 'img/',
+    build: 'dist/img',
+  },
 };
 
 //
 // main gulp tasks
 //
-gulp.task('sass', () => {
-  return gulp.src(cssInput)
-    .pipe(sass())
-    .pipe(autoprefixer(autoprefixerOptions))
-    .pipe(sourcemaps.init())
-    .pipe(sass(sassOptions).on('error', sass.logError))
-    .pipe(sourcemaps.write('./'))
-    .pipe(gulp.dest(cssOutput));
-    //.pipe(browserSync.reload({ stream : true }));
+
+// SASS Tasks
+// Path from  SASS files scss input -> compiled css output path
+// const scssInput = 'src/sass/**/*.scss';
+// const cssOutput = 'dist/css';
+
+// CSS autoprefixer options
+// this covers 90.87% of all browsers. run npx autoprefixer --info to see full report.
+//
+// sass compiler: we use node-sass b/c we're a gultton for node-sass punishment...
+//
+sass.compiler = require('node-sass');
+
+//
+// Autoprefixer options:
+//
+const autoprefixerOptions = {
+  browsers: ['last 3 versions', '> 5%', 'Firefox ESR'],
+  flexbox: 'true',
+  grid: 'true',
+};
+
+// SASS options
+const sassOptions = {
+  errLogToConsole: true,
+  outputStyle: 'compressed',
+};
+
+// set up the SASS task:
+gulp.task('sass', () => gulp
+  .src(paths.styles.source)
+  .pipe(sass())
+  .pipe(autoprefixer(autoprefixerOptions))
+  .pipe(sourcemaps.init())
+  .pipe(sass(sassOptions).on('error', sass.logError))
+  .pipe(sourcemaps.write('./'))
+  .pipe(gulp.dest(paths.styles.development)));
+
+// end SASS works
+
+//
+// Find and concact all the JS into a single file:
+// JS Sources in _must_ be in order of execution
+// see paths object above
+
+// const jsOutput = 'dist/js';
+// const jsSources = {
+//   sources: [
+//     './src/js/vendor/modernizr-custom.js',
+//     './src/js/plugins.js',
+//     './src/js/main.js',
+//   ],
+// };
+
+gulp.task('vendorJS', () => {
+  gulp.src(paths.scripts.jsVendors).pipe(gulp.dest(paths.scripts.development[1]));
 });
 
-gulp.task('js', () => {
-  return gulp.src(jsSources.sources)
-    .pipe(sourcemaps.init())
-    .pipe(concat('main.min.js'))
-    .pipe(sourcemaps.write('./'))
-    .pipe(gulp.dest(jsOutput));
-    
+gulp.task('js', ['vendorJS'], () => gulp
+  .src(paths.scripts.source)
+  .pipe(sourcemaps.init())
+// .pipe(uglify())
+  .pipe(concat('main.min.js'))
+  .pipe(sourcemaps.write('./'))
+  .pipe(gulp.dest(paths.scripts.development[0])));
+
+gulp.task('html', () => {
+  gulp.src(paths.markup.source).pipe(gulp.dest(paths.markup.development));
 });
 
+//
 // Generate & Inline Critical-path CSS
+// paths for critical operations:
+// const criticalHTML = {
+//   in: 'src/html/**/*.html',
+//   out: 'src/chtml',
+// };
+
 const criticalOptions = {
-  base: criticalHTML.out,
+  base: 'src/',
   inline: true,
   css: 'dist/css/main.css',
-  }
+};
 
 gulp.task('critical', () => {
-  return gulp.src(criticalHTML.in)
-      .pipe(critical(criticalOptions))
-      .on('error', function(err) { log.error(err.message); })
-      .pipe(gulp.dest(criticalHTML.out));
+  gulp
+    .src(paths.markup.development)
+    .pipe(critical(criticalOptions))
+    .on('error', (err) => {
+      log.error(err.message);
+    })
+    .pipe(gulp.dest(paths.markup.build));
 });
 
+// end critical task
+
+//
 // Minify the whole thing _after_ Critical has done its work...
-// options for HTML Minification
-const htmlOptions = { 
-  collapseWhitespace: true
-}
+// paths for HTML Minification
+// const chtmlInput = 'src/chtml/**/*.*html';
+// const htmlOutput = 'dist/';
 
-gulp.task('minify-html', () => {
-  return gulp.src(htmlInput)
-    .pipe(htmlmin(htmlOptions))
-    .pipe(gulp.dest(htmlOutput));
-});
+// minify html options:
+const htmlOptions = {
+  collapseWhitespace: true,
+};
 
+gulp.task('minify-html', () => gulp
+  .src(chtmlInput)
+  .pipe(htmlmin(htmlOptions))
+  .pipe(gulp.dest(htmlOutput)));
 
-// gulp.task('serve', function() {
-//   browserSync.init({
-//     server: {
-//       baseDir: './'
-//     },
-//     //port : 5678
-//     //proxy : 'http://192.168.1.155:5678'
-//   });
+// end minifications
 
-//   browserSync.init({
-//    // port : 5678
-//    proxy: 'localhost:5678'
-// });
+// run clean up operations:
+// delete current occupants of the chtml (basically the "temp" folder. stands for "criticized HTML")
 
-//   gulp.watch('sass/**/*.scss', ['sass']);
-//   gulp.watch('./**/*.html').on('change', browserSync.reload);
-// });
+// const cleanDest = {
+//   sources: [
+//     'src/chtml/**/*',
+//     'dist/index.html',
+//     'dist/404.html',
+//     'dist/css',
+//     'dist/js/*.js',
+//     'dist/about',
+//     '!dist/js/vendor',
+//   ],
+// };
 
-// 
-// Critical CSS inlining:
+gulp.task('clean', () => del(cleanDest.sources, { read: false }));
+
+// utility tasks to clean the build folder & do final inlining etc...
+gulp.task('clean-it', ['clean']);
+gulp.task('crit', ['critical']);
+
+//
+// Set up a watch command for development:
 //
 
-gulp.task('watch', () => {
-  gulp.watch(criticalHTML.in, ['critical']);
-  gulp.watch(htmlInput, ['minify-html']);
-  gulp.watch(cssInput, ['sass']);
-  gulp.watch(jsInput, ['js']);
+gulp.task('watch', ['html', 'sass', 'js'], () => {
+  gulp.watch(paths.markup.source, ['html']);
+  gulp.watch(paths.styles.source, ['sass']);
+  gulp.watch(paths.scripts.source, ['js']);
 });
 
-gulp.task('default', ['critical', 'sass', 'js', 'minify-html']);
+gulp.task('build', ['critical', 'minify-html']);
+
+gulp.task('default', () => {
+  log(
+    "We're overriding the default command here, so you have to be explicit about what you want to do",
+  );
+});

@@ -8,4 +8,8 @@ docs/
 # ignore node & npm
 npm-debug.log
 node_modules/
+# ignore artworks & image assets
 source_artwork
+src/img
+dev/img
+deploy
