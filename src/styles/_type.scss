@@ -60,7 +60,7 @@ h3 {
 ///
 
 
-.fonts-not-loaded {
+
   .ilnido-section {
     &__content {
       @include media('>=phone', '<=tablet') {
@@ -114,4 +114,4 @@ h3 {
   nav {
     font-family: 'Nunito', sans-serif;
   }
-}
+

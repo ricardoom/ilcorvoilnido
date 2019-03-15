@@ -389,68 +389,68 @@ h3 {
 }
 
 @media (min-width: 20em) and (max-width: 47em) {
-  .fonts-not-loaded .ilnido-section__content {
+  .ilnido-section__content {
     padding: 0 0 0 1vw;
   }
 }
 
 @media (min-width: 47em) {
-  .fonts-not-loaded .ilnido-section__content {
+  .ilnido-section__content {
     padding: 0 0 0 20vw;
   }
 }
 
-.fonts-not-loaded .ilnido-section__content .tagline {
+.ilnido-section__content .tagline {
   border: none;
   margin: 0;
   padding: 0;
 }
 
-.fonts-not-loaded .ilnido-section__content .tagline__opening {
+.ilnido-section__content .tagline__opening {
   display: block;
   font-weight: 200;
 }
 
 @media (min-width: 20em) and (max-width: 47em) {
-  .fonts-not-loaded .ilnido-section__content .tagline__opening {
+  .ilnido-section__content .tagline__opening {
     font-size: 3.5rem;
   }
 }
 
 @media (min-width: 47em) {
-  .fonts-not-loaded .ilnido-section__content .tagline__opening {
+  .ilnido-section__content .tagline__opening {
     font-size: 5.5rem;
   }
 }
 
-.fonts-not-loaded .ilnido-section__content .tagline__date {
+.ilnido-section__content .tagline__date {
   display: block;
   font-weight: 900;
 }
 
 @media (min-width: 20em) and (max-width: 47em) {
-  .fonts-not-loaded .ilnido-section__content .tagline__date {
+  .ilnido-section__content .tagline__date {
     font-size: 2.25em;
   }
 }
 
 @media (min-width: 47em) {
-  .fonts-not-loaded .ilnido-section__content .tagline__date {
+  .ilnido-section__content .tagline__date {
     font-size: 3.65rem;
   }
 }
 
-.fonts-not-loaded footer ul {
+footer ul {
   color: #fdfde2;
   list-style: none;
   text-transform: uppercase;
 }
 
-.fonts-not-loaded footer ul a {
+footer ul a {
   color: currentColor;
 }
 
-.fonts-not-loaded nav {
+nav {
   font-family: 'Nunito', sans-serif;
 }
 
@@ -555,7 +555,13 @@ h3 {
 
 .ilnido-nav ul li {
   border-top: 4px solid #333;
-  padding: 1.14rem;
+  padding: 1.14em;
+}
+
+@media (orientation: landscape) {
+  .ilnido-nav ul li {
+    padding: 1ex 1.14em;
+  }
 }
 
 @-ms-viewport {

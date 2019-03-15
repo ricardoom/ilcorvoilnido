@@ -1,6 +1,7 @@
 const gulp = require('gulp');
 
 const sass = require('gulp-sass');
+sass.compiler = require('node-sass');
 
 const sourcemaps = require('gulp-sourcemaps');
 
@@ -8,41 +9,19 @@ const autoprefixer = require('gulp-autoprefixer');
 
 const cssnano = require('gulp-cssnano');
 
-// const uglify = require('gulp-uglify');
-
 const concat = require('gulp-concat');
 
 const htmlmin = require('gulp-htmlmin');
 
-const del = require('del');
+// const del = require('del');
 
 const critical = require('critical');
 
 // const log = require('fancy-log');
 
-const tasks = require('gulp-task-listing');
-// Set up path object:
+const changed = require('gulp-changed');
 
-// const path = {
-//   source: {
-//     styles: 'src/styles/**/*.scss',
-//     scripts: {},
-//     markup: {},
-//     images: {},
-//   },
-//   development: {
-//     styles: 'dev/css',
-//     scripts: {},
-//     markup: {},
-//     images: {},
-//   },
-//   build: {
-//     styles: 'build/css/',
-//     scripts: {},
-//     markup: {},
-//     images: {},
-//   },
-// };
+const tasks = require('gulp-task-listing');
 
 const paths = {
   styles: {
@@ -71,16 +50,15 @@ const paths = {
 //
 // main gulp tasks
 //
+//
+// Send the html file to the dev folder
+//
+gulp.task('html', () => gulp.src(paths.markup.source).pipe(gulp.dest(paths.markup.development)));
 
 // SASS Tasks
 // CSS autoprefixer options
 // this covers 90.87% of all browsers. run npx autoprefixer --info to see full report.
-//
-// sass compiler: we use node-sass b/c we're a gultton for node-sass punishment...
-//
-sass.compiler = require('node-sass');
 
-//
 // Autoprefixer options:
 //
 const autoprefixerOptions = {
@@ -106,21 +84,10 @@ gulp.task('sass', () => gulp
   .pipe(sourcemaps.write('./'))
   .pipe(gulp.dest(paths.styles.development)));
 
-// end SASS works
-
 //
 // Find and concact all the JS into a single file:
 // JS Sources in _must_ be in order of execution
 // see paths object above
-
-// const jsOutput = 'dist/js';
-// const jsSources = {
-//   sources: [
-//     './src/js/vendor/modernizr-custom.js',
-//     './src/js/plugins.js',
-//     './src/js/main.js',
-//   ],
-// };
 
 gulp.task('vendorJS', () => {
   gulp.src(paths.scripts.jsVendors).pipe(gulp.dest(paths.scripts.development[1]));
@@ -129,27 +96,40 @@ gulp.task('vendorJS', () => {
 gulp.task('js', ['vendorJS'], () => gulp
   .src(paths.scripts.source)
   .pipe(sourcemaps.init())
-// .pipe(uglify())
   .pipe(concat('main.min.js'))
   .pipe(sourcemaps.write('./'))
   .pipe(gulp.dest(paths.scripts.development[0])));
 
-gulp.task('html', () => {
-  gulp
-    .src(paths.markup.source)
-    .pipe(gulp.dest(paths.markup.development))
-    .pipe(gulp.dest(paths.markup.build));
-});
+//
+// CSS Nano ~ minify the CSS
+//
+gulp.task('cssnano', () => gulp
+  .src('dev/css/main.css')
+  .pipe(sourcemaps.init())
+  .pipe(cssnano())
+  .pipe(sourcemaps.write('./'))
+  .pipe(gulp.dest(paths.styles.build)));
 
 //
 // Generate & Inline Critical-path CSS
+//
+
+// gulp.task('critical', function () {
+//   return gulp.src('dist/*.html')
+//       .pipe(critical({base: 'dist/', inline: true, css: ['dist/styles/components.css','dist/styles/main.css']}))
+//       .on('error', function(err) { log.error(err.message); })
+//       .pipe(gulp.dest('dist'));
+// });
+
+// gulp.task('critical', () =>  gulp.src('build/**/*.html').pipe(critical)
+// );
 
 gulp.task('critical', () => {
   critical.generate({
     inline: true,
-    base: paths.markup.build,
-    src: '../dev/index.html',
-    dest: 'index.html',
+    base: 'build/',
+    src: '../dev/**/*.html',
+    dest: '**/*.html',
     dimensions: [
       {
         width: 414,
@@ -162,55 +142,18 @@ gulp.task('critical', () => {
 // /critical task
 
 //
-// CSS Nano
-// Minify the CSS
-//
-gulp.task('cssnano', () => gulp
-  .src('dev/css/main.css')
-  .pipe(sourcemaps.init())
-  .pipe(cssnano())
-  .pipe(sourcemaps.write('.'))
-  .pipe(gulp.dest(paths.styles.build)));
-
-//
 // Minify the whole thing _after_ Critical has done its work...
-// paths for HTML Minification
-// const chtmlInput = 'src/chtml/**/*.*html';
-// const htmlOutput = 'dist/';
-
 // minify html options:
+//
 const htmlOptions = {
   collapseWhitespace: true,
+  minifyJS: true,
 };
 
-gulp.task('minify-html', () => gulp
-  .src(chtmlInput)
+gulp.task('minify', () => gulp
+  .src('./dev/**/*.html')
   .pipe(htmlmin(htmlOptions))
-  .pipe(gulp.dest(htmlOutput)));
-
-// end minifications
-
-// run clean up operations:
-// delete current occupants of the chtml (basically the "temp" folder. stands for "criticized HTML")
-
-// const cleanDest = {
-//   sources: [
-//     'src/chtml/**/*',
-//     'dist/index.html',
-//     'dist/404.html',
-//     'dist/css',
-//     'dist/js/*.js',
-//     'dist/about',
-//     '!dist/js/vendor',
-//   ],
-// };
-
-//
-// utility tasks to clean the build folder & do final inlining etc...
-//
-// gulp.task('clean', () => del(cleanDest.sources, { read: false }));
-gulp.task('clean-it', ['clean']);
-gulp.task('crit', ['critical']);
+  .pipe(gulp.dest(paths.markup.build)));
 
 //
 // Set up a watch command for development:
@@ -226,7 +169,7 @@ gulp.task('watch', ['html', 'sass', 'js'], () => {
 // Build
 // everything into build folder to be deployed
 //
-gulp.task('build', ['critical', 'minify-html']);
+gulp.task('build', ['critical', 'minify']);
 
 //
 // override the default `gulp` command and send a list of all the available commands
