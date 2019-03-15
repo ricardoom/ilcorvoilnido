@@ -1,32 +1,33 @@
 const gulp = require('gulp');
 
 const sass = require('gulp-sass');
+sass.compiler = require('node-sass');
 
 const sourcemaps = require('gulp-sourcemaps');
 
 const autoprefixer = require('gulp-autoprefixer');
 
-// const uglify = require('gulp-uglify');
+const cssnano = require('gulp-cssnano');
 
 const concat = require('gulp-concat');
 
 const htmlmin = require('gulp-htmlmin');
 
-// const useref = require('gulp-useref');
+// const del = require('del');
 
-const del = require('del');
+const critical = require('critical');
 
-const critical = require('critical').stream;
+// const log = require('fancy-log');
 
-const log = require('fancy-log');
+const changed = require('gulp-changed');
 
-// Set up path object:
+const tasks = require('gulp-task-listing');
 
 const paths = {
   styles: {
     source: 'src/styles/**/*.scss',
     development: 'dev/css',
-    build: 'build/css',
+    build: 'build/css/',
   },
   scripts: {
     jsVendors: ['./src/js/vendor/fontfaceobserver.standalone.js'],
@@ -37,32 +38,27 @@ const paths = {
   markup: {
     source: 'src/**/*.html',
     development: 'dev/',
-    build: 'dist/',
+    build: 'build/',
   },
   images: {
     source: 'img/**/*.*',
     development: 'img/',
-    build: 'dist/img',
+    build: 'build/img',
   },
 };
 
 //
 // main gulp tasks
 //
+//
+// Send the html file to the dev folder
+//
+gulp.task('html', () => gulp.src(paths.markup.source).pipe(gulp.dest(paths.markup.development)));
 
 // SASS Tasks
-// Path from  SASS files scss input -> compiled css output path
-// const scssInput = 'src/sass/**/*.scss';
-// const cssOutput = 'dist/css';
-
 // CSS autoprefixer options
 // this covers 90.87% of all browsers. run npx autoprefixer --info to see full report.
-//
-// sass compiler: we use node-sass b/c we're a gultton for node-sass punishment...
-//
-sass.compiler = require('node-sass');
 
-//
 // Autoprefixer options:
 //
 const autoprefixerOptions = {
@@ -72,9 +68,10 @@ const autoprefixerOptions = {
 };
 
 // SASS options
+// see: https://github.com/sass/node-sass#outputstyle
 const sassOptions = {
   errLogToConsole: true,
-  outputStyle: 'compressed',
+  outputStyle: 'expanded',
 };
 
 // set up the SASS task:
@@ -87,21 +84,10 @@ gulp.task('sass', () => gulp
   .pipe(sourcemaps.write('./'))
   .pipe(gulp.dest(paths.styles.development)));
 
-// end SASS works
-
 //
 // Find and concact all the JS into a single file:
 // JS Sources in _must_ be in order of execution
 // see paths object above
-
-// const jsOutput = 'dist/js';
-// const jsSources = {
-//   sources: [
-//     './src/js/vendor/modernizr-custom.js',
-//     './src/js/plugins.js',
-//     './src/js/main.js',
-//   ],
-// };
 
 gulp.task('vendorJS', () => {
   gulp.src(paths.scripts.jsVendors).pipe(gulp.dest(paths.scripts.development[1]));
@@ -110,79 +96,64 @@ gulp.task('vendorJS', () => {
 gulp.task('js', ['vendorJS'], () => gulp
   .src(paths.scripts.source)
   .pipe(sourcemaps.init())
-// .pipe(uglify())
   .pipe(concat('main.min.js'))
   .pipe(sourcemaps.write('./'))
   .pipe(gulp.dest(paths.scripts.development[0])));
 
-gulp.task('html', () => {
-  gulp.src(paths.markup.source).pipe(gulp.dest(paths.markup.development));
-});
+//
+// CSS Nano ~ minify the CSS
+//
+gulp.task('cssnano', () => gulp
+  .src('dev/css/main.css')
+  .pipe(sourcemaps.init())
+  .pipe(cssnano())
+  .pipe(sourcemaps.write('./'))
+  .pipe(gulp.dest(paths.styles.build)));
 
 //
 // Generate & Inline Critical-path CSS
-// paths for critical operations:
-// const criticalHTML = {
-//   in: 'src/html/**/*.html',
-//   out: 'src/chtml',
-// };
+//
 
-const criticalOptions = {
-  base: 'src/',
-  inline: true,
-  css: 'dist/css/main.css',
-};
+// gulp.task('critical', function () {
+//   return gulp.src('dist/*.html')
+//       .pipe(critical({base: 'dist/', inline: true, css: ['dist/styles/components.css','dist/styles/main.css']}))
+//       .on('error', function(err) { log.error(err.message); })
+//       .pipe(gulp.dest('dist'));
+// });
+
+// gulp.task('critical', () =>  gulp.src('build/**/*.html').pipe(critical)
+// );
 
 gulp.task('critical', () => {
-  gulp
-    .src(paths.markup.development)
-    .pipe(critical(criticalOptions))
-    .on('error', (err) => {
-      log.error(err.message);
-    })
-    .pipe(gulp.dest(paths.markup.build));
+  critical.generate({
+    inline: true,
+    base: 'build/',
+    src: '../dev/**/*.html',
+    dest: '**/*.html',
+    dimensions: [
+      {
+        width: 414,
+        height: 896,
+      },
+    ],
+    minify: true,
+  });
 });
-
-// end critical task
+// /critical task
 
 //
 // Minify the whole thing _after_ Critical has done its work...
-// paths for HTML Minification
-// const chtmlInput = 'src/chtml/**/*.*html';
-// const htmlOutput = 'dist/';
-
 // minify html options:
+//
 const htmlOptions = {
   collapseWhitespace: true,
+  minifyJS: true,
 };
 
-gulp.task('minify-html', () => gulp
-  .src(chtmlInput)
+gulp.task('minify', () => gulp
+  .src('./dev/**/*.html')
   .pipe(htmlmin(htmlOptions))
-  .pipe(gulp.dest(htmlOutput)));
-
-// end minifications
-
-// run clean up operations:
-// delete current occupants of the chtml (basically the "temp" folder. stands for "criticized HTML")
-
-// const cleanDest = {
-//   sources: [
-//     'src/chtml/**/*',
-//     'dist/index.html',
-//     'dist/404.html',
-//     'dist/css',
-//     'dist/js/*.js',
-//     'dist/about',
-//     '!dist/js/vendor',
-//   ],
-// };
-
-gulp.task('clean', () => del(cleanDest.sources, { read: false }));
-
-// utility tasks to clean the build folder & do final inlining etc...
-gulp.task('clean-it', ['clean']);
-gulp.task('crit', ['critical']);
+  .pipe(gulp.dest(paths.markup.build)));
 
 //
 // Set up a watch command for development:
@@ -194,10 +165,14 @@ gulp.task('watch', ['html', 'sass', 'js'], () => {
   gulp.watch(paths.scripts.source, ['js']);
 });
 
-gulp.task('build', ['critical', 'minify-html']);
+//
+// Build
+// everything into build folder to be deployed
+//
+gulp.task('build', ['critical', 'minify']);
 
-gulp.task('default', () => {
-  log(
-    "We're overriding the default command here, so you have to be explicit about what you want to do",
-  );
-});
+//
+// override the default `gulp` command and send a list of all the available commands
+//
+gulp.task('help', tasks);
+gulp.task('default', ['help']);

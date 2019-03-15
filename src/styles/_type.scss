@@ -1,6 +1,8 @@
-// :root {
-//  // some stuff
-// }
+:root {
+  color: $text-color;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 100%;
+}
 
 .ilcorvo-section,
 .ilnido-section {
@@ -56,7 +58,9 @@ h3 {
 ///
 /// Fonts Loaded via our font loading strategy
 ///
-.fonts-loaded {
+
+
+
   .ilnido-section {
     &__content {
       @include media('>=phone', '<=tablet') {
@@ -110,4 +114,4 @@ h3 {
   nav {
     font-family: 'Nunito', sans-serif;
   }
-}
+
