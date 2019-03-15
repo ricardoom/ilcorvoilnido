@@ -1,8 +1,8 @@
 .ilnido-nav {
   ul {
     display: flex;
-    list-style: none;
     justify-content: space-between;
+    list-style: none;
     margin: 0;
     padding: 0;
 
@@ -10,7 +10,7 @@
       @include media('landscape') {
         padding: 1ex 1.14em;
       }
-      border-top: 4px solid #333;
+      border-top: 4px solid $text-color;
       padding: 1.14em;
     }
   }
