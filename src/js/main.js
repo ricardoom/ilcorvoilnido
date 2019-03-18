@@ -13,18 +13,20 @@ const nidoContain = document.querySelector('.ilnido-section');
 const defaultContain = document.querySelector('.default');
 
 const nidoNav = baseBody.children[0];
+const navLink = document.querySelector('.restaurant-link');
 const nidoContent = nidoContain.children[1];
 const corvoContent = corvoContain.children[1];
 const allCorvoContentChildren = corvoContain.children;
 const mainBackgroundImage = document.querySelector('.main-background__instaFeed');
 
-const theNewJoint = {
+const restaurant = {
   host: baseURL.host,
   port: baseURL.port,
   nido: {
     title: 'Il Nido',
     href: 'http://127.0.0.1:4040/',
     devHref: 'http://ilnido.bulletprooftoupee.com/',
+    prodHref: 'http://ilnidoseattle.com/',
     instaURL: 'https://www.instagram.com/p/BnkaHsWFrbl/media/?size=l',
     staticImgURL: './img/firePlaceCold.smaller.jpg',
     contact: {
@@ -35,8 +37,10 @@ const theNewJoint = {
   corvo: {
     title: 'Il Corvo',
     href: 'http://127.0.0.1:5678/',
+    devHref: 'http://ilcorvo.bulletprooftoupee.com/',
+    prodHref: 'http://ilcovropasta.com/',
     instaURL: 'https://www.instagram.com/p/Bo14AOfnOaw/media/?size=l',
-    staticImgURLL: 'img/main.bg.jpg',
+    staticImgURL: 'img/main.bg.jpg',
     contact: {
       address: '217 James St. Seattle, WA 98104',
       phone: '2065380999',
@@ -49,29 +53,46 @@ const theNewJoint = {
 // where we can switch on fly from prod <=> development...
 //
 
-if (theNewJoint.port == 4040 || baseURL.href == theNewJoint.nido.devHref) {
+if (restaurant.port == 4040 || baseURL.href == restaurant.nido.devHref) {
   // il nido side
-
-  console.log(baseTitle.text);
+  if (restaurant.port == 4040) {
+    // modify the nav urls based on environment:
+    console.log('on a il nido local host');
+    navLink.href = restaurant.corvo.href;
+  } else if (baseURL.href == restaurant.nido.devHref) {
+    console.log('on the dev server');
+    navLink.href = restaurant.corvo.devHref;
+  } else {
+    console.log('production');
+    navLink.href = restaurant.corvo.prodHref;
+  }
+  // console.log(baseTitle.text);
   // mucho refactoring here:
-  baseTitle.innerText = theNewJoint.nido.title;
+  baseTitle.innerText = restaurant.nido.title;
   baseBody.setAttribute('class', 'default ilnido');
   nidoNav.setAttribute('class', 'ilnido-nav');
   footer.removeChild(corvoAddress);
   nidoContain.children[0].href = '#';
-  corvoContain.children[0].href = theNewJoint.corvo.href;
-  // mainBackgroundImage.setAttribute('src', theNewJoint.nido.staticImgURL);
+  corvoContain.children[0].href = restaurant.corvo.href;
+  // mainBackgroundImage.setAttribute('src', restaurant.nido.staticImgURL);
   // corvoContain.removeChild(corvoContent);
   main.removeChild(defaultContain);
   corvoContain.remove(allCorvoContentChildren);
-} else if (theNewJoint.port == 5678) {
+} else if (restaurant.port == 5678 || baseURL.href == restaurant.corvo.devHref) {
   // il corvo side
-  baseTitle.innerText = theNewJoint.corvo.title;
+  if (restaurant.port == 5678) {
+    console.log('on a corvo local host');
+  } else if (baseURL.href == restaurant.corvo.devHref) {
+    console.log('on the dev server');
+  } else {
+    console.log('zilch...');
+  }
+  baseTitle.innerText = restaurant.corvo.title;
   baseBody.setAttribute('class', 'default ilcorvo');
-  nidoContain.children[0].href = theNewJoint.nido.href;
+  nidoContain.children[0].href = restaurant.nido.href;
   footer.removeChild(nidoAddress);
   corvoContain.children[0].href = '#';
-  mainBackgroundImage.setAttribute('src', theNewJoint.corvo.instaURL);
+  mainBackgroundImage.setAttribute('src', restaurant.corvo.instaURL);
   nidoContain.removeChild(nidoContent);
 } else {
   console.log('both failed for some reason');
