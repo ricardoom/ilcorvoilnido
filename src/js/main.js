@@ -18,6 +18,8 @@ const mainBackgroundImage = baseBody.querySelector('.main-background-image__inst
 const restaurant = {
   host: baseURL.host,
   port: baseURL.port,
+  origin: baseURL.origin,
+  path: baseURL.pathname,
   nido: {
     title: 'Il Nido Seattle',
     href: 'http://127.0.0.1:4040/',
@@ -27,14 +29,14 @@ const restaurant = {
     staticImgURL: './img/firePlaceCold.smaller.jpg',
     contact: {
       address: '2717 61st Ave SW, Seattle, WA 98116',
-      phone: '2061234567',
+      phone: '2064666256',
     },
   },
   corvo: {
     title: 'Il Corvo Seattle',
     href: 'http://127.0.0.1:5678/',
     devHref: 'http://ilcorvo.bulletprooftoupee.com/',
-    prodHref: 'http://ilcovropasta.com/',
+    prodHref: 'http://ilcorvopasta.com/',
     instaURL: 'https://www.instagram.com/p/Bo14AOfnOaw/media/?size=l',
     staticImgURL: './img/main.bg.jpg',
     contact: {
@@ -44,14 +46,13 @@ const restaurant = {
   },
 };
 
-//
-// in production, swap out ports for .host or some logic
-// where we can switch on fly from prod <=> development...
-//
-
-if (restaurant.port == 4040 || baseURL.href == restaurant.nido.devHref) {
+if (
+  baseURL.href == restaurant.nido.href
+  || baseURL.href == restaurant.nido.devHref
+  || baseURL.href == restaurant.nido.prodHref
+) {
   // il nido side
-  if (restaurant.port == 4040) {
+  if (baseURL.href == restaurant.nido.href) {
     // modify the nav urls based on environment:
     console.log('on a il nido local host');
     navLink.href = restaurant.corvo.href;
@@ -65,8 +66,6 @@ if (restaurant.port == 4040 || baseURL.href == restaurant.nido.devHref) {
     navLink.href = restaurant.corvo.prodHref;
     navLink.setAttribute('target', '_blank');
   }
-  // console.log(baseTitle.text);
-  // mucho refactoring here:
   baseTitle.innerText = restaurant.nido.title;
   baseBody.setAttribute('class', 'default ilnido');
   mainNav.setAttribute('class', 'ilnido-nav');
@@ -74,13 +73,15 @@ if (restaurant.port == 4040 || baseURL.href == restaurant.nido.devHref) {
   footer.removeChild(corvoAddress);
   nidoContain.children[0].href = '#';
   corvoContain.children[0].href = restaurant.corvo.href;
-  // mainBackgroundImage.setAttribute('src', restaurant.nido.staticImgURL);
-  // corvoContain.removeChild(corvoContent);
   main.removeChild(defaultContain);
   corvoContain.remove(allCorvoContentChildren);
-} else if (restaurant.port == 5678 || baseURL.href == restaurant.corvo.devHref) {
+} else if (
+  baseURL.href == restaurant.corvo.href
+  || baseURL.href == restaurant.corvo.devHref
+  || baseURL.href == restaurant.corvo.prodHref
+) {
   // il corvo side
-  if (restaurant.port == 5678) {
+  if (baseURL.href == restaurant.corvo.href) {
     console.log('on a corvo local host');
     navLink.href = restaurant.nido.href;
     navLink.setAttribute('target', '_blank');

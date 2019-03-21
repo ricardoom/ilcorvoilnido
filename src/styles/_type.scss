@@ -59,59 +59,60 @@ h3 {
 /// Fonts Loaded via our font loading strategy
 ///
 
+.ilnido-section {
+  &__content {
+    @include media('>=phone', '<=tablet') {
+      padding: 0 0 0 1vw;
+    }
 
+    @include media('>=tablet') {
+      padding: 0 0 0 20vw;
+    }
 
-  .ilnido-section {
-    &__content {
-      @include media('>=phone', '<=tablet') {
-        padding: 0 0 0 1vw;
-      }
-
-      @include media('>=tablet') {
-        padding: 0 0 0 20vw;
-      }
-
-      .tagline {
-        &__opening {
-          @include media('>=phone', '<=tablet') {
-            font-size: 3.5rem;
-          }
-          @include media('>=tablet') {
-            font-size: 5.5rem;
-          }
-          display: block;
-          font-weight: 200;
+    .tagline {
+      &__opening {
+        @include media('>=phone', '<=tablet') {
+          font-size: 3.5rem;
         }
-        &__date {
-          @include media('>=phone', '<=tablet') {
-            font-size: 2.25em;
-          }
+        @include media('>=tablet') {
+          font-size: 5.5rem;
+        }
+        display: block;
+        font-weight: 200;
+      }
 
-          @include media('>=tablet') {
-            font-size: 3.65rem;
-          }
-
-          display: block;
-          font-weight: 900;
+      &__date {
+        @include media('>=phone', '<=tablet') {
+          font-size: 2.25em;
         }
 
-        border: none;
-        margin: 0;
-        padding: 0;
-      }
-    }
-  }
-  footer {
-    ul {
-      a {
-        color: currentColor;
-      }
-      color: $in-yellow;
-      list-style: none;
-      text-transform: uppercase;
-    }
-  }
-  nav {
-    font-family: 'Nunito', sans-serif;
-  }
+        @include media('>=tablet') {
+          font-size: 3.65rem;
+        }
 
+        display: block;
+        font-weight: 900;
+      }
+
+      border: none;
+      margin: 0;
+      padding: 0;
+    }
+  }
+}
+
+footer {
+  ul {
+    color: $in-yellow;
+    list-style: none;
+    text-transform: uppercase;
+
+    a {
+      color: currentColor;
+    }
+  }
+}
+
+nav {
+  font-family: 'Nunito', sans-serif;
+}

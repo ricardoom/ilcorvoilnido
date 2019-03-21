@@ -8,19 +8,11 @@ const sourcemaps = require('gulp-sourcemaps');
 
 const autoprefixer = require('gulp-autoprefixer');
 
-// const cssnano = require('gulp-cssnano');
-
 const concat = require('gulp-concat');
 
 const htmlmin = require('gulp-htmlmin');
 
-// const del = require('del');
-
 const critical = require('critical');
-
-// const log = require('fancy-log');
-
-// const changed = require('gulp-changed');
 
 const babel = require('gulp-babel');
 
@@ -60,24 +52,6 @@ const paths = {
 // main gulp tasks
 //
 //
-// Send the html file to the dev folder
-//
-// gulp.task('html', () => gulp.src(paths.markup.source).pipe(gulp.dest(paths.markup.development)));
-
-//
-// Minify the whole thing _after_ Critical has done its work...
-// minify html options:
-//
-const htmlOptions = {
-  collapseWhitespace: true,
-  minifyJS: true,
-};
-
-gulp.task('html', () => gulp
-  .src(paths.markup.source)
-  .pipe(htmlmin(htmlOptions))
-  .pipe(gulp.dest(paths.markup.development))
-  .pipe(gulp.dest(paths.markup.build)));
 
 // SASS Tasks
 // CSS autoprefixer options
@@ -106,7 +80,8 @@ gulp.task('sass', () => gulp
   .pipe(sourcemaps.init())
   .pipe(sass(sassOptions).on('error', sass.logError))
   .pipe(sourcemaps.write('./'))
-  .pipe(gulp.dest(paths.styles.development)));
+  .pipe(gulp.dest(paths.styles.development))
+  .pipe(gulp.dest(paths.styles.build)));
 
 //
 // Find and concact all the JS into a single file:
@@ -120,14 +95,6 @@ gulp.task('vendorJS', () => {
     .pipe(gulp.dest(paths.scripts.build[1]));
 });
 
-// // gulp Babel, so the JS can be uglified:
-// gulp.task('babel', () => {
-//   gulp
-//     .src(paths.scripts.source)
-//     .pipe(babel(babelOptions))
-//     .pipe(gulp.dest(paths.scripts.development[0]));
-// });
-
 gulp.task('js', ['vendorJS'], () => gulp
   .src(paths.scripts.source)
   .pipe(sourcemaps.init())
@@ -138,45 +105,12 @@ gulp.task('js', ['vendorJS'], () => gulp
   .pipe(gulp.dest(paths.scripts.development[0]))
   .pipe(gulp.dest(paths.scripts.build[0])));
 
-//
-// CSS Nano ~ minify the CSS
-//
-// gulp.task('cssnano', () =>
-//   gulp
-//     .src('dev/css/main.css')
-//     .pipe(sourcemaps.init())
-//     .pipe(cssnano())
-//     .pipe(sourcemaps.write('./'))
-//     .pipe(gulp.dest('./build/css')),
-// );
-
-//
-// Generate & Inline Critical-path CSS
-//
-
-// gulp.task('critical', () => gulp
-//   .src('dist/*.html')
-//   .pipe(
-//     critical({
-//       base: 'dist/',
-//       inline: true,
-//       css: ['dist/styles/components.css', 'dist/styles/main.css'],
-//     }),
-//   )
-//   .on('error', (err) => {
-//     log.error(err.message);
-//   })
-//   .pipe(gulp.dest('dist')));
-
-// gulp.task('critical', () =>  gulp.src('build/**/*.html').pipe(critical)
-// );
-
 gulp.task('critical', ['sass'], (cb) => {
   critical.generate({
     inline: true,
     base: 'build/',
     src: 'index.html',
-    dest: 'index-critical.html',
+    dest: 'index.html',
     dimensions: [
       {
         width: 414,
@@ -187,6 +121,21 @@ gulp.task('critical', ['sass'], (cb) => {
   });
 });
 // /critical task
+
+//
+// Minify the whole thing _after_ Critical has done its work...
+// minify html options:
+//
+const htmlOptions = {
+  collapseWhitespace: true,
+  minifyJS: true,
+};
+
+gulp.task('html', () => gulp
+  .src(paths.markup.source)
+  .pipe(htmlmin(htmlOptions))
+  .pipe(gulp.dest(paths.markup.development))
+  .pipe(gulp.dest(paths.markup.build)));
 
 //
 // Set up a watch command for development:
@@ -202,7 +151,7 @@ gulp.task('watch', ['html', 'sass', 'js'], () => {
 // Build
 // everything into build folder to be deployed
 //
-gulp.task('build', ['critical', 'minify']);
+gulp.task('build', ['critical', 'html']);
 
 //
 // override the default `gulp` command and send a list of all the available commands
