@@ -5,19 +5,19 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Il Corvo Il Nido</title>
-  <meta name="description" content="A website for Il Nido,  Seattle WA" />
+  <meta name="description" content="A website for Restaurant Il Nido,  Seattle WA" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <meta name="designer" content="Ricardo E. Galvez, Il Nido, Seattle">
-  <meta name="twitter:site" content="">
-  <meta name="twitter:title" content="">
-  <meta name="twitter:description" content="">
+  <meta name="twitter:site" content="" />
+  <meta name="twitter:title" content="Il Nido Seattle" />
+  <meta name="twitter:description" content="Il Nido is  Seattle's finest Italian cuisine" />
   <meta name="twitter:card" content="">
-  <meta name="twitter:image" content="">
+  <meta name="twitter:image" content="tile-wide.png" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="" />
-  <meta property="og:title" content="">
-  <meta property="og:description" content="">
-  <meta property="og:image" content="">
+  <meta property="og:title" content="Il Nido Seattle" />
+  <meta property="og:description" content="" />
+  <meta property="og:image" content="tile-wide.png" />
   <link rel="icon" href="favicon.ico">
   <link rel="manifest" href="site.webmanifest" />
   <link rel="apple-touch-icon" href="icon.png" />
@@ -35,18 +35,56 @@
       }
       var nunito = new FontFaceObserver('Nunito Sans');
       var html = document.documentElement;
-      Promise.race([nunito.load(), timeout(2000)]).then(function () {
+      Promise.race([nunito.load(), timeout(3000)]).then(function () {
         html.classList.add('fonts-loaded');
       });
     };
     document.head.appendChild(script);
   </script>
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "Restaurant",
+      "image": "http://ilnidoseattle.com/logo_wide558x270.png",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Seattle",
+        "addressRegion": "WA",
+        "postalCode": "98116",
+        "streetAddress": "2717 61st Ave SW",
+        "addressCountry":"US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "47.578962",
+        "longitude": "-122.411049"
+      },
+      "name": "Il Nido Seattle",
+      "openingHours": [
+        "Tu-Sa 17:00-22:00"
+      ],
+      "priceRange": "$-$$$",
+      "servesCuisine": [
+        "Seasonally Inspired Italian"
+      ],
+      "acceptsReservations": true,
+      "telephone": "(206) 466-6265",
+      "url": "http://ilnidoseattle.com/",
+      "paymentAccepted":"Cash, Credit Card",
+      "logo": "http://ilnidoseattle.com/logo_wide558x270.png",
+      "brand": {
+        "@type": "imageObject",
+        "image": "http://ilnidoseattle.com/logo_wide558x270.png"
+      }
+    }
+    </script>
+
+  <meta name="google-site-verification" content="ebn5WipMEe9IkbXBdqN7sV8925O_tFqEt0J6PxbLRIE" />
 </head>
 
 <body class="">
   <nav class="">
     <ul>
-      <li><a class="about-link" href="/about">About</a></li>
       <li><a class="restaurant-link" href="">theRestaurant</a></li>
     </ul>
   </nav>
@@ -56,7 +94,7 @@
         <h1>Il Corvo</h1>
       </a>
       <div class="ilcorvo-section__content">
-        <h3>...</h3>
+        <h3>Welcome to Il Corvo</h3>
       </div>
     </section>
     <section class="ilnido-section">
@@ -165,6 +203,13 @@
       <ul>
         <li>2717 61st Ave SW, Seattle, WA 98116</li>
         <li><a href="tel:+2061234567">206.123.4567</a></li>
+        <li>
+          <ul class="hours">
+            <li>Hours:</li>
+            <li>Tuesday &mdash; Saturday</li>
+            <li>5:00PM &mdash; 10:00PM</li>
+          </ul>
+        </li>
       </ul>
     </address>
     <address class="ilcorvo-address">

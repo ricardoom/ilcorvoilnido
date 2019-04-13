@@ -23,7 +23,7 @@
       }
       var nunito = new FontFaceObserver('Nunito Sans');
       var html = document.documentElement;
-      Promise.race([nunito.load(), timeout(2000)]).then(function () {
+      Promise.race([nunito.load(), timeout(3000)]).then(function () {
         html.classList.add('fonts-loaded');
       });
     };
@@ -32,8 +32,13 @@
 </head>
 
 <body class="">
+  <nav class="">
+    <ul>
+      <li><a class="restaurant-link" href="/">theRestaurant</a></li>
+    </ul>
+  </nav>
   <main>
-    <section class="ilcorvo-section">
+    <!-- <section class="ilcorvo-section ">
       <a href="#">
         <h1>Il Corvo</h1>
       </a>
@@ -50,18 +55,28 @@
         <h2>Something has gone wrong</h2>
         <p>The page you are looking for cannot be found</p>
       </div>
-    </section>
+    </section> -->
 
-    <section class="default"></section>
+    <section class="default four-oh-four">
+      <h2>Something has gone wrong</h2>
+    </section>
   </main>
-  <footer>
-    <address>
-      { at the alki homestead }
-      { downtown seattle }
+  <footer role="contentinfo">
+    <address class="ilnido-address">
+      <ul>
+        <li>2717 61st Ave SW, Seattle, WA 98116</li>
+        <li><a href="tel:+2061234567">206.123.4567</a></li>
+      </ul>
+    </address>
+    <address class="ilcorvo-address">
+      <ul>
+        <li>217 James St. Seattle, WA 98104</li>
+        <li><a href="tel:+2065380999">206.538.0999</a></li>
+      </ul>
     </address>
   </footer>
-  <div class="main-background">
-    <img class="main-background__instaFeed" alt="" />
+  <div class="main-background-image">
+    <img src="/img/firePlaceCold.smaller.jpg" class="main-background-image__instaFeed" alt="" async />
   </div>
 
 </body>
