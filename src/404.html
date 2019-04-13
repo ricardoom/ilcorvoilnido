@@ -11,6 +11,24 @@
   <link rel="apple-touch-icon" href="icon.png">
   <link href="https://fonts.googleapis.com/css?family=Noto+Serif" rel="stylesheet">
   <link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
+  <script>
+    var script = document.createElement('script');
+    script.src = '/js/vendor/fontfaceobserver.standalone.js';
+    script.async = true;
+    script.onload = function () {
+      function timeout(time) {
+        return new Promise(function (resolve, reject) {
+          setTimeout(reject, time);
+        });
+      }
+      var nunito = new FontFaceObserver('Nunito Sans');
+      var html = document.documentElement;
+      Promise.race([nunito.load(), timeout(2000)]).then(function () {
+        html.classList.add('fonts-loaded');
+      });
+    };
+    document.head.appendChild(script);
+  </script>
 </head>
 
 <body class="">
