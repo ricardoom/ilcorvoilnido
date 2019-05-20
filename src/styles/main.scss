@@ -39,7 +39,7 @@ body {
   }
 
   footer {
-    flex-basis: 18vh;
+    flex-basis: content;
   }
 }
 
@@ -95,35 +95,31 @@ a {
 }
 
 footer {
+  background: $text-color;
+  overflow: auto;
+  padding: 1.25em 0;
+  position: relative;
+
   @include media('>=phone', '<=tablet') {
     address {
       margin: 1ex;
     }
   }
 
-  // gulp working?
   @include media('>=tablet') {
     address {
       margin: 3ex;
     }
   }
 
-  background: $text-color;
-  padding: 1.25em 0;
-  position: relative;
-  overflow: auto;
-  // top: 22vh;
+  .hours {
+    margin: 2ex 0 0;
+    padding: 0;
+  }
 }
 
 .main-background-image {
-  @include patternBolt(
-    'lines-45-c',
-    8px,
-    $in-yellow,
-    hsla(0, 0%, 13%, 0.418),
-    0.95,
-    'mask'
-  );
+  @include patternBolt('lines-45-c', 8px, $in-yellow, hsla(0, 0%, 13%, 0.418), 0.95, 'mask');
   height: 60vh;
   left: 0;
   max-height: 640px;
