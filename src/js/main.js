@@ -30,6 +30,7 @@ const restaurant = {
     contact: {
       address: '2717 61st Ave SW, Seattle, WA 98116',
       phone: '2064666256',
+      email: 'ilnidoseattle@icloud.com',
     },
   },
   corvo: {
@@ -42,6 +43,7 @@ const restaurant = {
     contact: {
       address: '217 James St. Seattle, WA 98104',
       phone: '2065380999',
+      email: 'ilcorvopasta@gmail.com',
     },
   },
 };
@@ -104,5 +106,5 @@ if (
   main.removeChild(defaultContain);
   nidoContain.remove(allNidoContentChildren);
 } else {
-  console.log('both failed for some reason');
+  console.log('both failed for some reason... are you on 127... or localhost?');
 }
