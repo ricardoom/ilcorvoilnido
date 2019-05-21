@@ -25,6 +25,7 @@
       font-weight: 300;
       margin: 0 0 0 26vw;
     }
+
     h3 {
       margin: 0 0 0 26vw;
     }
@@ -59,17 +60,53 @@ h3 {
 /// Fonts Loaded via our font loading strategy
 ///
 
-.ilnido-section {
-  &__content {
+.ilnido-section,
+footer {
+  &__content,
+  .ilnido-address {
     @include media('>=phone', '<=tablet') {
       padding: 0 0 0 1vw;
+      // max-width: 100%;
     }
 
     @include media('>=tablet') {
-      padding: 0 0 0 20vw;
+      padding: 0 0 0 25vw;
+      // max-width: 85%;
     }
 
     .tagline {
+      border: 0;
+      margin: 0;
+      padding: 0;
+
+      &__button {
+        background-color: transparentize($text-color, 0.2);
+        border: solid 1px $in-yellow;
+        border-radius: 1ex;
+        list-style-type: none;
+        text-align: center;
+
+        @include media('>=phone', '<=tablet') {
+          font-size: 1.25rem;
+          margin: 1em 0 0;
+          padding: 1em;
+        }
+
+        @include media('>=tablet') {
+          font-size: 1.5rem;
+          margin-top: 1ex;
+          padding: 1.5ex 2.5ex;
+        }
+
+        @include media('>=desktop') {
+          max-width: 17.5em;
+        }
+
+        a {
+          color: $in-yellow;
+        }
+      }
+
       &__opening {
         @include media('>=phone', '<=tablet') {
           font-size: 3.5rem;
@@ -77,7 +114,9 @@ h3 {
         @include media('>=tablet') {
           font-size: 5.5rem;
         }
+
         display: block;
+        font-style: normal;
         font-weight: 200;
       }
 
@@ -93,10 +132,6 @@ h3 {
         display: block;
         font-weight: 900;
       }
-
-      border: none;
-      margin: 0;
-      padding: 0;
     }
   }
 }
@@ -105,7 +140,12 @@ footer {
   ul {
     color: $in-yellow;
     list-style: none;
+    padding: 0;
     text-transform: uppercase;
+
+    li {
+      margin: 1ex 0;
+    }
 
     a {
       color: currentColor;
@@ -115,4 +155,6 @@ footer {
 
 nav {
   font-family: 'Nunito', sans-serif;
+  font-style: normal;
+  font-weight: 300;
 }

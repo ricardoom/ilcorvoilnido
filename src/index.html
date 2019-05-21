@@ -35,7 +35,7 @@
       }
       var nunito = new FontFaceObserver('Nunito Sans');
       var html = document.documentElement;
-      Promise.race([nunito.load(), timeout(3000)]).then(function () {
+      Promise.race([nunito.load(), timeout(5000)]).then(function () {
         html.classList.add('fonts-loaded');
       });
     };
@@ -67,8 +67,9 @@
       "servesCuisine": [
         "Seasonally Inspired Italian"
       ],
-      "acceptsReservations": true,
+      "acceptsReservations": "https://resy.com/cities/sea/il-nido",
       "telephone": "(206) 466-6265",
+      "email": "ilnidoseattle@icloud.com",
       "url": "http://ilnidoseattle.com/",
       "paymentAccepted":"Cash, Credit Card",
       "logo": "http://ilnidoseattle.com/logo_wide558x270.png",
@@ -191,8 +192,9 @@
       </div>
       <div class="ilnido-section__content">
         <ul class="tagline">
-          <li class="tagline__opening">Opening</li>
-          <li class="tagline__date">Summer 2019</li>
+          <li class="tagline__opening">Now Open</li>
+          <li class="tagline__button"><a href="https://resy.com/cities/sea/il-nido">Make a Reservation</a></li>
+
         </ul>
       </div>
     </section>
@@ -202,11 +204,11 @@
     <address class="ilnido-address">
       <ul>
         <li>2717 61st Ave SW, Seattle, WA 98116</li>
-        <li><a href="tel:+2061234567">206.123.4567</a></li>
-        <li><a href="mailto:ilnidoseattle@icloud.com">Email: ilnidoseattle@icloud.com</a></li>
+        <li><a href="tel:+2064666265">206-466-6265</a></li>
+        <li><a href="mailto:ilnidoseattle@icloud.com">
+            ilnidoseattle@icloud.com</a></li>
         <li>
           <ul class="hours">
-            <li>Hours:</li>
             <li>Tuesday &mdash; Saturday</li>
             <li>5:00PM &mdash; 10:00PM</li>
           </ul>
