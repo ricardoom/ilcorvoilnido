@@ -108,6 +108,10 @@ a {
           width: calc(100vw - 12em);
         }
         fill: $logo-color;
+        
+        .logo-outline { 
+          fill: transparentize($in-yellow, 0.1);
+        }
       }
     }
   }
