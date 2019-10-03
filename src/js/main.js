@@ -25,6 +25,7 @@ const restaurant = {
     href: 'http://127.0.0.1:4040/',
     devHref: 'http://ilnido.bulletprooftoupee.com/',
     prodHref: 'http://ilnidoseattle.com/',
+    prodHrefSec: 'https://ilnidoseattle.com/',
     instaURL: 'https://www.instagram.com/p/BnkaHsWFrbl/media/?size=l',
     staticImgURL: './img/firePlaceCold.smaller.jpg',
     contact: {
@@ -51,6 +52,7 @@ const restaurant = {
 if (
   baseURL.href == restaurant.nido.href
   || baseURL.href == restaurant.nido.devHref
+  || baseURL.href == restaurant.nido.prodHrefSec
   || baseURL.href == restaurant.nido.prodHref
 ) {
   // il nido side
