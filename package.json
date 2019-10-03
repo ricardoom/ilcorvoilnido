@@ -4,7 +4,7 @@
   "description": "a mostly static website for Il Corvo & Il Nido Seattle Wa. You should eat there.",
   "main": "index.html",
   "scripts": {
-    "start": "browser-sync start -s dist/ --port 4040 && browser-sync start -s dist/ --port 5678"
+    "start": "browser-sync start -s build/ --port 4040 && browser-sync start -s build/ --port 5678"
   },
   "repository": {
     "type": "git",
@@ -23,9 +23,9 @@
   },
   "homepage": "https://github.com/ricardoom/ilcorvoilnido#readme",
   "dependencies": {
-    "critical": "^1.3.4",
+    "critical": "^1.3.6",
     "http-server": "^0.11.1",
-    "npm": "^6.4.1"
+    "npm": "^6.11.3"
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",
