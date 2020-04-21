@@ -1,19 +1,36 @@
+//
+// Il Nido & Il Corvo Seattle
+//
+// Get the base URL from the document:
 const baseURL = document.location;
+
 const baseTitle = document.querySelector('title');
 const baseBody = document.querySelector('body');
+
+// Main elements in the DOM
 const main = baseBody.querySelector('main');
+
 const mainNav = baseBody.querySelector('nav');
+
 const footer = baseBody.querySelector('footer');
+
 const corvoAddress = footer.lastElementChild;
 const nidoAddress = footer.firstElementChild;
+
 const corvoContain = document.querySelector('.ilcorvo-section');
 const nidoContain = document.querySelector('.ilnido-section');
 const defaultContain = document.querySelector('.default');
+
 const navLink = baseBody.querySelector('.restaurant-link');
+
+// Content variable / flags
 const nidoContent = nidoContain.children[1];
 const corvoContent = corvoContain.children[1];
+
+// the content children:
 const allCorvoContentChildren = corvoContain.children;
 const allNidoContentChildren = nidoContain.children;
+
 const mainBackgroundImage = baseBody.querySelector('.main-background-image__instaFeed');
 const restaurant = {
   host: baseURL.host,
@@ -36,7 +53,7 @@ const restaurant = {
   },
   corvo: {
     title: 'Il Corvo Seattle',
-    href: 'http://127.0.0.1:5678/',
+    href: 'http://127.0.0.1:5050/',
     devHref: 'http://ilcorvo.bulletprooftoupee.com/',
     prodHref: 'http://ilcorvopasta.com/',
     instaURL: 'https://www.instagram.com/p/Bo14AOfnOaw/media/?size=l',

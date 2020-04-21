@@ -20,7 +20,12 @@ Clone the repo `git clone https://github.com/ricardoom/ilcorvoilnido`
 
 Run `npm -i` to install gulp and few of the dependencies.
 
-Navigate to the coresponding directory and run `gulp watch`
+Navigate to the root directory and run `gulp watch`
+
+### Source code, Development and Building
+
+Add Instructions here:
+
 
 ### Making Changes
 
