@@ -45,6 +45,7 @@ const restaurant = {
     prodHrefSec: 'https://ilnidoseattle.com/',
     instaURL: 'https://www.instagram.com/p/BnkaHsWFrbl/media/?size=l',
     staticImgURL: './img/firePlaceCold.smaller.jpg',
+    googleSiteVerification: 'ebn5WipMEe9IkbXBdqN7sV8925O_tFqEt0J6PxbLRIE',
     contact: {
       address: '2717 61st Ave SW, Seattle, WA 98116',
       phone: '2064666256',
@@ -57,7 +58,7 @@ const restaurant = {
     devHref: 'http://ilcorvo.bulletprooftoupee.com/',
     prodHref: 'http://ilcorvopasta.com/',
     instaURL: 'https://www.instagram.com/p/Bo14AOfnOaw/media/?size=l',
-    staticImgURL: './img/main.bg.jpg',
+    staticImgURL: './img/img0236.jpg ',
     contact: {
       address: '217 James St. Seattle, WA 98104',
       phone: '2065380999',
@@ -73,12 +74,12 @@ if (
   || baseURL.href == restaurant.nido.prodHref
 ) {
   // il nido side
-  if (baseURL.href == restaurant.nido.href) {
+  if (baseURL.href === restaurant.nido.href) {
     // modify the nav urls based on environment:
     console.log('on a il nido local host');
     navLink.href = restaurant.corvo.href;
     navLink.setAttribute('target', '_blank');
-  } else if (baseURL.href == restaurant.nido.devHref) {
+  } else if (baseURL.href === restaurant.nido.devHref) {
     console.log('on the dev server');
     navLink.href = restaurant.corvo.devHref;
     navLink.setAttribute('target', '_blank');
@@ -121,7 +122,7 @@ if (
   nidoContain.children[0].href = restaurant.nido.href;
   footer.removeChild(nidoAddress);
   corvoContain.children[0].href = '#';
-  mainBackgroundImage.setAttribute('src', restaurant.corvo.instaURL);
+  mainBackgroundImage.setAttribute('src', restaurant.corvo.staticImgURL);
   main.removeChild(defaultContain);
   nidoContain.remove(allNidoContentChildren);
 } else {
