@@ -1,14 +1,14 @@
 // Il Corvo Color Set
 
 $ic-blue: hsl(199, 97%, 88%);
-
+$ic-blue-dark: darken($ic-blue, 95%);
 // Il Nido Color Set
 
 $in-yellow: hsl(60, 88%, 94%);
-
+$in-yellow-dark: hsl(60, 88%, 5%);
 // Global & Shared Colores
 
-$text-color: hsl(0, 0%, 20%); // #333
+$text-color: hsl(60, 88%, 0%); // #333
 
 $logo-color: $text-color;
 

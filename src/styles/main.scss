@@ -64,6 +64,10 @@ a {
 
 .ilcorvo {
   background-color: $ic-blue;
+
+  footer {
+    @include footer-background($ic: true);
+  }
 }
 
 .ilnido {
@@ -119,13 +123,21 @@ a {
       }
     }
   }
+
+  footer {
+    @include footer-background($ic: false);
+  }
 }
 
 // Use the mixin to add the grid display. This is kinda dumb b/c we can just add it below...
 //
+
+
+
 @include feature-support(display, grid, footer, display, grid);
+
+
 footer {
-  background: $text-color;
   overflow: auto;
   padding: 1.25em 0;
   position: relative;
