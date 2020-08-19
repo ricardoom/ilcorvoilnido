@@ -17,7 +17,7 @@ const footer = baseBody.querySelector('footer');
 const corvoAddress = footer.lastElementChild;
 const nidoAddress = footer.firstElementChild;
 
-const corvoContain = document.querySelector('.ilcorvo-section');
+// const corvoContain = document.querySelector('.ilcorvo-section');
 const nidoContain = document.querySelector('.ilnido-section');
 const defaultContain = document.querySelector('.default');
 
@@ -25,10 +25,10 @@ const navLink = baseBody.querySelector('.restaurant-link');
 
 // Content variable / flags
 const nidoContent = nidoContain.children[1];
-const corvoContent = corvoContain.children[1];
+// const corvoContent = corvoContain.children[1];
 
 // the content children:
-const allCorvoContentChildren = corvoContain.children;
+// const allCorvoContentChildren = corvoContain.children;
 const allNidoContentChildren = nidoContain.children;
 
 const mainBackgroundImage = baseBody.querySelector('.main-background-image__instaFeed');
@@ -40,7 +40,7 @@ const restaurant = {
   nido: {
     title: 'Il Nido Seattle',
     href: 'http://127.0.0.1:4040/',
-    devHref: 'http://ilnido.bulletprooftoupee.com/',
+    devHref: 'http://localhost:4040/',
     prodHref: 'http://ilnidoseattle.com/',
     prodHrefSec: 'https://ilnidoseattle.com/',
     instaURL: 'https://www.instagram.com/p/BnkaHsWFrbl/media/?size=l',
@@ -77,44 +77,44 @@ if (
   if (baseURL.href === restaurant.nido.href) {
     // modify the nav urls based on environment:
     console.log('on a il nido local host');
-    navLink.href = restaurant.corvo.href;
-    navLink.setAttribute('target', '_blank');
+    // navLink.href = restaurant.corvo.href;
+    // navLink.setAttribute('target', '_blank');
   } else if (baseURL.href === restaurant.nido.devHref) {
     console.log('on the dev server');
-    navLink.href = restaurant.corvo.devHref;
-    navLink.setAttribute('target', '_blank');
+    // navLink.href = restaurant.corvo.devHref;
+    // navLink.setAttribute('target', '_blank');
   } else {
     console.log('production');
-    navLink.href = restaurant.corvo.prodHref;
-    navLink.setAttribute('target', '_blank');
+    // navLink.href = restaurant.corvo.prodHref;
+    // navLink.setAttribute('target', '_blank');
   }
   baseTitle.innerText = restaurant.nido.title;
   baseBody.setAttribute('class', 'default ilnido');
-  mainNav.setAttribute('class', 'ilnido-nav');
-  navLink.innerText = restaurant.corvo.title;
-  footer.removeChild(corvoAddress);
+  // mainNav.setAttribute('class', 'ilnido-nav');
+  // navLink.innerText = restaurant.corvo.title;
+  // footer.removeChild(corvoAddress);
   nidoContain.children[0].href = '#';
-  corvoContain.children[0].href = restaurant.corvo.href;
+  // corvoContain.children[0].href = restaurant.corvo.href;
   main.removeChild(defaultContain);
-  corvoContain.remove(allCorvoContentChildren);
+  // corvoContain.remove(allCorvoContentChildren);
 } else if (
-  baseURL.href == restaurant.corvo.href
-  || baseURL.href == restaurant.corvo.devHref
-  || baseURL.href == restaurant.corvo.prodHref
+  baseURL.href === restaurant.corvo.href
+  || baseURL.href === restaurant.corvo.devHref
+  || baseURL.href === restaurant.corvo.prodHref
 ) {
   // il corvo side
   if (baseURL.href == restaurant.corvo.href) {
     console.log('on a corvo local host');
-    navLink.href = restaurant.nido.href;
+    // navLink.href = restaurant.nido.href;
     navLink.setAttribute('target', '_blank');
-  } else if (baseURL.href == restaurant.corvo.devHref) {
+  } else if (baseURL.href === restaurant.corvo.devHref) {
     console.log('on the dev server');
-    navLink.href = restaurant.nido.devHref;
-    navLink.setAttribute('target', '_blank');
+    // navLink.href = restaurant.nido.devHref;
+    // navLink.setAttribute('target', '_blank');
   } else {
     console.log('production');
-    navLink.href = restaurant.nido.prodHref;
-    navLink.setAttribute('target', '_blank');
+    // navLink.href = restaurant.nido.prodHref;
+    // navLink.setAttribute('target', '_blank');
   }
   baseTitle.innerText = restaurant.corvo.title;
   baseBody.setAttribute('class', 'default ilcorvo');
