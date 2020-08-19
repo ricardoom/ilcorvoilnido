@@ -64,54 +64,49 @@ if (
   if (baseURL.href === restaurant.nido.href) {
     // modify the nav urls based on environment:
     console.log('on a il nido local host');
-    // navLink.href = restaurant.corvo.href;
-    // navLink.setAttribute('target', '_blank');
+    
   } else if (baseURL.href === restaurant.nido.devHref) {
     console.log('on the dev server');
-    // navLink.href = restaurant.corvo.devHref;
-    // navLink.setAttribute('target', '_blank');
+        
   } else {
     console.log('production');
-    // navLink.href = restaurant.corvo.prodHref;
-    // navLink.setAttribute('target', '_blank');
+    
   }
   baseTitle.innerText = restaurant.nido.title;
   baseBody.setAttribute('class', 'default ilnido');
-  // mainNav.setAttribute('class', 'ilnido-nav');
-  // navLink.innerText = restaurant.corvo.title;
-  // footer.removeChild(corvoAddress);
+  
   nidoContain.children[0].href = '#';
-  // corvoContain.children[0].href = restaurant.corvo.href;
+  
   main.removeChild(defaultContain);
-  // corvoContain.remove(allCorvoContentChildren);
-} else if (
-  baseURL.href === restaurant.corvo.href
-  || baseURL.href === restaurant.corvo.devHref
-  || baseURL.href === restaurant.corvo.prodHref
-) {
-  // il corvo side
-  if (baseURL.href == restaurant.corvo.href) {
-    console.log('on a corvo local host');
-    // navLink.href = restaurant.nido.href;
-    navLink.setAttribute('target', '_blank');
-  } else if (baseURL.href === restaurant.corvo.devHref) {
-    console.log('on the dev server');
-    // navLink.href = restaurant.nido.devHref;
-    // navLink.setAttribute('target', '_blank');
-  } else {
-    console.log('production');
-    // navLink.href = restaurant.nido.prodHref;
-    // navLink.setAttribute('target', '_blank');
-  }
-  baseTitle.innerText = restaurant.corvo.title;
-  baseBody.setAttribute('class', 'default ilcorvo');
-  navLink.innerText = restaurant.nido.title;
-  nidoContain.children[0].href = restaurant.nido.href;
-  footer.removeChild(nidoAddress);
-  corvoContain.children[0].href = '#';
-  mainBackgroundImage.setAttribute('src', restaurant.corvo.staticImgURL);
-  main.removeChild(defaultContain);
-  nidoContain.remove(allNidoContentChildren);
+  
+// } else if (
+//   baseURL.href === restaurant.corvo.href
+//   || baseURL.href === restaurant.corvo.devHref
+//   || baseURL.href === restaurant.corvo.prodHref
+// ) {
+//   // il corvo side
+//   if (baseURL.href == restaurant.corvo.href) {
+//     console.log('on a corvo local host');
+//     // navLink.href = restaurant.nido.href;
+//     navLink.setAttribute('target', '_blank');
+//   } else if (baseURL.href === restaurant.corvo.devHref) {
+//     console.log('on the dev server');
+//     // navLink.href = restaurant.nido.devHref;
+//     // navLink.setAttribute('target', '_blank');
+//   } else {
+//     console.log('production');
+//     // navLink.href = restaurant.nido.prodHref;
+//     // navLink.setAttribute('target', '_blank');
+//   }
+//   baseTitle.innerText = restaurant.corvo.title;
+//   baseBody.setAttribute('class', 'default ilcorvo');
+//   navLink.innerText = restaurant.nido.title;
+//   nidoContain.children[0].href = restaurant.nido.href;
+//   footer.removeChild(nidoAddress);
+//   corvoContain.children[0].href = '#';
+//   mainBackgroundImage.setAttribute('src', restaurant.corvo.staticImgURL);
+//   main.removeChild(defaultContain);
+//   nidoContain.remove(allNidoContentChildren);
 } else {
   console.log('both failed for some reason... are you on 127... or localhost?');
 }
