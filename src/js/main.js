@@ -52,19 +52,6 @@ const restaurant = {
       email: 'ilnidoseattle@icloud.com',
     },
   },
-  corvo: {
-    title: 'Il Corvo Seattle',
-    href: 'http://127.0.0.1:5050/',
-    devHref: 'http://ilcorvo.bulletprooftoupee.com/',
-    prodHref: 'http://ilcorvopasta.com/',
-    instaURL: 'https://www.instagram.com/p/Bo14AOfnOaw/media/?size=l',
-    staticImgURL: './img/img0236.jpg ',
-    contact: {
-      address: '217 James St. Seattle, WA 98104',
-      phone: '2065380999',
-      email: 'ilcorvopasta@gmail.com',
-    },
-  },
 };
 
 if (
