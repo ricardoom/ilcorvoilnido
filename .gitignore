@@ -17,3 +17,5 @@ devDeploy
 config.js
 # random things:
 fileClustefuck.txt
+ignore parcel cache
+.cache/
