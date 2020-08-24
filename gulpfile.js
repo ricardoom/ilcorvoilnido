@@ -18,15 +18,18 @@ const babel = require('gulp-babel');
 
 const tasks = require('gulp-task-listing');
 
-const uglify = require('gulp-uglify');
+// const uglify = require('gulp-uglify');
+
+// const cloudinary = require("cloudinary-core");
 
 const babelOptions = {
-  presets: ['@babel/env'],
+  // presets: ['@babel/env'],
 };
 
 const paths = {
   styles: {
     source: 'src/styles/**/*.scss',
+    sourceCube: 'src/cube-styles/**/*.scss',
     development: 'dev/css',
     build: 'build/css/',
   },
@@ -74,7 +77,8 @@ const sassOptions = {
 
 // set up the SASS task:
 gulp.task('sass', () => gulp
-  .src(paths.styles.source)
+  // .src(paths.styles.source)
+  .src(paths.styles.sourceCube)
   .pipe(sass())
   .pipe(autoprefixer(autoprefixerOptions))
   .pipe(sourcemaps.init())
@@ -98,14 +102,14 @@ gulp.task('vendorJS', () => {
 gulp.task('js', ['vendorJS'], () => gulp
   .src(paths.scripts.source)
   .pipe(sourcemaps.init())
-  .pipe(babel(babelOptions))
+  // .pipe(babel(babelOptions))
   .pipe(concat('main.min.js'))
-  .pipe(uglify())
+  // .pipe(uglify())
   .pipe(sourcemaps.write('./'))
   .pipe(gulp.dest(paths.scripts.development[0]))
   .pipe(gulp.dest(paths.scripts.build[0])));
 
-gulp.task('critical', ['sass'], (cb) => {
+gulp.task('critical', ['sass'], () => {
   critical.generate({
     inline: true,
     base: 'build/',
@@ -143,7 +147,9 @@ gulp.task('html', () => gulp
 
 gulp.task('watch', ['html', 'sass', 'js'], () => {
   gulp.watch(paths.markup.source, ['html']);
-  gulp.watch(paths.styles.source, ['sass']);
+  // gulp.watch(paths.styles.source, ['sass']);
+  // sourceTwo is our new cube styling style
+  gulp.watch(paths.styles.sourceCube, ['sass']);
   gulp.watch(paths.scripts.source, ['js']);
 });
 

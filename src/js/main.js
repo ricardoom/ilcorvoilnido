@@ -1,10 +1,23 @@
 //
-// Il Nido & Il Corvo Seattle
+// Il Nido Seattle
 //
+// Cloudinary Import:
+// import { Cloudinary } from '../../node_modules/cloudinary-core';
+
+// import { apiKey, cloudName } from '../../config';
+
+// const key = apiKey;
+
+// const cl = new Cloudinary({ cloud_name: cloudName, secure: true });
+// const imgTag = cl.image('myPicID');
+
+// console.log(imgTag);
+
 // Get the base URL from the document:
 const baseURL = document.location;
 
 const baseTitle = document.querySelector('title');
+
 const baseBody = document.querySelector('body');
 
 // Main elements in the DOM
@@ -14,14 +27,13 @@ const mainNav = baseBody.querySelector('nav');
 
 const footer = baseBody.querySelector('footer');
 
-const corvoAddress = footer.lastElementChild;
 const nidoAddress = footer.firstElementChild;
 
 // const corvoContain = document.querySelector('.ilcorvo-section');
 const nidoContain = document.querySelector('.ilnido-section');
 const defaultContain = document.querySelector('.default');
 
-const navLink = baseBody.querySelector('.restaurant-link');
+// const navLink = baseBody.querySelector('.restaurant-link');
 
 // Content variable / flags
 const nidoContent = nidoContain.children[1];

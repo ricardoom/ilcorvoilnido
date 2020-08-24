@@ -1,0 +1,16 @@
+// Il Nido Color Set
+
+$in-yellow: hsl(60, 88%, 94%);
+$in-yellow-dark: hsl(60, 88%, 5%);
+// Global & Shared Colores
+
+$text-color: hsl(60, 88%, 0%); // #333
+
+$logo-color: $text-color;
+
+// Borders:
+$border-color: $text-color;
+// basic border / eyebrow for the nav items
+@mixin navBorder {
+  border: 4px solid $border-color;
+}
