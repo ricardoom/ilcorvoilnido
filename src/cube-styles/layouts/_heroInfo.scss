@@ -1,0 +1,19 @@
+@import 'hero/heroButton';
+
+.hero {
+  background-image: url('https://res.cloudinary.com/toupeeproofbullets/image/upload/t_960_1x/v1598290833/ilnido-repo/nido_dining_room_2.jpg');
+  background-size: cover;
+
+  .content {
+    color: $nido-white;
+  }
+
+  .award {
+    font-size: var(--s1);
+    font-weight: normal;
+  }
+
+  .status {
+    font-size: var(--s4);
+  }
+}

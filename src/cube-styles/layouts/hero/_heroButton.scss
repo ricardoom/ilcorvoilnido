@@ -1,0 +1,16 @@
+.tagline {
+  * + * {
+    color: $nido-white;
+  }
+
+  .button {
+    background-color: transparentize($text-color, 0.2);
+    border: solid 3px $nido-white;
+    list-style-type: none;
+    text-align: center;
+
+    a {
+      color: $nido-white;
+    }
+  }
+}

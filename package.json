@@ -5,7 +5,7 @@
   "main": "index.html",
   "scripts": {
     "start": "browser-sync start -s build/ --port 4040",
-    "start-parcel": "parcel -p 4040 watch build/index.html"
+    "start-parcel": "parcel -p 4040 build/index.html"
   },
   "repository": {
     "type": "git",
