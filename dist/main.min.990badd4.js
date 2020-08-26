@@ -405,8 +405,8 @@ var baseURL = document.location;
 var baseTitle = document.querySelector('title');
 var baseBody = document.querySelector('body'); // Main elements in the DOM
 
-var main = baseBody.querySelector('main');
-var mainNav = baseBody.querySelector('nav');
+var main = baseBody.querySelector('main'); // const mainNav = baseBody.querySelector('nav');
+
 var footer = baseBody.querySelector('footer');
 var nidoAddress = footer.firstElementChild; // const corvoContain = document.querySelector('.ilcorvo-section');
 
@@ -460,7 +460,7 @@ if (baseURL.href === restaurant.nido.href || baseURL.href === restaurant.nido.de
 } else {
   console.log('both failed for some reason... are you on 127... or localhost?');
 }
-},{}],"../../../.nvm/versions/node/v10.16.3/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{}],"../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -488,7 +488,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64692" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64493" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -664,5 +664,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../../../.nvm/versions/node/v10.16.3/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","js/main.min.js"], null)
+},{}]},{},["../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","js/main.min.js"], null)
 //# sourceMappingURL=/main.min.990badd4.js.map

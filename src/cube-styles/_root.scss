@@ -11,7 +11,26 @@
   --s3: calc(var(--s2) * var(--ratio));
   --s4: calc(var(--s3) * var(--ratio));
   --s5: calc(var(--s4) * var(--ratio));
+  font-size: var(--s0);
+  --measure: 60ch;
+  font-size: var(--s0);
 }
+
+* {
+  max-width: var(--measure);
+}
+
+html,
+body,
+div,
+header,
+nav,
+main,
+section,
+footer {
+  max-width: none;
+}
+  
 
 .visually-hidden {
   clip: rect(1px, 1px, 1px, 1px);
@@ -20,3 +39,37 @@
   position: absolute !important;
   width: 1px;
 }
+
+//
+// Skip nav
+//
+.skip {
+  margin: 0;
+  padding: 0;
+
+  a {
+    background-color: #ffffff;
+    color: currentColor;
+    display: block;
+    font-size: var(--s0);
+    font-weight: 400;
+    height: 1px;
+    left: -10000px;
+    line-height: var(--s0);
+    margin: 5px;
+    padding: 5px 10px;
+    position: absolute;
+    top: auto;
+    width: 1px;
+    z-index: 1000;
+  
+    &:focus {
+      left: 0;
+      height: initial;
+      position: absolute;
+      width: initial;
+      top: 0;
+    }
+  }
+}
+

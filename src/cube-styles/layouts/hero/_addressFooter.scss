@@ -1,0 +1,8 @@
+//
+// Address in the footer of the hero section
+
+  footer[role='contentinfo'] {
+    background-color: transparentize($color: $in-yellow-dark, $amount: 0.25);
+    grid-column: 1 / 3;
+  }
+
