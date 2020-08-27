@@ -391,13 +391,6 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 //
 // Il Nido Seattle
 //
-// Cloudinary Import:
-// import { Cloudinary } from '../../node_modules/cloudinary-core';
-// import { apiKey, cloudName } from '../../config';
-// const key = apiKey;
-// const cl = new Cloudinary({ cloud_name: cloudName, secure: true });
-// const imgTag = cl.image('myPicID');
-// console.log(imgTag);
 // Get the base URL from the document:
 
 
@@ -410,7 +403,7 @@ var main = baseBody.querySelector('main'); // const mainNav = baseBody.querySele
 var footer = baseBody.querySelector('footer');
 var nidoAddress = footer.firstElementChild; // const corvoContain = document.querySelector('.ilcorvo-section');
 
-var nidoContain = document.querySelector('.ilnido-section');
+var nidoContain = document.querySelector('.hero');
 var defaultContain = document.querySelector('.default'); // const navLink = baseBody.querySelector('.restaurant-link');
 // Content variable / flags
 

@@ -63,9 +63,10 @@ const paths = {
 // Autoprefixer options:
 //
 const autoprefixerOptions = {
-  browsers: ['last 3 versions', '> 5%', 'Firefox ESR'],
-  flexbox: 'true',
-  grid: 'true',
+  // browsers: ['last 3 versions', '> 5%', 'Firefox ESR'],
+  browswer: ['defaults'],
+  // flexbox: 'true',
+  // grid: 'true',
 };
 
 // SASS options

@@ -3,14 +3,17 @@
     color: $nido-white;
   }
 
-  .button {
+  .click {
     background-color: transparentize($text-color, 0.2);
     border: solid 3px $nido-white;
     list-style-type: none;
     text-align: center;
+    width: 65%;
 
     a {
       color: $nido-white;
+      display: block;
+      padding: var(--s1);
     }
   }
 }

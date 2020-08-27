@@ -1,8 +1,13 @@
 .box {
   padding: var(--s1);
-  border: var(--border-thin) solid;
+  // --border-thin: 1px;
+  // border: var(--border-thin, 1px) solid;
   color: var(--color-dark);
   background-color: var(--color-light);
+}
+
+ul[class] {
+  //border: 1px dotted red;
 }
 
 .box * {
