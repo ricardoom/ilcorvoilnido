@@ -1,0 +1,83 @@
+//
+// Global Variables, both logical CSS Properties & SCSS Variables...
+
+// No Units applied
+$small-screen: 25.875rem;
+$medium-screen: 48rem;
+$large-screen: 69.5rem;
+
+
+:root {
+  --ratio: 1.618;
+  --s-5: calc(var(--s-4) / var(--ratio));
+  --s-4: calc(var(--s-3) / var(--ratio));
+  --s-3: calc(var(--s-2) / var(--ratio));
+  --s-2: calc(var(--s-1) / var(--ratio));
+  --s-1: calc(var(--s0) / var(--ratio));
+  --s0: 1rem;
+  --s1: calc(var(--s0) * var(--ratio));
+  --s2: calc(var(--s1) * var(--ratio));
+  --s3: calc(var(--s2) * var(--ratio));
+  --s4: calc(var(--s3) * var(--ratio));
+  --s5: calc(var(--s4) * var(--ratio));
+  --measure: 60ch;
+  font-size: var(--s0);
+}
+
+* {
+  max-width: var(--measure);
+}
+
+html,
+body,
+div,
+header,
+nav,
+main,
+section,
+footer {
+  max-width: none;
+}
+  
+
+.visually-hidden {
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  overflow: hidden;
+  position: absolute !important;
+  width: 1px;
+}
+
+//
+// Skip nav
+//
+.skip {
+  margin: 0;
+  padding: 0;
+
+  a {
+    background-color: #ffffff;
+    color: currentColor;
+    display: block;
+    font-size: var(--s0);
+    font-weight: 400;
+    height: 1px;
+    left: -10000px;
+    line-height: var(--s0);
+    margin: 5px;
+    padding: 5px 10px;
+    position: absolute;
+    top: auto;
+    width: 1px;
+    z-index: 1000;
+  
+    &:focus {
+      left: 0;
+      height: initial;
+      position: absolute;
+      width: initial;
+      top: 0;
+    }
+  }
+}
+

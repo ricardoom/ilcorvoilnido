@@ -1,0 +1,27 @@
+// .aspect-16-9 {
+//   > img,
+//   source {
+//     background-color: #e3e3e3;
+//     width: 100vmin;
+//     height: calc((9 * 100vmin) / 16); /* equals to 16:9 a.r. = height: 56.25vmin; */
+//     object-fit: cover;
+//   }
+// }
+
+// .aspect-1-1 {
+//   source,
+//   img {
+//     background-color: #99d628;
+//     width: 100vmin;
+//     height: calc((1 * 100vmin) / 1); /* equals to 1:1 a.r. = height: 100vmin; */
+//   }
+// }
+
+
+// TODO: get rid of the stuff above...
+
+//
+// Photo grid stuff...
+.photo-grid {
+  @include defineGrid();
+}

@@ -20,7 +20,15 @@ Clone the repo `git clone https://github.com/ricardoom/ilcorvoilnido`
 
 Run `npm -i` to install gulp and few of the dependencies.
 
-Navigate to the coresponding directory and run `gulp watch`
+Navigate to the root directory and run `gulp watch`
+
+### Source code, Development and Building
+
+Add Instructions here:
+
+1. In your terminal navigate to the root of the project
+2. enter the command `npm run gulp`
+3. This sets opens up a dev window and starts BrowswerSync
 
 ### Making Changes
 

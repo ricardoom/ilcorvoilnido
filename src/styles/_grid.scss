@@ -1,6 +1,6 @@
 // split the screen horizontally for small devices
 .default {
-  main, 
+  main,
   footer {
     @include media('>=phone', '<=tablet') {
       grid-template-columns: 5vw 90vw 5vw;
@@ -25,7 +25,7 @@
     // arrange the grid for small screens:
 
     .ilnido-section,
-    footer address {
+      footer address {
       @include media('>=phone', '<=tablet') {
         grid-column: 2 / 3;
         grid-row: 1 / 3;
@@ -36,30 +36,6 @@
         grid-row: 1 / 3;
       }
     } // closes/ ilnido-section
-
-    ///
-    /// TODO: move il corvo / il nido sections into their own partials.
-    /// Il Corvo Section
-    ///
-    .ilcorvo-section {
-      @include media('>=phone', '<=tablet') {
-        grid-column: 1 / 3;
-        grid-row: 2 / 3;
-      }
-
-      @include media('>=tablet') {
-        background: radial-gradient(ellipse at 40px, hsla(0, 91%, 77%, 0.3), transparent),
-          radial-gradient(ellipse at bottom, hsla(0, 93%, 89%, 0.32), transparent);
-        grid-column: 1 / 2;
-        grid-row: 1 / 3;
-      }
-
-      & * {
-        padding: 0 3vw;
-      }
-
-      background: transparentize($color: $ic-blue, $amount: 0.25);
-    } // closes/ ilcorvo-section
 
     /// Medium sized screens
 
@@ -96,18 +72,53 @@
   &.ilcorvo {
     // Smallest Screen(s) up to Tablet
     // arrange the grid for small screens:
-    @include media('>=phone', '<=tablet') {
-      .ilnido-section {
-        grid-row-start: 2;
+    // @include media('>=phone', '<=tablet') {
+    //   .ilcorvo-section {
+    //     grid-row-start: 2;
+    //   }
+
+    //   .ilcorvo-section {
+    //     //background: hsl(335, 89%, 89%);
+    //     grid-row-start: 1;
+    //   }
+    // }
+
+        /// Il Corvo Section
+    ///
+    .ilcorvo-section {
+      @include media('>=phone', '<=tablet') {
+        grid-column: 1 / 3;
+        grid-row: 2 / 3;
       }
 
-      .ilcorvo-section {
-        background: hsl(335, 89%, 89%);
-        grid-row-start: 1;
+      @include media('>=tablet') {
+        // background: radial-gradient(ellipse at 40px, hsla(0, 91%, 77%, 0.3), transparent),
+        //   radial-gradient(ellipse at bottom, hsla(0, 93%, 89%, 0.32), transparent);
+        grid-column: 2 / -2;
+        grid-row: 1 / 3;
       }
 
-      footer {
-        color: hsl(0, 100%, 91%);
+      & * {
+        padding: 0 3vw;
+      }
+
+      //
+    } // closes/ ilcorvo-section
+
+    footer {
+      background-color: transparentize($ic-blue-dark, 0.25);
+      color: $ic-blue;
+
+      & > address {
+        @include media('>=phone', '<=tablet') {
+          grid-column: 2 / 3;
+          grid-row: 1 / 3;
+        }
+  
+        @include media('>=tablet') {
+          grid-column: 2 / 3;
+          grid-row: 1 / 3;
+        }
       }
     }
   }

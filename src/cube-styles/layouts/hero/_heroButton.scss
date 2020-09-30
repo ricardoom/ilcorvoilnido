@@ -1,0 +1,21 @@
+.tagline {
+  * + * {
+    color: $nido-white;
+  }
+
+  .click {
+    background-color: transparentize($text-color, 0.2);
+    border: solid 3px $nido-white;
+    list-style-type: none;
+    text-align: center;
+    // width: max(65%, 265px);
+
+    a {
+      color: $nido-white;
+      display: block;
+      font-size: var(--s1);
+      padding: var(--s1);
+      text-shadow: none;
+    }
+  }
+}

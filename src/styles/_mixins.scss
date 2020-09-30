@@ -25,3 +25,17 @@
     }
   }
 }
+
+//
+// footer background colors
+//
+@mixin footer-background(
+  $ic: true) {
+  @if $ic {
+    background-color: $ic-blue-dark;
+    color: $ic-blue;
+  } @else {
+    background-color: $in-yellow-dark;
+    color: $in-yellow;
+  }
+}

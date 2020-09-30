@@ -1,9 +1,6 @@
-// Il Corvo Color Set
-
-$ic-blue: hsl(199, 97%, 88%);
-$ic-blue-dark: darken($ic-blue, 95%);
 // Il Nido Color Set
 
+$nido-white: hsl(1, 0%, 100%);
 $in-yellow: hsl(60, 88%, 94%);
 $in-yellow-dark: hsl(60, 88%, 5%);
 // Global & Shared Colores
@@ -17,4 +14,12 @@ $border-color: $text-color;
 // basic border / eyebrow for the nav items
 @mixin navBorder {
   border: 4px solid $border-color;
+}
+
+//
+// map to css custom proerties
+// TODO: probably a less tedious way to do this... like just CSS CPs...
+:root {
+  --colorlight: $ilnido-white;
+  --color-dark: $in-yellow-dark;
 }

@@ -1,0 +1,49 @@
+//
+// Hero Section
+
+$tagline-height: 40.25rem;
+// $footer-height: calc(#{$tagline-height} / 7);
+
+@import 'hero/heroButton';
+@import 'hero/addressFooter';
+
+
+.hero {
+  // --footer-height: calc(#{$tagline-height} / 7);
+  --footer-height: 35vh;
+  background-image: url('https://res.cloudinary.com/toupeeproofbullets/image/upload/t_960_1x/v1598290833/ilnido-repo/nido_dining_room_2.jpg');
+  background-size: cover;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  // grid-template-rows: minmax($tagline-height, 1fr) minmax(var(--footer-height), 1fr);
+  grid-template-rows: minmax($tagline-height, 2fr) minmax(100px, auto);
+  & > * {
+    color: $nido-white;
+    grid-column: 2 / 3;
+
+    @media screen and (max-width: $medium-screen) {
+      grid-column: 1 / 3;
+    }
+  }
+
+  .content {
+    background-image: linear-gradient(237deg, hsla(230, 60%, 54%, 0.5) 8%, hsla(304, 52%, 55%, 0.5) 63%, hsla(22, 100%, 56%, 0.534) 100%);
+    grid-row: 1 / 3;
+    // min-height: 130vh;
+    text-shadow: 1px 1px 0 hsla(0, 0%, 0, 0.70), 0 2px 3px hsla(0, 0%, 0, 0.70);
+  }
+
+  .award {
+    font-size: var(--s1);
+    font-weight: normal;
+  }
+
+  .status {
+    font-size: var(--s4);
+    line-height: var(--s4);
+  }
+
+  .response {
+    font-size: max(1rem, 1.35rem);
+  }
+}

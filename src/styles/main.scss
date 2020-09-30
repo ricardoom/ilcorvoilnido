@@ -52,18 +52,22 @@ a {
 }
 
 .visually-hidden {
-  position: absolute !important;
-  height: 1px;
-  width: 1px;
-  overflow: hidden;
   clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  overflow: hidden;
+  position: absolute !important;
+  width: 1px;
 }
 
-// 
+//
 @include feature-support(display, grid, main, display, grid);
 
 .ilcorvo {
   background-color: $ic-blue;
+
+  footer {
+    @include footer-background($ic: true);
+  }
 }
 
 .ilnido {
@@ -80,7 +84,11 @@ a {
     // @include media('height<=phone', 'landscape') {
     //   padding-top: 13vh;
     // }
-    @include media-context(('custom': 23em)) {
+    @include media-context(
+      (
+        'custom': 23em,
+      )
+    ) {
       @include media('height<=custom', 'landscape') {
         padding-top: 13vh;
       }
@@ -108,20 +116,28 @@ a {
           width: calc(100vw - 12em);
         }
         fill: $logo-color;
-        
-        .logo-outline { 
+
+        .logo-outline {
           fill: transparentize($in-yellow, 0.1);
         }
       }
     }
   }
+
+  footer {
+    @include footer-background($ic: false);
+  }
 }
 
 // Use the mixin to add the grid display. This is kinda dumb b/c we can just add it below...
-// 
+//
+
+
+
 @include feature-support(display, grid, footer, display, grid);
+
+
 footer {
-  background: $text-color;
   overflow: auto;
   padding: 1.25em 0;
   position: relative;
@@ -165,12 +181,15 @@ footer {
   // see vendors/_include_media.scss line: 472 for details on what the hell is going on below:
   //
 
-  @include media-context(('custom': 750px)) {
+  @include media-context(
+    (
+      'custom': 750px,
+    )
+  ) {
     @include media('>=custom', 'landscape') {
       height: initial;
     }
   }
-
 
   left: 0;
   max-height: 640px;
