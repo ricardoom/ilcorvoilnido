@@ -1,3 +1,12 @@
+//
+// Global Variables, both logical CSS Properties & SCSS Variables...
+
+// No Units applied
+$small-screen: 25.875rem;
+$medium-screen: 48rem;
+$large-screen: 69.5rem;
+
+
 :root {
   --ratio: 1.618;
   --s-5: calc(var(--s-4) / var(--ratio));
@@ -11,7 +20,6 @@
   --s3: calc(var(--s2) * var(--ratio));
   --s4: calc(var(--s3) * var(--ratio));
   --s5: calc(var(--s4) * var(--ratio));
-  font-size: var(--s0);
   --measure: 60ch;
   font-size: var(--s0);
 }

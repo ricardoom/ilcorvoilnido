@@ -1,5 +1,6 @@
 @import 'layouts/headerLogo';
 @import 'layouts/heroInfo';
+@import 'layouts/responseSection';
 @import 'layouts/photoGrid';
 @import 'layouts/lastFooter';
 
@@ -9,7 +10,7 @@
 body {
   display: flex;
   flex-direction: column;
-
+  
   header {
     flex: 1 0 auto;
   }

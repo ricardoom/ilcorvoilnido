@@ -26,6 +26,9 @@ Navigate to the root directory and run `gulp watch`
 
 Add Instructions here:
 
+1. In your terminal navigate to the root of the project
+2. enter the command `npm run gulp`
+3. This sets opens up a dev window and starts BrowswerSync
 
 ### Making Changes
 

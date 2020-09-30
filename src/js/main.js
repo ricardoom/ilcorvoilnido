@@ -72,9 +72,7 @@ if (
   }
   baseTitle.innerText = restaurant.nido.title;
   baseBody.setAttribute('class', 'default ilnido');
-  
   nidoContain.children[0].href = '#';
-  
   main.removeChild(defaultContain);
 } else {
   console.log('both failed for some reason... are you on 127... or localhost?');

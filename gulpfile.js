@@ -2,6 +2,8 @@ const gulp = require('gulp');
 
 const sass = require('gulp-sass');
 
+const browserSync = require('browser-sync').create();
+
 sass.compiler = require('node-sass');
 
 const sourcemaps = require('gulp-sourcemaps');
@@ -147,11 +149,15 @@ gulp.task('html', () => gulp
 //
 
 gulp.task('watch', ['html', 'sass', 'js'], () => {
-  gulp.watch(paths.markup.source, ['html']);
+  browserSync.init({
+    server: "./dev"
+  });
+
+  gulp.watch(paths.markup.source, ['html']).on('change', browserSync.reload);
   // gulp.watch(paths.styles.source, ['sass']);
   // sourceTwo is our new cube styling style
-  gulp.watch(paths.styles.sourceCube, ['sass']);
-  gulp.watch(paths.scripts.source, ['js']);
+  gulp.watch(paths.styles.sourceCube, ['sass']).on('change', browserSync.reload);
+  gulp.watch(paths.scripts.source, ['js']).on('change', browserSync.reload);
 });
 
 //

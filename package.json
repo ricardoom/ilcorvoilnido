@@ -5,7 +5,7 @@
   "main": "index.html",
   "scripts": {
     "start": "browser-sync start -s build/ --port 4040",
-    "start-parcel": "parcel -p 4040  build/index.html"
+    "gulp": "gulp watch"
   },
   "repository": {
     "type": "git",
@@ -27,6 +27,7 @@
     "@babel/core": "^7.11.4",
     "@babel/preset-env": "^7.11.0",
     "acorn": "^6.4.1",
+    "browser-sync": "^2.26.12",
     "critical": "^1.3.10",
     "del": "^3.0.0",
     "eslint": "^5.16.0",
