@@ -1,10 +1,31 @@
 //
 // Mixins / Functions
 
-@mixin defineGrid($column-args...) {
+@mixin defineGrid($flow: dense, $columns: repeat(2, 1fr), $column-gap: 0, $row-gap: 0, $row-args: null) {
+  // Fall Back to Flex Box?
+  column-gap: $column-gap;
+  display: flex;
   @supports (display: grid) {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: $column-args;
+  grid-auto-flow: $flow;
+  grid-template-columns: $columns;
+  grid-template-rows: $row-args;
+  row-gap: $row-gap;
+  }
+}
+
+@mixin easyPad(
+  $baseVal: var(--s0),
+  $b-start: $baseVal,
+  $in-start: $baseVal,
+  $b-end: $baseVal,
+  $in-end: $baseVal,
+) {
+  padding: $baseVal;
+  @supports (padding-block-start: $baseVal) {
+  padding-block-end: $b-end;
+  padding-block-start: $b-start;
+  padding-inline-start: $in-start;
+  padding-inline-end: $in-end;
   }
 }
