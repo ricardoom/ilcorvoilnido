@@ -29,3 +29,9 @@
   padding-inline-end: $in-end;
   }
 }
+
+@mixin easyDropShadow() {
+  picture {
+  box-shadow: 0px 0px 25px 0px transparentize($in-yellow-dark, 0.75);
+}
+}
