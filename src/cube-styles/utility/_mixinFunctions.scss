@@ -22,12 +22,12 @@
   $b-end: $baseVal,
   $in-end: $baseVal,
 ) {
-  padding: $baseVal;
-  @supports (padding-block-start: $baseVal) {
-  padding-block-end: $b-end;
-  padding-block-start: $b-start;
-  padding-inline-start: $in-start;
-  padding-inline-end: $in-end;
+  #{$spacer}: $baseVal;
+  @supports (margin-block-start: $baseVal) {
+  #{$spacer}-block-end: $b-end;
+  #{$spacer}-block-start: $b-start;
+  #{$spacer}-inline-start: $in-start;
+  #{$spacer}-inline-end: $in-end;
   }
 }
 
