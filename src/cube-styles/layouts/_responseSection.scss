@@ -8,4 +8,8 @@
   h2, p {
     // grid-column: 2 / 3;
   }
+
+  p {
+      padding-left: var(--s2);
+  }
 }

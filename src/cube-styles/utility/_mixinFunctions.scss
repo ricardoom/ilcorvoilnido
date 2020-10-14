@@ -14,7 +14,8 @@
   }
 }
 
-@mixin easyPad(
+@mixin easyPadMarg(
+  $spacer: margin,
   $baseVal: var(--s0),
   $b-start: $baseVal,
   $in-start: $baseVal,
