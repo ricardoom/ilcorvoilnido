@@ -1,18 +1,27 @@
-# il Corvo ~ Il Nido
+# A simple web site for Il Nido Seattle
 
 A basic site that is not so basic.
 
 ## Change Log
 
-### v0.0.1
+### v0.0.3
 
-* added some basic JS to switch styles based on URL
+* redesign in effect
+
+  * Added in a photo grid
+  * Makes heavy use of grid
+  * Implemented a draft approach to css [ cube ] way of doing things...
+  * Added browsersync to gulp for easier development
 
 ### v0.0.2
 
 * Removed the outline from the logo.
 
-## Instructions on how to use this repo
+### v0.0.1
+
+* added some basic JS to switch styles based on URL
+
+## Instructions on how to use the code in this repo:
 
 Make sure you have Node.js installed (10.16.3)
 
