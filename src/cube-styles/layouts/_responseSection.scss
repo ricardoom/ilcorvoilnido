@@ -3,4 +3,13 @@
 
 .response {
   display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+
+  h2, p {
+    // grid-column: 2 / 3;
+  }
+
+  p {
+      padding-left: var(--s2);
+  }
 }
