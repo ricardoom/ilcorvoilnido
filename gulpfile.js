@@ -22,8 +22,6 @@ const tasks = require('gulp-task-listing');
 
 // const uglify = require('gulp-uglify');
 
-// const cloudinary = require("cloudinary-core");
-
 const babelOptions = {
   // presets: ['@babel/env'],
 };
@@ -36,7 +34,7 @@ const paths = {
     build: 'build/css/',
   },
   scripts: {
-    jsVendors: ['./src/js/vendor/fontfaceobserver.standalone.js'],
+    jsVendors: ['./src/js/vendor/fontfaceobserver.standalone.js', './src/js/vendor/cloudinary-core-shrinkwrap.js'],
     source: ['./src/js/vendor/modernizr-custom.js', './src/js/plugins.js', './src/js/main.js'],
     development: ['dev/js', 'dev/js/vendor'],
     build: ['build/js', 'build/js/vendor'],
