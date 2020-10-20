@@ -5,7 +5,9 @@
   "main": "index.html",
   "scripts": {
     "start": "browser-sync start -s build/ --port 4040",
-    "gulp": "gulp watch"
+    "gulp": "gulp watch",
+    "gulp-build": "gulp build",
+    "build": "gulp build && browser-sync start -s build/"
   },
   "repository": {
     "type": "git",

@@ -20,6 +20,8 @@ const babel = require('gulp-babel');
 
 const tasks = require('gulp-task-listing');
 
+// const { on } = require('npm');
+
 // const uglify = require('gulp-uglify');
 
 const babelOptions = {
@@ -41,8 +43,8 @@ const paths = {
     source: [
       './src/js/vendor/modernizr-custom.js',
       './src/js/plugins.js',
-      './src/js/getAllImgs.js',
-      './src/js/imageDetect.js',
+      // './src/js/getAllImgs.js',
+      // './src/js/imageDetect.js',
       './src/js/main.js'],
     development: ['dev/js', 'dev/js/vendor'],
     build: ['build/js', 'build/js/vendor'],
@@ -170,7 +172,7 @@ gulp.task('watch', ['html', 'sass', 'js'], () => {
 // Build
 // everything into build folder to be deployed
 //
-gulp.task('build', ['critical', 'html']);
+gulp.task('build', ['critical', 'html']).on('change', browserSync.reload);
 
 //
 // override the default `gulp` command and send a list of all the available commands
