@@ -3,6 +3,7 @@ const allImgs = document.querySelectorAll('figure img');
 // console.log(allImgs);
 // remove the srcset attribute where webp is not supported:
 function imgData(result, object) {
+
   object.forEach((img) => {
     const { srcset, src } = img.dataset;
     // eslint-disable-next-line no-console
@@ -14,6 +15,7 @@ function imgData(result, object) {
       img.setAttribute('src', `${srcset}`);
       // img.removeAttribute(srcset);
       // img.removeAttribute(src)
+      // eslint-disable-next-line no-console
       console.log(srcset);
     }
   });

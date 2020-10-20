@@ -158,6 +158,7 @@
   picture,
   figure,
   svg {
+    min-height: 10vh;
     max-width: unset;
     width: 100%;
   }

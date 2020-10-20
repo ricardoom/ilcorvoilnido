@@ -55,7 +55,7 @@ const restaurant = {
   },
 };
 
-detectImageFormat();
+// detectImageFormat();
 
 if (
   baseURL.href === restaurant.nido.href
