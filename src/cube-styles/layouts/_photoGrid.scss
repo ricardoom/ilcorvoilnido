@@ -145,14 +145,14 @@
 
   blockquote,
   figcaption {
-    font-size: var(--s0);
+    // font-size: var(--s0);
+    font-size: var(--s2);
     font-weight: 100;
-    line-height: var(--s1);
+    line-height: calc(var(--s1) * var(--s2));
     padding: var(--s2);
-    @supports (padding-block-start: var(--s2)) {
-    padding-block-start: var(--s2) 
+    @include easyPadMarg($spacer: padding, $baseVal: var(--s3))
     }
-  }
+  
 
   img,
   picture,
