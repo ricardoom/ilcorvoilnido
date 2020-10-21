@@ -20,9 +20,9 @@ const babel = require('gulp-babel');
 
 const tasks = require('gulp-task-listing');
 
-// const uglify = require('gulp-uglify');
+// const { on } = require('npm');
 
-// const cloudinary = require("cloudinary-core");
+// const uglify = require('gulp-uglify');
 
 const babelOptions = {
   // presets: ['@babel/env'],
@@ -36,8 +36,16 @@ const paths = {
     build: 'build/css/',
   },
   scripts: {
-    jsVendors: ['./src/js/vendor/fontfaceobserver.standalone.js'],
-    source: ['./src/js/vendor/modernizr-custom.js', './src/js/plugins.js', './src/js/main.js'],
+    jsVendors: [
+      './src/js/vendor/fontfaceobserver.standalone.js',
+      './src/js/vendor/cloudinary-core-shrinkwrap.js'
+    ],
+    source: [
+      './src/js/vendor/modernizr-custom.js',
+      './src/js/plugins.js',
+      // './src/js/getAllImgs.js',
+      // './src/js/imageDetect.js',
+      './src/js/main.js'],
     development: ['dev/js', 'dev/js/vendor'],
     build: ['build/js', 'build/js/vendor'],
   },
@@ -66,7 +74,7 @@ const paths = {
 //
 const autoprefixerOptions = {
   // browsers: ['last 3 versions', '> 5%', 'Firefox ESR'],
-  browswer: ['defaults'],
+  browsers: ['defaults'],
   // flexbox: 'true',
   // grid: 'true',
 };
@@ -164,7 +172,7 @@ gulp.task('watch', ['html', 'sass', 'js'], () => {
 // Build
 // everything into build folder to be deployed
 //
-gulp.task('build', ['critical', 'html']);
+gulp.task('build', ['critical', 'html']).on('change', browserSync.reload);
 
 //
 // override the default `gulp` command and send a list of all the available commands

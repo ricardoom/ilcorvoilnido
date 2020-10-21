@@ -40,8 +40,8 @@ const restaurant = {
   path: baseURL.pathname,
   nido: {
     title: 'Il Nido Seattle',
-    href: 'http://127.0.0.1:4040/',
-    devHref: 'http://localhost:4040/',
+    href: 'http://127.0.0.1:3000/',
+    devHref: 'http://localhost:3000/',
     prodHref: 'http://ilnidoseattle.com/',
     prodHrefSec: 'https://ilnidoseattle.com/',
     instaURL: 'https://www.instagram.com/p/BnkaHsWFrbl/media/?size=l',
@@ -55,6 +55,8 @@ const restaurant = {
   },
 };
 
+// detectImageFormat();
+
 if (
   baseURL.href === restaurant.nido.href
   || baseURL.href === restaurant.nido.devHref
@@ -62,6 +64,7 @@ if (
   || baseURL.href === restaurant.nido.prodHref
 ) {
   // il nido side
+  // assumes you are using the BrowserSync dev work flow:
   if (baseURL.href === restaurant.nido.href) {
     // modify the nav urls based on environment:
     console.log('on a il nido local host');
