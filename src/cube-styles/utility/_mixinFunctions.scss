@@ -1,7 +1,7 @@
 //
 // Mixins / Functions
 
-@mixin defineGrid($flow: dense, $columns: repeat(2, 1fr), $column-gap: 0, $row-gap: 0, $row-args: null) {
+@mixin defineGrid($flow: dense, $columns: repeat(2, 1fr), $column-gap: 0, $row-gap: 0, $row-args: auto) {
   // Fall Back to Flex Box?
   column-gap: $column-gap;
   display: flex;
