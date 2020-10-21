@@ -146,13 +146,21 @@
   blockquote,
   figcaption {
     // font-size: var(--s0);
-    font-size: var(--s2);
+    --halfRatio: var(--ratio) * 0.809;
+    font-size: var(--s0);
     font-weight: 100;
-    line-height: calc(var(--s1) * var(--s2));
+    line-height: var(--s1);
     padding: var(--s2);
-    @include easyPadMarg($spacer: padding, $baseVal: var(--s3))
+    @media screen and (max-width: $small-screen) {
+      font-size: var(--s1);
+      @include easyPadMarg($spacer: padding, $baseVal: calc(var(--s1) * var(--halfRatio)))
     }
-  
+    @media screen and (min-width: $medium-screen) {
+      font-size: var(--s2);
+      line-height: calc(var(--halfRatio) * var(--s2));
+      @include easyPadMarg($spacer: padding, $baseVal: var(--s3))  
+    }
+  }
 
   img,
   picture,
