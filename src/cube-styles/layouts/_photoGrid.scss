@@ -160,6 +160,12 @@
       line-height: calc(var(--halfRatio) * var(--s2));
       @include easyPadMarg($spacer: padding, $baseVal: var(--s3))  
     }
+
+    span {
+      display: block;
+      font-size: var(--s1);
+      line-height: var(--s1);
+     }
   }
 
   img,
