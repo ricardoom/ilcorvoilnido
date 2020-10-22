@@ -9,22 +9,44 @@
     // $columns: repeat(auto-fit, minmax(414px, 1fr)),
     $columns: repeat(auto-fit, minmax(10vw, 1fr)),
     // $row-args: repeat(auto-fit, minmax(100px, 1fr)),
-    $row-gap: var(--s1)
+    $row-gap: var(--s1),
+    $column-gap: var(--s1)
   );  
   }
   
+  ul:last-child {
+    background-color: $in-honeydew;
+  }
 
   p {
-      padding-left: var(--s2);
+    padding-left: var(--s2);
   }
 
   h2 {
+    @media screen and (max-width: $medium-screen) {
+      @include easyPadMarg(
+        $spacer: padding,
+        $b-start: var(--s1),
+        $b-end: var(--s1),
+        $in-start: 0,
+        $in-end: 0
+      )
+    }
+    background-color: $in-yellow;
     font-size: clamp(var(--s1), 2.5vw, var(--s3));
+    font-weight: 400;
+    line-height: var(--s1);
   }
 
   h3, h4 {
-    grid-column: 2 / 3;
     font-size: clamp(var(--s0), var(--s1), var(--s2));
+    grid-column: 2 / 3;
+    line-height: var(--s1);
+    margin-top: var(--s2);
+
+    @media screen and (min-width: $medium-screen) {
+      margin: 0;
+    }
   }
 
   ul {
