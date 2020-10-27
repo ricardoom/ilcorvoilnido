@@ -16,17 +16,21 @@ const htmlmin = require('gulp-htmlmin');
 
 const critical = require('critical');
 
-const babel = require('gulp-babel');
+// const babel = require('gulp-babel');
 
 const tasks = require('gulp-task-listing');
+
+const markdown = require('gulp-markdown');
+
+const mdjson = require('gulp-marked-json');
 
 // const { on } = require('npm');
 
 // const uglify = require('gulp-uglify');
 
-const babelOptions = {
-  // presets: ['@babel/env'],
-};
+// const babelOptions = {
+//   // presets: ['@babel/env'],
+// };
 
 const paths = {
   styles: {
@@ -38,7 +42,7 @@ const paths = {
   scripts: {
     jsVendors: [
       './src/js/vendor/fontfaceobserver.standalone.js',
-      './src/js/vendor/cloudinary-core-shrinkwrap.js'
+      './src/js/vendor/cloudinary-core-shrinkwrap.js',
     ],
     source: [
       './src/js/vendor/modernizr-custom.js',
@@ -58,6 +62,13 @@ const paths = {
     source: 'img/**/*.*',
     development: 'img/',
     build: 'build/img',
+  },
+  content: {
+    copy: {
+      source: 'src/copy/*.md',
+      development: 'dev/copy/',
+      build: 'build/copy',
+    },
   },
 };
 
@@ -97,6 +108,39 @@ gulp.task('sass', () => gulp
   .pipe(sourcemaps.write('./'))
   .pipe(gulp.dest(paths.styles.development))
   .pipe(gulp.dest(paths.styles.build)));
+
+//
+// Convert markdown to HTML
+//
+//
+
+markdown.marked.setOptions({
+  renderer: new markdown.marked.Renderer(),
+  gfm: true,
+  tables: true,
+  breaks: false,
+  pedantic: false,
+  sanitize: true,
+  smartLists: true,
+  smartypants: false,
+});
+
+gulp.task('md', () => gulp
+  .src('./src/copy/covidProtocol.md')
+  .pipe(markdown())
+  .pipe(gulp.dest('./src/copy/html')));
+
+gulp.task('mdjson', () => {
+  gulp
+    .src('./src/copy/**/*.md')
+    .pipe(mdjson(
+      {
+        pedantic: true,
+        smartypants: true,
+      },
+    ))
+    .pipe(gulp.dest('./src/copy/json/'));
+});
 
 //
 // Find and concact all the JS into a single file:
@@ -158,7 +202,7 @@ gulp.task('html', () => gulp
 
 gulp.task('watch', ['html', 'sass', 'js'], () => {
   browserSync.init({
-    server: "./dev"
+    server: './dev',
   });
 
   gulp.watch(paths.markup.source, ['html']).on('change', browserSync.reload);

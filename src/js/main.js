@@ -39,9 +39,9 @@ const restaurant = {
   origin: baseURL.origin,
   path: baseURL.pathname,
   nido: {
-    title: 'Il Nido Seattle',
-    href: 'http://127.0.0.1:3000/',
-    devHref: 'http://localhost:3000/',
+    title: 'Il Nido Seattle ',
+    href: 'http://localhost:3000/',
+    devHref: 'http://localhost:3002/',
     prodHref: 'http://ilnidoseattle.com/',
     prodHrefSec: 'https://ilnidoseattle.com/',
     instaURL: 'https://www.instagram.com/p/BnkaHsWFrbl/media/?size=l',
@@ -73,7 +73,7 @@ if (
   } else {
     console.log('production');    
   }
-  baseTitle.innerText = restaurant.nido.title;
+  // baseTitle.innerText = restaurant.nido.title;
   baseBody.setAttribute('class', 'default ilnido');
   nidoContain.children[0].href = '#';
   main.removeChild(defaultContain);

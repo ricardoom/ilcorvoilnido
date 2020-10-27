@@ -46,8 +46,11 @@ $tagline-height: 40.25rem;
     font-size: var(--s4);
     line-height: var(--s4);
   }
-
-  .response {
-    font-size: max(1rem, 1.35rem);
+  .tagline {
+    :last-child {
+      font-size: max(1rem, 1.35rem);
+      // @include easyPadMarg($spacer: padding,$in-end: 0, $in-start: 0);
+    }
   }
+  
 }
