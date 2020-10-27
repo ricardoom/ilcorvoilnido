@@ -9,9 +9,12 @@ A basic site that is not so basic.
 * redesign in effect
 
   * Added in a photo grid
-  * Makes heavy use of grid
   * Implemented a draft approach to css [ cube ] way of doing things...
-  * Added browsersync to gulp for easier development
+  * Added `browsersync` to gulp for easier development
+  * Added new typography rules and styles
+  * Refactored JS, CSS, HTML
+  * Added COVID response
+  * Using Cloudinary CDN for image delivery
 
 ### v0.0.2
 
@@ -19,7 +22,7 @@ A basic site that is not so basic.
 
 ### v0.0.1
 
-* added some basic JS to switch styles based on URL
+* Added some basic JS to switch styles based on URL
 
 ## Instructions on how to use the code in this repo:
 
@@ -29,14 +32,12 @@ Clone the repo `git clone https://github.com/ricardoom/ilcorvoilnido`
 
 Run `npm -i` to install gulp and few of the dependencies.
 
-Navigate to the root directory and run `gulp watch`
-
 ### Source code, Development and Building
 
-Add Instructions here:
+Development:
 
-1. In your terminal navigate to the root of the project
-2. enter the command `npm run gulp`
+1. In your terminal navigate to the src directory in root of the project
+2. Enter the command `npm run gulp`
 3. This sets opens up a dev window and starts BrowswerSync
 
 ### Making Changes
@@ -47,8 +48,32 @@ Create a branch and switch to it:
 
 Do your work, commit changes and create a new pull request, then merge to development
 
-Push the development branch to the server and test
+Push the development branch to the server and test,
 
-Create pull request and merge to master
+Create a Release (mostly for historical reasons, and it seems like a best practice, so there's always versioned source of truth)
 
-Push changes to master, and then push to production server via deploy script (needs authorization & ssh setup, contact admin)
+* Check out a new branch `v0.0.x`
+* Update Readme file
+  * Changelog
+  * Update workflow
+  * etc.
+
+Push release to remote repo
+
+Checkout local development branch and merge the release
+
+Push development to remote
+
+Checkout local master, and fetch and pull from remote
+
+Merge the development branch into master
+
+Tag the branch w/ the release number
+
+* `git tag v0.0.x`
+
+Push tagged release master up to remote
+
+Push the tags to remote `git push --tags`
+
+Pull tagged release into production via deploy script (needs authorization & ssh setup, contact admin)
