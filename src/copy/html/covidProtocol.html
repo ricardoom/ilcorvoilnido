@@ -1,0 +1,143 @@
+<ul>
+<li>GUEST ENTRANCE AND EXIT PROTOCOL</li>
+<li>GUEST SEATING AND RESERVATION PROTOCOLS</li>
+<li>GUEST PAYMENT PROTOCOL (we can talk this one out)</li>
+<li>GUEST MASK AND TEMPERATURE PROTOCOL</li>
+<li>CLEANING AND SANITIZING WORK SPACE + CLEARING AND RESETTING TABLES
+BATHROOMS<ul>
+<li>MAIN DINING ROOM SERVICE STATION(S)</li>
+<li>ALL DOOR HANDLES, POS SCREENS, PENS, LIGHT SWITCHES</li>
+<li>ALL DINING TABLES</li>
+<li>CLEARING &amp; RESETTING WITH GUESTS DURING SERVICE</li>
+</ul>
+</li>
+</ul>
+<h1 id="covid-19-protocol">COVID-19 PROTOCOL</h1>
+<p>This policy provides guidance and protocols to follow if an employee is suspected of being exposed to COVID-19, shows symptoms of illness, or has tested positive for COVID-19.
+EMERGENCY SYMPTOMS
+Seek immediate medical attention if you or a team member develops the following symptoms while at home or at work:</p>
+<ul>
+<li>Trouble breathing</li>
+<li>Bluish lips or face</li>
+<li>Persistent pain or pressure in the chest</li>
+<li>New state of confusion or inability to stay awake </li>
+</ul>
+<h2 id="covid-19-symptoms">COVID-19 SYMPTOMS</h2>
+<ul>
+<li>Common symptoms of COVID-19 can include cough, shortness of breath, difficulty breathing, and a fever (temperature of 100.4° F or 38° C), however, less common symptoms may include nausea, diarrhea, chills, muscle aches, headache, sore throat, and/or loss of taste or smell. It is vital to maintain safety precautions because people who are infected with corona virus may not show any symptoms (be asymptomatic) but are still able to readily transmit the virus.</li>
+</ul>
+<h2 id="what-to-do-if-an-employee-has-been-exposed-but-is-showing-no-symptoms">WHAT TO DO IF AN EMPLOYEE HAS BEEN EXPOSED BUT IS SHOWING NO SYMPTOMS</h2>
+<ul>
+<li>If an employee has not been in close contact with a COVID positive person, and are not sick, they are considered to be at low risk for infection. They can continue to go to work but should monitor their health for 14 days and stay away from others if they get sick.</li>
+</ul>
+<h3 id="example-of-low-risk-contact">Example of low risk contact:</h3>
+<ul>
+<li>Spending 15 minutes or less within 6 feet of an ill person while wearing a face covering.</li>
+<li>Contact with an ill person was 10 days or more before you were notified of a positive test result.</li>
+</ul>
+<h3 id="daily-employee-actions-at-work">Daily Employee Actions at Work:</h3>
+<ul>
+<li>Prior to beginning your shift please have your temperature taken.</li>
+<li>Always wear a mask or cloth face covering while at work</li>
+<li>Maintain social distancing guidelines of at least six feet from co-workers</li>
+<li>Clean and sanitize workspaces on a regular basis</li>
+<li>Do not share personal equipment, food, or beverages with team members</li>
+<li>Wash hands regularly and refrain from touching your eyes, nose and mouth</li>
+<li>Notify Person in Charge (Manager or Supervisor) if you start to develop symptoms while at work.</li>
+</ul>
+<h4 id="daily-employer-actions">Daily Employer Actions:</h4>
+<ul>
+<li><p>If Employee starts to show symptoms or falls ill, follow steps outlined in following section.</p>
+</li>
+<li><p>If an employee has been in close contact with a confirmed COVID-19 case, but is not presently sick, they should self-quarantine for 14 days and monitor themselves for symptoms.</p>
+</li>
+<li><p>Close contact is defined as when someone is within 6 feet of an infected person for more than15 minutes (with or without PPE).</p>
+</li>
+<li><p>Quarantine means you stay home and away from others for the recommended period of time in case you are infected and are contagious. Quarantine becomes isolation if you later test positive for COVID-19 or develop symptoms.</p>
+</li>
+</ul>
+<h3 id="if-an-employee-shows-symptoms-of-illness-before-work-or-becomes-ill-while-at-work">IF AN EMPLOYEE SHOWS SYMPTOMS OF ILLNESS BEFORE WORK OR BECOMES ILL WHILE AT WORK</h3>
+<ul>
+<li>If an employee has developed symptoms but has not been exposed to or has not received a COVID-19 positive test result, they should self-isolate until they have had three days (72 hours) without any sign of fever or other symptoms.</li>
+<li>Any common cold or feeling of ‘coming down with something’ should be treated as suspect.</li>
+<li>Be considerate, stay home to protect your co-workers.</li>
+<li>If you come to work and show signs of illness, you will be sent home.</li>
+<li>If your symptoms do not improve and/or worsen within three-days, we advise you get tested for COVID.</li>
+</ul>
+<h3 id="employee-actions-if-you-become-ill-at-work">Employee actions if you become ill at work:</h3>
+<ul>
+<li>Immediately put on a disposable face mask (to protect yourself and others), and wash your hands following CDC guidelines for safe hand-washing.</li>
+<li>Notify the Person in Charge (Manager or Lead)</li>
+<li>Go directly home and self-isolate</li>
+<li>Isolation means you stay home and away from others (including household members) for the recommended period of time to avoid spreading illness.</li>
+<li>Notify the Person in Charge (Manager or Lead) should you not have reliable transportation. The Person in Charge (PIC) will take you home. You are not to use public transport. Masks and open windows during transport is mandatory.</li>
+<li>Contact your Health Care Provider, but do not go to the hospital or emergency room</li>
+<li>Ask your health care provider to contact the Health Department:<ul>
+<li>Kaiser Permanente: 1-800-297-687 or online at <a href="https://wa.kaiserpermanente.org">https://wa.kaiserpermanente.org</a></li>
+<li>UW Urgent Care Clinic: (206) 520-5000</li>
+<li>ZOOM+Care Urgent Care Clinic: (503) 684-8252 or schedule visit at <a href="http://www.zoomcare.com">www.zoomcare.com</a></li>
+<li>King County Public Health – Coronavirus Call Center, 8am-7pm (206) 477-3977</li>
+<li>If your symptoms do not improve in three-days, we advise you get a COVID test.</li>
+</ul>
+</li>
+<li>Seattle Area Testing Sites: <a href="solvhealth.com">solvhealth.com</a></li>
+</ul>
+<h3 id="employer-actions-if-an-employee-becomes-ill-at-work">Employer actions if an Employee becomes ill at work:</h3>
+<ul>
+<li>Ensure Employee follows safety procedures outlined above.</li>
+<li>Increase air circulation in the area of exposure </li>
+<li>Open doors and windows and or turn on filtered ventilation system (if available)</li>
+<li>Do not use fans to circulate the air</li>
+<li>Put on PPE (mask and gloves) and proceed to clean, sanitize &amp; disinfect all areas and equipment used by sick Employee.</li>
+<li>While maintaining Employee confidentiality as required by the Americans with Disabilities Act:</li>
+<li>Compile a list of and notify all team members, vendors and guests that may have had contact with the sick Employee two days (48 hours) prior to the onset of symptoms.</li>
+<li>Check in with the sick Employee and make sure they arrived home safely and have a care network.</li>
+</ul>
+<h2 id="positive-covid-19-test-results--what-to-do">Positive Covid-19 Test Results — What to Do</h2>
+<ul>
+<li>If a staff member receives a positive test for COVID and has been working on site within the previous 5 days, the location needs to close immediately. All staff should plan on a minimum 72-hour closure.</li>
+<li>The person who received a positive COVID-19 test should remain under home isolation for 10 days after symptoms begin OR they have had no fever for 72 hours and symptoms get better. They do not need to re-test but should check with their doctor before returning to work.</li>
+<li>Any person who has worked with the COVID positive employee in the 72 hours leading up to their self-isolation and notification of a positive test result will need to be tested themselves before returning to work. They may return to work only if they receive a negative COVID test result. This takes between 24 to 72 hours.</li>
+<li>All vendors and guests who may have come into contact with the COVID positive employee in the 48 hours before self-imposed isolation and positive test result should be notified of their condition if possible.</li>
+</ul>
+<h3 id="returning-to-work-after-a-covid-positive-test">RETURNING TO WORK AFTER A COVID POSITIVE TEST</h3>
+<p><strong>Infected but asymptomatic or symptomatic employees may only return to work once:</strong></p>
+<ul>
+<li>Symptomatic COVID infection – they may return three days (72 hours) have passed since respiratory symptoms improved and fever has subsided without the use of fever reducing medications and at least 10 days have passed since symptoms first appeared. </li>
+<li>If they are an asymptomatic positive carrier of COVID, they may return to work 10 days after they receive their positive test results.</li>
+<li>Any decisions to return to work should be made in conjunction with a healthcare provider and the Health Department.</li>
+</ul>
+<h3 id="additional-guidance">ADDITIONAL GUIDANCE</h3>
+<ul>
+<li>An employee may be eligible for emergency sick time or other leave options due to illness, exposure or another qualifying event. Employees should reach out to Cameron Williams and Katie Gallego to discuss their options.</li>
+</ul>
+<h2 id="workplace-safety-concerns">WORKPLACE SAFETY CONCERNS</h2>
+<ul>
+<li>We encourage all employees to notify a manager if they have concerns for their safety or health. Il Nido will not take any adverse action such as terminating, demoting, or otherwise retaliating against an employee for raising concerns. Il Nido is responsible for ensuring all Health &amp; Safety programs are compliant with federal, state, and local rules and regulations.
+COVID -19 information contained in this outline will be updated as new information becomes available.</li>
+</ul>
+<h3 id="cleaning-and-sanitizing-work-space-and-clearing-and-resetting-tables">CLEANING AND SANITIZING WORK SPACE and CLEARING AND RESETTING TABLES</h3>
+<ul>
+<li><strong>BATHROOMS</strong> – Are to be cleaned and sanitized immediately before service starts, 7:30pm and 10pm. Clean and sanitize sink, toilets, urinal, door handles, mirror and garbage container. Refill sanitizer, soap and air freshener containers. Garbage should be empty at the beginning of service and emptied as necessary during service. Par for toilet paper is one roll on the dispenser and 2 back up in the cubbies. Linen Like stack should be perfectly aligned and no more than 6 inches in height. Toilet paper on dispenser should ALWAYS be oriented over the top outwards and NEVER inwards.</li>
+<li><strong>MAIN DINING ROOM SERVICE STATION(S)</strong> – clean and sanitize immediately before service, as needed during service and at the end of service all surfaces, door handles, bottles, vacuum pump, marking boxes etc…</li>
+<li><strong>ALL DOOR HANDLES, POS SCREENS, PENS, LIGHT SWITCHES</strong> – clean and sanitize before and after each service. Pens are cleaned and sanitized after each use. POS screens should be cleaned and sanitized continually throughout service. </li>
+<li><strong>ALL DINING TABLES</strong> – Tables are NOT to be reset at the end of service. All tables are to be cleaned, sanitized and set before service. All tables are to be cleaned, sanitized and reset between turns each night. </li>
+<li><strong>CLEARING AND RESETTING TABLES WITH GUESTS DURING SERVICE</strong> – When clearing and resetting tables with guests all staff will wear gloves. Clearing will be done with black latex gloves that are single use. Resetting Mis en Place will be done with white, grey or black cotton gloves that will be laundered after each service. Each server must use one pair per service and then place it in the laundry bag at the end of service.</li>
+</ul>
+<h2 id="guest-entrance-and-exit-protocol">GUEST ENTRANCE AND EXIT PROTOCOL</h2>
+<ul>
+<li>All guests will enter through our front door at the bar. Guests at tables B9, 21, 22, 31, 32, and 33 will exit out our side door by table 31. Guests at all other tables will exit out our back door. Service staff will inform our guests of this in opening remarks and when the CC slip is presented.</li>
+</ul>
+<h3 id="guest-seating-and-reservation-protocols">GUEST SEATING AND RESERVATION PROTOCOLS</h3>
+<ul>
+<li>Il Nido will be seating about 8 guests per 15 minute period between 5pm and 5:45pm (First Turn) as well as between 7:45pm and 8:30pm (Second Turn). Tables 21, 41 and 42 will be ‘off line’ and I will make reservations on those tables so those guests know exactly where they will be sitting before they arrive. Table 21 will always be the last table seated at the end of each turn (5:45pm and 8:30pm). Table 21 is ONLY a two top and guests will ONLY sit side by side on the bench. We will have a two host system with one out front on the porch and one at the podium. The outside host will screen all reservations, answer questions from guests that do not have reservations and insure that only guests with reservations enter the restaurant. The inside host will seat the reservations upon entering the restaurant.
+GUEST PAYMENT PROTOCOL</li>
+<li>Guest payment will happen generally the same as before but with some added safety measures.</li>
+<li>Check will be dropped in our regular white box check presenter with the bill.</li>
+<li>After guest(s) places payment server will pick up the presenter box and return to POS to run payment.</li>
+<li>CC, pen and payment slips are then placed in large payment trays with sanitizer spray and or sanitizer towelettes. Once back at the table server will sanitize CC(s) and give them back to the guests and recommend that they sanitize them again (each table will have a sanitizer spray bottle at it during service). Guests can sign CC slips and leave in large payment tray. Servers will take tray away, sanitize pens and tray and close checks as you go. Do not leave checks open, servers must close as you go.</li>
+</ul>
+<h3 id="guest-mask-and-temperature-protocol">GUEST MASK AND TEMPERATURE PROTOCOL</h3>
+<ul>
+<li>All guests will be required to wear masks when not at their table. Guests must wear masks when entering the restaurant, going to the bathroom and when leaving the restaurant. All guests will be required to have their temperature taken before entering the restaurant. If a guest is above the temperature threshold we will assist in rescheduling their reservation.</li>
+</ul>

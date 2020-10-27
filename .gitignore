@@ -1,7 +1,7 @@
 .DS_Store
 # html5bp documentations here:
 docs/
-
+lighthouse/
 # ignore .map files too...
 *.map
 
