@@ -1,15 +1,17 @@
 .ilnido-nav {
   ul {
     display: flex;
-    list-style: none;
-    // height: 3.4375rem;
     justify-content: space-between;
+    list-style: none;
     margin: 0;
     padding: 0;
 
     li {
-      border-top: 4px solid #333;
-      padding: 1.14rem;
+      @include media('landscape') {
+        padding: 1ex 1.14em;
+      }
+      border-top: 4px solid $text-color;
+      padding: 1.14em;
     }
   }
 }

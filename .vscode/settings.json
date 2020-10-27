@@ -1,11 +1,19 @@
 {
   "cSpell.words": [
+    "corvo",
+    "ilcorvo",
+    "ilnido",
+    "insta",
     "chtml",
-    "minification"
-  ],
-  "svg.preview.background": "custom",
+    "minification",
     "colores",
     "corvo",
     "nido"
-  ]
+  ],
+ 
+  "workbench.colorCustomizations": {
+    "titleBar.activeForeground": "#000",
+    "titleBar.inactiveForeground": "#000000CC",
+    "titleBar.activeBackground": "#c2fa8e",
+    "titleBar.inactiveBackground": "#7bff00cc"
 }

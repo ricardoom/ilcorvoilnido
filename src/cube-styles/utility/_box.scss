@@ -1,0 +1,20 @@
+.box {
+  padding: var(--s1);
+  // --border-thin: 1px;
+  // border: var(--border-thin, 1px) solid;
+  color: var(--color-dark);
+  background-color: var(--color-light);
+}
+
+ul[class] {
+  //border: 1px dotted red;
+}
+
+.box * {
+  color: inherit;
+}
+
+.box.invert {
+  color: var(--color-light, currentColor);
+  background-color: var(--color-dark);
+}

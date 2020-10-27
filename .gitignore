@@ -12,3 +12,10 @@ node_modules/
 source_artwork
 src/img
 dev/img
+deploy
+devDeploy
+config.js
+# random things:
+fileClustefuck.txt
+ignore parcel cache
+.cache/

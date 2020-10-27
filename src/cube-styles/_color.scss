@@ -1,0 +1,28 @@
+// Il Nido Color Set
+
+$nido-white: hsl(1, 0%, 100%);
+$in-yellow: hsl(60, 88%, 94%);
+$in-yellow-dark: hsl(60, 88%, 5%);
+$in-accent-green: hsl(120, 100%, 85%);
+$in-honeydew: honeydew;
+$in-coral: lightcoral;
+// Global & Shared Colores
+
+$text-color: hsl(60, 88%, 0%); // #333
+
+$logo-color: $text-color;
+
+// Borders:
+$border-color: $text-color;
+// basic border / eyebrow for the nav items
+@mixin navBorder {
+  border: 4px solid $border-color;
+}
+
+//
+// map to css custom proerties
+// TODO: probably a less tedious way to do this... like just CSS CPs...
+:root {
+  --colorlight: $ilnido-white;
+  --color-dark: $in-yellow-dark;
+}
