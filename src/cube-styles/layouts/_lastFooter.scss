@@ -3,4 +3,12 @@
 
 .page-end {
   min-height: 15vh;
+
+  figure {
+    max-width: none;
+    width: 100%;
+
+    img {
+    width: 100%;
+  }}
 }
