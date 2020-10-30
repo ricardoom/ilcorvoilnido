@@ -42,7 +42,7 @@ const paths = {
   scripts: {
     jsVendors: [
       './src/js/vendor/fontfaceobserver.standalone.js',
-      './src/js/vendor/cloudinary-core-shrinkwrap.js',
+      './src/js/vendor/cloudinary-core-shrinkwrap.min.js',
     ],
     source: [
       './src/js/vendor/modernizr-custom.js',

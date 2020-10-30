@@ -12,10 +12,10 @@ $tagline-height: 40.25rem;
   // --footer-height: calc(#{$tagline-height} / 7);
   --footer-height: 35vh;
   @media screen and (max-width: $medium-screen) {
-    background-image: url('https://res.cloudinary.com/toupeeproofbullets/image/upload/c_crop,g_center,h_621,w_414/v1603209212/ilnido-repo/diningRoomNECrop.jpg');
+    background-image: url('https://res.cloudinary.com/toupeeproofbullets/image/upload/c_crop,g_center,h_621,w_414,q_50,dpr_auto/v1603209212/ilnido-repo/diningRoomNECrop.jpg');
   }
 
-  background-image: url('https://res.cloudinary.com/toupeeproofbullets/image/upload/c_scale,q_auto,dpr_auto,f_auto/v1603140258/ilnido-repo/diningRoomNECrop.jpg');
+  background-image: url('https://res.cloudinary.com/toupeeproofbullets/image/upload/c_scale,q_75,dpr_auto,f_auto/v1603140258/ilnido-repo/diningRoomNECrop.jpg');
   background-size: cover;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
