@@ -12,6 +12,10 @@
       $row-gap: var(--s1),
       $column-gap: var(--s1)
     );
+
+    p {
+      margin: 0;
+    }
   }
 
   ul:last-child {
