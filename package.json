@@ -6,6 +6,7 @@
   "scripts": {
     "start": "browser-sync start -s build/ --port 4040",
     "gulp": "gulp watch",
+    "commit-build": "git add . && git commit -m \"ran build, staged and commited the build\"",
     "gulp-build": "gulp build",
     "build": "gulp build && browser-sync start -s build/"
   },
