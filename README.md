@@ -4,6 +4,10 @@ A basic site that is not so basic.
 
 ## Change Log
 
+### v0.0.5
+
+* Temporary closing message update
+
 ### v0.0.4
 
 * minor copy updates and css update
@@ -28,7 +32,7 @@ A basic site that is not so basic.
 
 * Added some basic JS to switch styles based on URL
 
-## Instructions on how to use the code in this repo:
+## Instructions on how to use the code in this repo
 
 Make sure you have Node.js installed (10.16.3)
 
