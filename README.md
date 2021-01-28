@@ -4,6 +4,10 @@ A basic site that is not so basic.
 
 ## Change Log
 
+### v0.0.5
+
+* Temporary closing message update
+
 ### v0.0.4
 
 * minor copy updates and css update
