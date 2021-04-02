@@ -6,9 +6,7 @@
   display: block;
   @media screen and (min-width: $medium-screen) {
     @include defineGrid(
-      // $columns: repeat(auto-fit, minmax(414px, 1fr)),
       $columns: repeat(auto-fit, minmax(10vw, 1fr)),
-      // $row-args: repeat(auto-fit, minmax(100px, 1fr)),
       $row-gap: var(--s1),
       $column-gap: var(--s1)
     );
@@ -19,7 +17,7 @@
   }
 
   ul:last-child {
-    background-color: $in-honeydew;
+    // background-color: $in-honeydew;
   }
 
   p {
@@ -38,7 +36,7 @@
     background-color: $in-yellow;
     font-size: clamp(var(--s1), 2.5vw, var(--s3));
     font-weight: 400;
-    line-height: var(--s1);
+    line-height: var(--s2);
   }
 
   h3,
@@ -49,7 +47,8 @@
     margin-top: var(--s2);
 
     @media screen and (min-width: $medium-screen) {
-      margin: 0;
+      margin-top: var(--s0);
+      margin-block-start: var(--s0);
     }
   }
 
@@ -61,8 +60,14 @@
     li {
       // animation: easy-hover 100ms reverse fill-mode;
       list-style: none;
+      padding-block: var(--s0);
+      padding-inline: var(--s0);
 
       &:hover {
+        
+        @media screen and (max-width: $medium-screen) {
+          pointer-events: none;    
+        }
         animation: 500ms forwards easy-hover ;
         
       }

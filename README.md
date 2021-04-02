@@ -4,6 +4,12 @@ A basic site that is not so basic.
 
 ## Change Log
 
+### v0.0.6
+
+* Back in the game, reopening: update to hours
+* removed link to Resy
+* Schema updated
+
 ### v0.0.5
 
 * Temporary closing message update
