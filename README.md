@@ -4,6 +4,13 @@ A basic site that is not so basic.
 
 ## Change Log
 
+### v0.0.7
+
+* updated COVID-19 Protocols
+* Added Resy link back to site
+* removed commented out code
+
+
 ### v0.0.6
 
 * Back in the game, reopening: update to hours

@@ -56,7 +56,7 @@ $tagline-height: 40.25rem;
     .hours {
       font-size: var(--s1);
     }
-    :nth-child(4) {
+    :nth-child(5) { // TODO: fix this magick number
       margin-top: 0;
       margin-block-start: 0;
     }
