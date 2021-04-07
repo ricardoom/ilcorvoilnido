@@ -9,7 +9,8 @@ A basic site that is not so basic.
 * updated COVID-19 Protocols
 * Added Resy link back to site
 * removed commented out code
-
+* update to the readme
+* minor css changes
 
 ### v0.0.6
 
