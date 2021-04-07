@@ -6,9 +6,9 @@
   .click {
     background-color: transparentize($text-color, 0.2);
     border: solid 3px $nido-white;
+    border-radius: var(--s-3);
     list-style-type: none;
     text-align: center;
-    // width: max(65%, 265px);
 
     a {
       color: $nido-white;
