@@ -65,7 +65,7 @@ Development:
 
 1. In your terminal navigate to the src directory in root of the project
 2. Enter the command `npm run gulp`
-3. This sets opens up a dev window and starts BrowswerSync
+3. This sets opens up a dev window and starts BrowserSync
 
 ### Making Changes
 

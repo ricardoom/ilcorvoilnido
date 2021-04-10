@@ -27,7 +27,10 @@
     grid-row: 2 / 3;
     
     
-
+    ul {
+      padding-left: 0;
+      padding-inline-start: 0;
+    }
     ul li {
       list-style-type: none;
 
