@@ -132,27 +132,12 @@ a {
 // Use the mixin to add the grid display. This is kinda dumb b/c we can just add it below...
 //
 
-
-
 @include feature-support(display, grid, footer, display, grid);
-
 
 footer {
   overflow: auto;
   padding: 1.25em 0;
   position: relative;
-
-  @include media('>=phone', '<=tablet') {
-    address {
-      // margin: 1ex;
-    }
-  }
-
-  @include media('>=tablet') {
-    address {
-      // margin: 3ex;
-    }
-  }
 
   .hours {
     margin: 2ex 0 0;

@@ -4,6 +4,10 @@ A basic site that is not so basic.
 
 ## Change Log
 
+### v0.0.9
+
+* Copy changes to Protocols section
+
 ### v0.0.8
 
 * Fix layout mishap w/ extra copy / info in the hero space
@@ -53,7 +57,7 @@ A basic site that is not so basic.
 ## Instructions on how to use the code in this repo
 
 Make sure you have Node.js installed (10.16.3)
-    * _Note:_ this project uses gulp 3.x. As a result this project should be pinned to this verison of Node
+    * _Note:_ this project uses gulp 3.x. As a result this project should be pinned to this version of Node
 
 Clone the repo `git clone https://github.com/ricardoom/ilcorvoilnido`
 

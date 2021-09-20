@@ -1,4 +1,6 @@
-{
+{"html.format.enable": false,
+  "editor.formatOnSave": true,
+  "prettier.singleQuote": true,
   "cSpell.words": [
     "corvo",
     "ilcorvo",
