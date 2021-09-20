@@ -120,7 +120,7 @@ gulp.task('mdjson', () => {
 });
 
 //
-// Find and concact all the JS into a single file:
+// Find and concat all the JS into a single file:
 // JS Sources in _must_ be in order of execution
 // see paths object above
 

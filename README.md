@@ -4,6 +4,22 @@ A basic site that is not so basic.
 
 ## Change Log
 
+### v0.0.9
+
+* Copy changes to Protocols section
+
+### v0.0.8
+
+* Fix layout mishap w/ extra copy / info in the hero space
+
+### v0.0.7
+
+* updated COVID-19 Protocols
+* Added Resy link back to site
+* removed commented out code
+* update to the readme
+* minor css changes
+
 ### v0.0.6
 
 * Back in the game, reopening: update to hours
@@ -41,6 +57,7 @@ A basic site that is not so basic.
 ## Instructions on how to use the code in this repo
 
 Make sure you have Node.js installed (10.16.3)
+    * _Note:_ this project uses gulp 3.x. As a result this project should be pinned to this version of Node
 
 Clone the repo `git clone https://github.com/ricardoom/ilcorvoilnido`
 
@@ -52,7 +69,7 @@ Development:
 
 1. In your terminal navigate to the src directory in root of the project
 2. Enter the command `npm run gulp`
-3. This sets opens up a dev window and starts BrowswerSync
+3. This sets opens up a dev window and starts BrowserSync
 
 ### Making Changes
 

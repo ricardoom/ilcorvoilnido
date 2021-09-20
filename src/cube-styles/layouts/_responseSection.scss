@@ -5,19 +5,15 @@
 .response {
   display: block;
   @media screen and (min-width: $medium-screen) {
-    @include defineGrid(
-      $columns: repeat(auto-fit, minmax(10vw, 1fr)),
-      $row-gap: var(--s1),
-      $column-gap: var(--s1)
-    );
+    @include defineGrid($columns: repeat(auto-fit, minmax(10vw, 1fr)), $row-gap: var(--s1), $column-gap: var(--s1));
 
     p {
       margin: 0;
     }
   }
-
-  ul:last-child {
-    // background-color: $in-honeydew;
+  address {
+    display: inline-block;
+    padding: 0 var(--s-1);
   }
 
   p {
@@ -64,12 +60,10 @@
       padding-inline: var(--s0);
 
       &:hover {
-        
         @media screen and (max-width: $medium-screen) {
-          pointer-events: none;    
+          pointer-events: none;
         }
-        animation: 500ms forwards easy-hover ;
-        
+        animation: 500ms forwards easy-hover;
       }
     }
   }
@@ -80,6 +74,6 @@
     background-color: #fff;
   }
   to {
-    background-color: $in-honeydew
+    background-color: $in-honeydew;
   }
 }
