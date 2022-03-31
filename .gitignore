@@ -4,6 +4,7 @@ docs/
 lighthouse/
 # ignore .map files too...
 *.map
+.SynologyWorkingDirectory/
 
 # ignore node & npm
 npm-debug.log
