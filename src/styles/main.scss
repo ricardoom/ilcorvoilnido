@@ -28,7 +28,7 @@ body {
   font-size: 1em;
   height: 100vh;
   justify-content: space-between;
-
+  scroll-behavior: smooth;
   // handle flex box properties of top level children:
   //
   nav {
